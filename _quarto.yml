@@ -26,7 +26,10 @@ format:
     theme:
       - pulse
       - custom.scss
+    link-external-newwindow: true 
     toc: true
+    citations-hover: true
+    footnotes-hover: true
     code-link: true
 
 editor: source

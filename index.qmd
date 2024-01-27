@@ -1,5 +1,5 @@
 ---
-title: "What is this website for?"
+title: "What is this website about?"
 about:
   template: broadside
   image: img/pic1.jpg
