@@ -24,7 +24,6 @@ format:
   html:
     smooth-scroll: true
     theme:
-      - pulse
       - custom.scss
     link-external-newwindow: true 
     toc: true
@@ -32,5 +31,5 @@ format:
     footnotes-hover: true
     code-link: true
 
-editor: source
+editor: visual
 
