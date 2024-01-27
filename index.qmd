@@ -2,7 +2,7 @@
 title: "What is this website about?"
 about:
   template: broadside
-  image: img/pic2.png
+  image: img/logo.png
 ---
 
 This webpage lists various visualizations from published articles

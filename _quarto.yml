@@ -5,7 +5,7 @@ project:
 website:
   title: "STORYTELLING WITH DATA, SHAPES, AND COLORS"
   site-url: "https://bougioukas.github.io/storytelling/"
-  favicon: "img/pic2.png"
+  favicon: "img/logo.png"
   navbar:
     right:
       - text: Choropleth maps
@@ -19,8 +19,8 @@ website:
       - icon: github
         href: https://github.com/bougioukas/storytelling
   page-footer:
-    right: "Built with [Quarto](https://quarto.org/)"
-    left: "&copy; Copyright 2024, Konstantinos I. Bougioukas"
+    right: "Built with [Quarto](https://quarto.org/)^®^"
+    left: "&copy; Copyright 2024, Konstantinos I. Bougioukas. License: [Creative Commons Attribution-NonCommercial-NoDerivs 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)."
   back-to-top-navigation: true
 format:
   html:
