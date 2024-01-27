@@ -27,7 +27,6 @@ format:
     theme:
       - custom.scss
     link-external-newwindow: true
-    link-external-filter: '^(?:http:|https:)\/\/www\.bougioukas\.com\/**'
     toc: true
     citations-hover: true
     footnotes-hover: true
