@@ -5,7 +5,7 @@ project:
 website:
   title: "STORYTELLING WITH DATA, SHAPES, AND COLORS"
   site-url: "https://bougioukas.github.io/storytelling/"
-  favicon: "img/pic1.jpg"
+  favicon: "img/logo.png"
   navbar:
     right:
       - text: Tables
