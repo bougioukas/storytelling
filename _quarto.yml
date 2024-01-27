@@ -3,8 +3,9 @@ project:
   output-dir: docs
   
 website:
-  title: "STORYTELLING WITH DATA AND COLORS"
+  title: "STORYTELLING WITH DATA, SHAPES, AND COLORS"
   site-url: "https://bougioukas.github.io/storytelling/"
+  favicon: "img/pic2.png"
   navbar:
     right:
       - text: Choropleth maps
