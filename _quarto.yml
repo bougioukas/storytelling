@@ -5,15 +5,39 @@ project:
 website:
   title: "STORYTELLING WITH DATA, SHAPES, AND COLORS"
   site-url: "https://bougioukas.github.io/storytelling/"
-  favicon: "img/logo.png"
+  favicon: "img/pic1.png"
   navbar:
     right:
-      - text: Choropleth maps
+      - text: Tables
         menu:
           - text: projects1
             href: projects.qmd
           - text: projects2
             href: projects2.qmd
+      - text: Statistical Plots
+        menu:
+          - text: projects1
+            href: projects.qmd
+          - text: projects2
+            href: projects2.qmd      
+      - text: Networks
+        menu:
+          - text: projects1
+            href: projects.qmd
+          - text: projects2
+            href: projects2.qmd
+      - text: Maps
+        menu:
+          - text: projects1
+            href: projects.qmd
+          - text: projects2
+            href: projects2.qmd 
+      - text: Interactive Plots
+        menu:
+          - text: projects1
+            href: projects.qmd
+          - text: projects2
+            href: projects2.qmd          
     pinned: true
     tools:
       - icon: github
