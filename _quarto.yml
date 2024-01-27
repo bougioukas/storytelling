@@ -4,11 +4,15 @@ project:
   
 website:
   title: "STORYTELLING WITH DATA AND COLORS"
+  site-url: "https://bougioukas.github.io/storytelling/"
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - projects.qmd
+    right:
+      - text: Choropleth maps
+        menu:
+          - text: projects1
+            href: projects.qmd
+          - text: projects2
+            href: projects2.qmd
     tools:
       - icon: github
         href: https://github.com/bougioukas/storytelling
@@ -18,8 +22,12 @@ website:
 
 format:
   html:
-    theme: cerulean
+    smooth-scroll: true
+    theme:
+      - pulse
+      - custom.scss
     toc: true
+    code-link: true
 
 editor: source
 

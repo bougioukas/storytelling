@@ -1,19 +1,47 @@
 ---
-title: "About Me"
+title: "What is this website for?"
 about:
-  id: me
   template: broadside
-  image: img/profile.png
+  image: img/pic1.jpg
 ---
+
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+
 
 :::{#me}
 
 ## Goals
 
-## Education
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
 
-## Experience
 
 :::
 
-Thanks for checking out my web site!
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
+This webpage lists various visualizations from published articles
