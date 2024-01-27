@@ -13,6 +13,7 @@ website:
             href: projects.qmd
           - text: projects2
             href: projects2.qmd
+    pinned: true
     tools:
       - icon: github
         href: https://github.com/bougioukas/storytelling
@@ -31,5 +32,5 @@ format:
     footnotes-hover: true
     code-link: true
 
-editor: visual
+editor: source
 
