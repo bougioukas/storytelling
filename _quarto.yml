@@ -20,7 +20,7 @@ website:
   page-footer:
     right: "Built with [Quarto](https://quarto.org/)"
     left: "&copy; Copyright 2024, Konstantinos I. Bougioukas"
-
+  back-to-top-navigation: true
 format:
   html:
     smooth-scroll: true
