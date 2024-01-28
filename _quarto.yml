@@ -16,15 +16,15 @@ website:
             href: projects2.qmd
       - text: Statistical Plots
         menu:
-          - text: Barplot
+          - text: Bar plot
             href: projects.qmd
-          - text: Boxplot
+          - text: Box plot
             href: projects.qmd            
-          - text: Heatmap
+          - text: Heat map
             href: projects2.qmd
           - text: Histogram
             href: projects2.qmd   
-          - text: Line Chart
+          - text: Line chart
             href: projects2.qmd
           - text: Mosaic plot
             href: projects2.qmd
@@ -40,7 +40,7 @@ website:
             href: projects2.qmd          
           - text: Scatter plot
             href: projects2.qmd
-          - text: Survival Plot
+          - text: Survival plot
             href: projects2.qmd
           - text: Upset plot
             href: projects2.qmd            
