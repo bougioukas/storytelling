@@ -26,17 +26,19 @@ website:
             href: projects2.qmd   
           - text: Line Chart
             href: projects2.qmd
-          - text: Mosaic Plot
+          - text: Mosaic plot
             href: projects2.qmd
           - text: Pie/Doughnut chart
-            href: projects2.qmd            
-          - text: Radar Plot
+            href: projects2.qmd 
+          - text: Q-Q plot
+            href: projects2.qmd 
+          - text: Radar plot
             href: projects2.qmd
-          - text: Raincloud Plot
+          - text: Raincloud plot
             href: projects2.qmd             
           - text: ROC curve
             href: projects2.qmd          
-          - text: Scatter Plot
+          - text: Scatter plot
             href: projects2.qmd
           - text: Survival Plot
             href: projects2.qmd
@@ -44,7 +46,7 @@ website:
             href: projects2.qmd            
           - text: Venn/Euler diagram
             href: projects2.qmd               
-          - text: Violin Plot
+          - text: Violin plot
             href: projects2.qmd             
       - text: Networks
         menu:
@@ -76,9 +78,9 @@ website:
             href: projects2.qmd
       - text: Meta-analysis
         menu:
-          - text: Forest Plot
+          - text: Forest plot
             href: projects.qmd
-          - text: Funnel Plot
+          - text: Funnel plot
             href: projects2.qmd
       - text: Other
         menu:
