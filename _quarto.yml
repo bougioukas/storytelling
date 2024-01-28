@@ -10,35 +10,84 @@ website:
     right:
       - text: Tables
         menu:
-          - text: projects1
+          - text: Table1
             href: projects.qmd
-          - text: projects2
+          - text: Table2
             href: projects2.qmd
       - text: Statistical Plots
         menu:
-          - text: projects1
+          - text: Barplot
             href: projects.qmd
-          - text: projects2
-            href: projects2.qmd      
+          - text: Boxplot
+            href: projects.qmd            
+          - text: Heatmap
+            href: projects2.qmd
+          - text: Histogram
+            href: projects2.qmd   
+          - text: Line Chart
+            href: projects2.qmd
+          - text: Mosaic Plot
+            href: projects2.qmd
+          - text: Pie/Doughnut chart
+            href: projects2.qmd            
+          - text: Radar Plot
+            href: projects2.qmd
+          - text: Raincloud Plot
+            href: projects2.qmd             
+          - text: ROC curve
+            href: projects2.qmd          
+          - text: Scatter Plot
+            href: projects2.qmd
+          - text: Survival Plot
+            href: projects2.qmd
+          - text: Upset plot
+            href: projects2.qmd            
+          - text: Venn/Euler diagram
+            href: projects2.qmd               
+          - text: Violin Plot
+            href: projects2.qmd             
       - text: Networks
         menu:
-          - text: projects1
+          - text: Alluvial Diagrams
+            href: projects.qmd        
+          - text: Chord diagram
             href: projects.qmd
-          - text: projects2
+          - text: Graph/Network
             href: projects2.qmd
+          - text: Shankey diagram
+            href: projects2.qmd 
+      - text: Tree-based
+        menu:
+          - text: Circular packing
+            href: projects.qmd         
+          - text: Radial tree
+            href: projects.qmd 
+          - text: Treemap  
+            href: projects.qmd
+          - text: Voroni diagram
+            href: projects.qmd              
       - text: Maps
         menu:
-          - text: projects1
+          - text: Choropleth map
             href: projects.qmd
-          - text: projects2
-            href: projects2.qmd 
-      - text: Interactive Plots
+          - text: Flow map
+            href: projects2.qmd              
+          - text: Isopleth
+            href: projects2.qmd
+      - text: Meta-analysis
         menu:
-          - text: projects1
+          - text: Forest Plot
             href: projects.qmd
-          - text: projects2
-            href: projects2.qmd          
+          - text: Funnel Plot
+            href: projects2.qmd
+      - text: Other
+        menu:
+          - text: Fagan's nomogram
+            href: projects.qmd
+          - text: Word cloud
+            href: projects.qmd               
     pinned: true
+    logo: "img/logo.png"
     tools:
       - icon: github
         href: https://github.com/bougioukas/storytelling

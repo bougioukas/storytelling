@@ -18,14 +18,14 @@
     "href": "index.html",
     "title": "What is this website about?",
     "section": "",
-    "text": "This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles\nThis webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles"
+    "text": "Imagine having all types of data visualization tools and techniques seamlessly brought together in one place, creating a comprehensive and unified platform for unlocking insights from your data. This consolidated hub allows users to employ diverse visualization methods, from statistical plots to cartograms."
   },
   {
-    "objectID": "index.html#goals",
-    "href": "index.html#goals",
+    "objectID": "index.html#r-for-data-visualization",
+    "href": "index.html#r-for-data-visualization",
     "title": "What is this website about?",
-    "section": "Goals",
-    "text": "Goals\nThis webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles This webpage lists various visualizations from published articles"
+    "section": "R for data visualization",
+    "text": "R for data visualization\nChoosing R for data visualization, particularly when leveraging the grammar of graphics through packages like ggplot2, offers several compelling reasons:\n\nR is open source and freely available, making it accessible to a broad of users.\nR, especially with ggplot2, is renowned for producing high-quality and publication-ready visualizations.\nThe grammar of graphics provides a systematic and structured approach to data visualization. With “ggplot2” (and its extensions), users can describe the components of a plot using layers, making it easy to create complex visualizations while maintaining code readability.\nR has a vibrant and active user community, including statisticians, data scientists, and methodologists.\nR, with packages like plotly and Shiny, supports the creation of interactive visualizations."
   },
   {
     "objectID": "projects.html#project-2",
