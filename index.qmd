@@ -10,9 +10,9 @@ Imagine having all types of data visualization tools and techniques seamlessly b
 
 :::{#me}
 
-## R for data visualization
+## Why R for data visualization?
 
-Choosing R for data visualization, particularly when leveraging the grammar of graphics through packages like ggplot2, offers several compelling reasons:
+Choosing R for data visualization, particularly when leveraging the grammar of graphics through packages like `{ggplot2}`, offers several compelling reasons:
 
 - R is open source and freely available, making it accessible to a broad of users.
 
