@@ -16,13 +16,13 @@ Choosing R for data visualization, particularly when leveraging the grammar of g
 
 - R is open source and freely available, making it accessible to a broad of users.
 
-- R, especially with ggplot2, is renowned for producing high-quality and publication-ready visualizations.
+- R, especially with `{ggplot2}`, is renowned for producing high-quality and publication-ready visualizations.
 
-- The grammar of graphics provides a systematic and structured approach to data visualization. With "ggplot2" (and its extensions), users can describe the components of a plot using layers, making it easy to create complex visualizations while maintaining code readability.
+- The grammar of graphics provides a systematic and structured approach to data visualization. With `{ggplot2}` (and its extensions), users can describe the components of a plot using layers, making it easy to create complex visualizations while maintaining code readability.
 
 - R has a vibrant and active user community, including statisticians, data scientists, and methodologists.
 
--  R, with packages like plotly and Shiny, supports the creation of interactive visualizations.
+-  R, with packages like `{plotly}` and `{Shiny}`, supports the creation of interactive visualizations.
 
 :::
 
