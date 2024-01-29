@@ -40,7 +40,7 @@ website:
             href: projects2.qmd 
           - text: Violin plot
             href: projects.qmd            
-      - text: Advanced
+      - text: Specialized
         menu:
           - text: Bland-Altman plot
             href: projects.qmd
