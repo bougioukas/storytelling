@@ -3,7 +3,7 @@ project:
   output-dir: docs
   
 website:
-  title: "STORYTELLING WITH R AND ChatGPT"
+  title: "STORYTELLING WITH ggplot2 AND ChatGPT"
   site-url: "https://bougioukas.github.io/storytelling/"
   favicon: "img/logo.png"
   navbar:
