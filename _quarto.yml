@@ -3,7 +3,7 @@ project:
   output-dir: docs
   
 website:
-  title: "STORYTELLING WITH R AND ChatGPT"
+  title: "STORYTELLING WITH R GRAPHS AND ChatGPT"
   site-url: "https://bougioukas.github.io/storytelling/"
   favicon: "img/logo.png"
   navbar:
@@ -14,24 +14,36 @@ website:
             href: projects.qmd
           - text: Table2
             href: projects2.qmd
-      - text: Statistical Plots
+      - text: Basic
         menu:
           - text: Bar plot
             href: projects.qmd
-          - text: Bland-Altman plot
-            href: projects.qmd            
           - text: Box plot
-            href: projects.qmd            
+            href: projects.qmd
+          - text: Dot plot
+            href: projects.qmd
           - text: Heat map
             href: projects2.qmd
           - text: Histogram
             href: projects2.qmd   
           - text: Line chart
             href: projects2.qmd
-          - text: Mosaic plot
-            href: projects2.qmd
-          - text: Pie/Doughnut chart
+          - text: Pie chart
             href: projects2.qmd 
+          - text: Scatter plot
+            href: projects2.qmd
+          - text: Venn/Euler diagram
+            href: projects2.qmd               
+      - text: Advanced
+        menu:
+          - text: Bland-Altman plot
+            href: projects.qmd
+          - text: Correlation matrix
+            href: projects.qmd          
+          - text: Doughnut chart
+            href: projects2.qmd 
+          - text: Mosaic plot
+            href: projects2.qmd                
           - text: Q-Q plot
             href: projects2.qmd 
           - text: Radar plot
@@ -39,19 +51,13 @@ website:
           - text: Raincloud plot
             href: projects2.qmd             
           - text: ROC curve
-            href: projects2.qmd          
-          - text: Scatter plot
             href: projects2.qmd
           - text: Survival plot
             href: projects2.qmd
           - text: Upset plot
-            href: projects2.qmd            
-          - text: Venn/Euler diagram
-            href: projects2.qmd               
-          - text: Violin plot
-            href: projects2.qmd
+            href: projects2.qmd                  
           - text: Waterfall chart
-            href: projects2.qmd             
+            href: projects2.qmd            
       - text: Networks
         menu:
           - text: Alluvial Diagrams
@@ -118,12 +124,10 @@ website:
             href: projects2.qmd             
       - text: Other
         menu:
-          - text: Correlation matrix
-            href: projects.qmd
           - text: Fagan's nomogram
             href: projects.qmd             
           - text: Gantt Chart
-            href: projects.qmd            
+            href: projects.qmd
           - text: Word cloud
             href: projects.qmd               
     pinned: true
