@@ -100,8 +100,6 @@ website:
             href: projects.qmd
           - text: Choropleth map
             href: projects.qmd            
-          - text: Choropleth map
-            href: projects.qmd            
           - text: Flow map
             href: projects2.qmd              
           - text: Isopleth map
