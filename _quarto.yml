@@ -3,7 +3,7 @@ project:
   output-dir: docs
   
 website:
-  title: "STORYTELLING WITH ggplot2 AND ChatGPT"
+  title: "STORYTELLING WITH R AND ChatGPT"
   site-url: "https://bougioukas.github.io/storytelling/"
   favicon: "img/logo.png"
   navbar:
@@ -74,16 +74,44 @@ website:
         menu:
           - text: Choropleth map
             href: projects.qmd
+          - text: Choropleth map
+            href: projects.qmd            
           - text: Flow map
             href: projects2.qmd              
           - text: Isopleth map
             href: projects2.qmd
-      - text: Meta-analysis
+      - text: Evidence synthesis
         menu:
+          - text: Albatross plot
+            href: projects.qmd
+          - text: Baujat plot
+            href: projects.qmd
+          - text: Components cross-table
+            href: projects.qmd             
+          - text: Cross-hairs scatter plot
+            href: projects.qmd            
+          - text: CUMSUM chart
+            href: projects.qmd             
           - text: Forest plot
             href: projects.qmd
           - text: Funnel plot
             href: projects2.qmd
+          - text: Fuzzy number plot
+            href: projects2.qmd            
+          - text: Galbraith/radial plot
+            href: projects2.qmd
+          - text: GOSH plot
+            href: projects2.qmd
+          - text: Harvest plot
+            href: projects2.qmd 
+          - text: Kilim plot
+            href: projects2.qmd             
+          - text: L’Abbé plot 
+            href: projects2.qmd
+          - text: Netheat plot
+            href: projects2.qmd
+          - text: Rank-heat plot 
+            href: projects2.qmd             
       - text: Other
         menu:
           - text: Correlation matrix
