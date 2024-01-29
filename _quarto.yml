@@ -33,7 +33,11 @@ website:
           - text: Line chart
             href: projects2.qmd
           - text: Pie chart
-            href: projects2.qmd 
+            href: projects2.qmd
+          - text: Q-Q plot
+            href: projects2.qmd
+          - text: Radar plot
+            href: projects2.qmd            
           - text: Scatter plot
             href: projects2.qmd
           - text: Venn/Euler diagram
@@ -44,20 +48,24 @@ website:
         menu:
           - text: Bland-Altman plot
             href: projects.qmd
+          - text: Bubble plot
+            href: projects.qmd            
           - text: Correlation matrix
             href: projects.qmd
-          - text: Ridgeline chart
-            href: projects2.qmd                 
           - text: Doughnut chart
-            href: projects2.qmd 
-          - text: Mosaic plot
-            href: projects2.qmd                
-          - text: Q-Q plot
-            href: projects2.qmd 
-          - text: Radar plot
             href: projects2.qmd
+          - text: Epidemic curve
+            href: projects2.qmd            
+          - text: Likert plot
+            href: projects2.qmd            
+          - text: Mosaic plot
+            href: projects2.qmd
+          - text: Pyramid plot
+            href: projects2.qmd              
           - text: Raincloud plot
-            href: projects2.qmd 
+            href: projects2.qmd
+          - text: Ridgeline chart
+            href: projects2.qmd                
           - text: ROC curve
             href: projects2.qmd
           - text: Survival plot
