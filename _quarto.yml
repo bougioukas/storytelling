@@ -47,6 +47,8 @@ website:
           - text: Venn/Euler diagram
             href: projects2.qmd               
           - text: Violin plot
+            href: projects2.qmd
+          - text: Waterfall chart
             href: projects2.qmd             
       - text: Networks
         menu:
@@ -74,7 +76,7 @@ website:
             href: projects.qmd
           - text: Flow map
             href: projects2.qmd              
-          - text: Isopleth
+          - text: Isopleth map
             href: projects2.qmd
       - text: Meta-analysis
         menu:
@@ -84,8 +86,12 @@ website:
             href: projects2.qmd
       - text: Other
         menu:
-          - text: Fagan's nomogram
+          - text: Correlation matrix
             href: projects.qmd
+          - text: Fagan's nomogram
+            href: projects.qmd             
+          - text: Gantt Chart
+            href: projects.qmd            
           - text: Word cloud
             href: projects.qmd               
     pinned: true
