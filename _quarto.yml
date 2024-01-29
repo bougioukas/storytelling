@@ -18,6 +18,8 @@ website:
         menu:
           - text: Bar plot
             href: projects.qmd
+          - text: Bland-Altman plot
+            href: projects.qmd            
           - text: Box plot
             href: projects.qmd            
           - text: Heat map
