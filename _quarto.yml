@@ -86,8 +86,10 @@ website:
             href: projects.qmd
           - text: Baujat plot
             href: projects.qmd
+          - text: CCA heatmap
+            href: projects.qmd               
           - text: Components cross-table
-            href: projects.qmd             
+            href: projects.qmd   
           - text: Cross-hairs scatter plot
             href: projects.qmd            
           - text: CUMSUM chart
