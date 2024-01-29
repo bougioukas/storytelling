@@ -96,8 +96,10 @@ website:
             href: projects.qmd              
       - text: Maps
         menu:
-          - text: Choropleth map
+          - text: Bubble map
             href: projects.qmd
+          - text: Choropleth map
+            href: projects.qmd            
           - text: Choropleth map
             href: projects.qmd            
           - text: Flow map
