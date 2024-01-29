@@ -16,10 +16,14 @@ website:
             href: projects2.qmd
       - text: Basic
         menu:
-          - text: Bar plot
+          - text: Area plot
             href: projects.qmd
+          - text: Bar plot
+            href: projects.qmd            
           - text: Box plot
             href: projects.qmd
+          - text: Density plot
+            href: projects2.qmd                  
           - text: Dot plot
             href: projects.qmd
           - text: Heat map
@@ -33,13 +37,17 @@ website:
           - text: Scatter plot
             href: projects2.qmd
           - text: Venn/Euler diagram
-            href: projects2.qmd               
+            href: projects2.qmd 
+          - text: Violin plot
+            href: projects.qmd            
       - text: Advanced
         menu:
           - text: Bland-Altman plot
             href: projects.qmd
           - text: Correlation matrix
-            href: projects.qmd          
+            href: projects.qmd
+          - text: Ridgeline chart
+            href: projects2.qmd                 
           - text: Doughnut chart
             href: projects2.qmd 
           - text: Mosaic plot
@@ -49,7 +57,7 @@ website:
           - text: Radar plot
             href: projects2.qmd
           - text: Raincloud plot
-            href: projects2.qmd             
+            href: projects2.qmd 
           - text: ROC curve
             href: projects2.qmd
           - text: Survival plot
