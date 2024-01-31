@@ -223,7 +223,7 @@ p <- ggplot(dat_cocoa, aes(x = year, y = cocoa_beans, fill = region_rev)) +
     panel.grid.minor = element_blank(),
     panel.grid.major = element_blank(),
     legend.position = "none") +  # Remove legend
-  geom_linerange(data = df, aes(y = y, xmin = xmin, xmax = xmax), color = "grey40", linetype = "dotted", inherit.aes = F, alpha = 0.4)
+  geom_linerange(data = df, aes(y = y, xmin = xmin, xmax = xmax), color = "grey35", linetype = "dotted", inherit.aes = F, alpha = 0.40)
 
 
 
