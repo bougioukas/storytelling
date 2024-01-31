@@ -120,6 +120,8 @@ Certainly! To create an area plot using ggplot2 in R with your dataset "dat_coco
 ```{r}
 #| eval: false
 
+library(ggplot2)
+
 # Create the area plot
 ggplot(dat_cocoa, aes(x = year, y = cocoa_beans, fill = region)) +
   geom_area() +
