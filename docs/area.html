@@ -428,7 +428,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
 <li><a href="#story-cocoa-bean-production-by-region" id="toc-story-cocoa-bean-production-by-region" class="nav-link active" data-scroll-target="#story-cocoa-bean-production-by-region">STORY: Cocoa bean production by region</a></li>
   <li><a href="#packages-and-data" id="toc-packages-and-data" class="nav-link" data-scroll-target="#packages-and-data">Packages and Data</a></li>
-  <li><a href="#create-a-basic-plot-with-the-assistance-of-chatgpt" id="toc-create-a-basic-plot-with-the-assistance-of-chatgpt" class="nav-link" data-scroll-target="#create-a-basic-plot-with-the-assistance-of-chatgpt">Create a basic plot with the assistance of ChatGPT</a></li>
+  <li><a href="#st-step-create-a-basic-plot-with-the-assistance-of-chatgpt" id="toc-st-step-create-a-basic-plot-with-the-assistance-of-chatgpt" class="nav-link" data-scroll-target="#st-step-create-a-basic-plot-with-the-assistance-of-chatgpt">1st STEP: Create a basic plot with the assistance of ChatGPT</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -461,8 +461,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>You:</strong> I need information for “Cocoa bean production by region: Africa, Asia, South America, North America, and Oceania”.</p>
-<p><strong>ChatGPT:</strong> As of my last knowledge update in January 2022, I can provide you with a general overview of cocoa bean production by region. However, please note that specific figures may have changed since then, so it’s advisable to consult the latest reports or databases for the most up-to-date information. Here’s a general breakdown of cocoa bean production by region:</p>
+<p><strong>You</strong></p>
+<p>I need information for “Cocoa bean production by region: Africa, Asia, South America, North America, and Oceania”.</p>
+<p><br></p>
+<p><strong>ChatGPT</strong></p>
+<p>As of my last knowledge update in January 2022, I can provide you with a general overview of cocoa bean production by region. However, please note that specific figures may have changed since then, so it’s advisable to consult the latest reports or databases for the most up-to-date information. Here’s a general breakdown of cocoa bean production by region:</p>
 <ol type="1">
 <li>
 <strong>Africa:</strong>
@@ -532,7 +535,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  $ cocoa_beans: num [1:305] 835368 867170 922621 1190061 874245 ...</code></pre>
 </div>
 </div>
-</section><section id="create-a-basic-plot-with-the-assistance-of-chatgpt" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="create-a-basic-plot-with-the-assistance-of-chatgpt">Create a basic plot with the assistance of ChatGPT</h2>
+</section><section id="st-step-create-a-basic-plot-with-the-assistance-of-chatgpt" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="st-step-create-a-basic-plot-with-the-assistance-of-chatgpt">1st STEP: Create a basic plot with the assistance of ChatGPT</h2>
 <div id="exercise-joins" class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -543,16 +546,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>You:</strong></p>
-<p>Given dataset “dat_cocoa” with columns:</p>
+<p><strong>You</strong></p>
+<p>Given the dataset “dat_cocoa” with columns:</p>
 <ul>
 <li>region (chr)</li>
 <li>year (num)</li>
 <li>cocoa_beans (num)</li>
 </ul>
-<p>Code in R: create an area plot with ggplot2</p>
+<p>create an area plot of cocoa bean production by region over the years using ggplot2 in R.</p>
 <p><br></p>
-<p><strong>ChatGPT:</strong> Certainly! To create an area plot using ggplot2 in R with your dataset “dat_cocoa,” you can use the following code:</p>
+<p><strong>ChatGPT</strong></p>
+<p>Certainly! To create an area plot using ggplot2 in R with your dataset “dat_cocoa,” you can use the following code:</p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create the area plot</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">dat_cocoa</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">cocoa_beans</span>, fill <span class="op">=</span> <span class="va">region</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -571,7 +575,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="area_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="area_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="1152"></p>
 </figure>
 </div>
 </div>

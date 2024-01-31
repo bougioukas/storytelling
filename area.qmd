@@ -21,9 +21,15 @@ We requested information for "Cocoa bean production by region: Africa, Asia, Sou
 ::: {#exercise-joins .callout-important icon="false"}
 ## `r fa("comment", fill = "#0008C1")` ChatGPT 3.5
 
-**You:** I need information for “Cocoa bean production by region: Africa, Asia, South America, North America, and Oceania”.
+**You** 
 
-**ChatGPT:** As of my last knowledge update in January 2022, I can provide you with a general overview of cocoa bean production by region. However, please note that specific figures may have changed since then, so it's advisable to consult the latest reports or databases for the most up-to-date information. Here's a general breakdown of cocoa bean production by region:
+I need information for “Cocoa bean production by region: Africa, Asia, South America, North America, and Oceania”.
+
+<br>
+
+**ChatGPT** 
+
+As of my last knowledge update in January 2022, I can provide you with a general overview of cocoa bean production by region. However, please note that specific figures may have changed since then, so it's advisable to consult the latest reports or databases for the most up-to-date information. Here's a general breakdown of cocoa bean production by region:
 
 1. **Africa:**
    - Africa is the largest producer of cocoa beans, accounting for a significant majority of the world's production.
@@ -89,25 +95,26 @@ str(dat_cocoa)
 
 
 
-## Create a basic plot with the assistance of ChatGPT
+## 1st STEP: Create a basic plot with the assistance of ChatGPT
 
 
 ::: {#exercise-joins .callout-important icon="false"}
 ## `r fa("comment", fill = "#0008C1")` ChatGPT 3.5
 
-**You:** 
+**You** 
 
-Given dataset "dat_cocoa" with columns:
+Given the dataset "dat_cocoa" with columns:
 
 - region (chr)
 - year (num)
 - cocoa_beans (num)
 
-Code in R: create an area plot with ggplot2
+create an area plot of cocoa bean production by region over the years using ggplot2 in R.
 
 <br>
 
-**ChatGPT:**
+**ChatGPT**
+
 Certainly! To create an area plot using ggplot2 in R with your dataset "dat_cocoa," you can use the following code:
 
 ```{r}
@@ -133,6 +140,8 @@ If we execute the code provided by ChatGPT in R, the output is:
 
 ```{r}
 #| echo: false
+#| fig-width: 12
+#| fig-height: 9
 
 ggplot(dat_cocoa, aes(x = year, y = cocoa_beans, fill = region)) +
   geom_area() +
