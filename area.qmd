@@ -121,6 +121,7 @@ Certainly! To create an area plot using ggplot2 in R with your dataset "dat_coco
 ```{r}
 #| eval: false
 
+# load the package
 library(ggplot2)
 
 # Create the area plot
