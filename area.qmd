@@ -10,7 +10,7 @@ library(fontawesome)
 The chart we are set to reproduce, originally obtained from [Our World in Data](https://ourworldindata.org/), stands as a prime example of an area plot. Specifically focusing on ["Cocoa Bean Production by Region, 1961 to 2021,"](https://ourworldindata.org/grapher/cocoa-beans-production-by-region) this visualization offers a thorough and comprehensive insight into the evolving trends of cocoa bean production across various regions spanning the last six decades. Through the use of the area plot format, the chart effectively captures the fluctuations and distribution of cocoa production over time, allowing viewers to discern patterns and variations in different geographical areas.
 
 
-[![](img/cocoa-beans-production-by-region.png)](https://ourworldindata.org/grapher/cocoa-beans-production-by-region)
+[![The original graph obtained from Our World in Data ](img/cocoa-beans-production-by-region.png)](https://ourworldindata.org/grapher/cocoa-beans-production-by-region)
 
 
 ## STORY: Cocoa bean production by region
@@ -75,6 +75,7 @@ library(tidyverse)
 # custom fonts
 library(showtext)
 font_add_google("Playfair Display", regular.wt = 400)
+font_add_google("Lato", regular.wt = 400)
 showtext_auto()
 ```
 
@@ -171,8 +172,8 @@ ggplot(dat_cocoa, aes(x = year, y = cocoa_beans, fill = region)) +
 
 
 ```{r}
-#| fig-width: 10
-#| fig-height: 7
+#| fig-width: 9.5
+#| fig-height: 6.5
 #| fig-column: page-right
 
 dat_cocoa <- dat_cocoa |> 
@@ -201,20 +202,21 @@ p <- ggplot(dat_cocoa, aes(x = year, y = cocoa_beans, fill = region_rev)) +
        caption = "**Data source:** Food and Agriculture Organization of the United Nations", 
        x = "Year",
        y = "Cocoa Beans") +
-  theme(plot.margin = margin(5, 115, 45, 15),
+  theme(plot.margin = margin(5, 110, 45, 14),
+        text=element_text(family="Lato"),
         panel.background = element_blank(),
     plot.title = element_text(
       family = "Playfair Display",
       color = "grey20",
       size = 37,
-      hjust = -0.32),
+      hjust = -0.37),
     plot.subtitle = element_text(
       color = "grey30",
       size = 21,
-      hjust = -0.30),
+      hjust = -0.32),
     plot.caption = element_markdown(
       color = "grey30",
-      size = 21, hjust = -0.25, margin = margin(t = 30)),
+      size = 21, hjust = -0.31, margin = margin(t = 30)),
     axis.title = element_blank(),
     axis.text = element_text(color = "grey30", size = 20, margin = margin(t = 4)),
     axis.ticks.length.x=unit(0.05,"inch"),
@@ -250,7 +252,7 @@ p + geom_text(size = 7, hjust = 0,
   scale_y_continuous(labels = scales::comma_format(scale = 1e-6, suffix = " million t")) +
   coord_cartesian(xlim = c(1960, 2032), expand = FALSE) +
   geom_text(aes(x = Inf, y = -Inf, label = "OurWorldInData.org/agricultural-production | CC BY"), 
-            size = 7.2, hjust = 1, vjust = 7.5, color = "grey30")
+            size = 7.2, hjust = 0.9, vjust = 7.5, color = "grey30")
 ```
 
 
