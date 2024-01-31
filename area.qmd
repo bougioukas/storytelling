@@ -1,0 +1,94 @@
+---
+title: "Area plot"
+---
+
+```{r}
+#| include: false
+library(fontawesome)
+```
+
+The chart we are set to reproduce, originally obtained from [Our World in Data](https://ourworldindata.org/), stands as a prime example of an area plot. Specifically focusing on ["Cocoa Bean Production by Region, 1961 to 2021,"](https://ourworldindata.org/grapher/cocoa-beans-production-by-region) this visualization offers a thorough and comprehensive insight into the evolving trends of cocoa bean production across various regions spanning the last six decades. Through the use of the area plot format, the chart effectively captures the fluctuations and distribution of cocoa production over time, allowing viewers to discern patterns and variations in different geographical areas.
+
+
+[![](img/cocoa-beans-production-by-region.png)](https://ourworldindata.org/grapher/cocoa-beans-production-by-region)
+
+
+## STORY: Cocoa bean production by region
+
+We requested information for "Cocoa bean production by region: Africa, Asia, South America, North America, and Oceania" from ChatGTP.
+
+
+::: {#exercise-joins .callout-important icon="false"}
+## `r fa("comment", fill = "#0008C1")` ChatGPT 3.5
+
+As of my last knowledge update in January 2022, I can provide you with a general overview of cocoa bean production by region. However, please note that specific figures may have changed since then, so it's advisable to consult the latest reports or databases for the most up-to-date information. Here's a general breakdown of cocoa bean production by region:
+
+1. **Africa:**
+   - Africa is the largest producer of cocoa beans, accounting for a significant majority of the world's production.
+   - The leading cocoa-producing countries in Africa include Ivory Coast (Côte d'Ivoire), Ghana, Nigeria, and Cameroon.
+   - Ivory Coast and Ghana are particularly dominant in global cocoa production, collectively contributing a substantial portion of the world's cocoa output.
+
+2. **Asia:**
+   - Indonesia is a major producer of cocoa beans in Asia.
+   - Other countries in Asia, such as Malaysia and the Philippines, also contribute to cocoa production, although their output may be comparatively smaller than African countries.
+
+3. **South America:**
+   - South America is another significant region for cocoa production.
+   - The leading cocoa-producing country in South America is Ecuador, followed by countries like Brazil and Peru.
+
+4. **North America:**
+   - Cocoa is not native to North America, so the region doesn't play a major role in global cocoa production.
+   - However, some countries in Central America, such as the Dominican Republic and Mexico, do produce cocoa to a certain extent.
+
+5. **Oceania:**
+   - Oceania has limited cocoa production compared to other regions.
+   - Papua New Guinea is one of the countries in Oceania that contributes to global cocoa production.
+
+Cocoa production is influenced by factors such as climate, soil conditions, and economic considerations. The industry also faces challenges related to sustainability, fair trade practices, and environmental concerns.
+
+For the most recent and detailed information, it is recommended to refer to reports from organizations like the Food and Agriculture Organization (FAO), the International Cocoa Organization (ICCO), or other relevant agricultural and trade sources.
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+We need to load the following packages:
+
+```{r}
+#| message: false
+#| warning: false
+library(ggtext)
+
+library(here)
+library(tidyverse)
+```
+
+
+Food and Agriculture Organization of the United Nations (2023) – processed by Our World in Data
+
+
+We import the data *dat_cocoa* in R:
+
+```{r}
+#| warning: false
+
+library(readxl)
+dat_cocoa <- read_excel(here("data", "dat_cocoa.xlsx"))
+```
+
+
+

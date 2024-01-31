@@ -17,7 +17,7 @@ website:
       - text: Basic
         menu:
           - text: Area plot
-            href: projects.qmd
+            href: area.qmd
           - text: Bar plot
             href: projects.qmd            
           - text: Box plot
