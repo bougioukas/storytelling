@@ -1,0 +1,187 @@
+---
+title: "Dot plot"
+---
+
+
+
+```{r}
+#| include: false
+library(fontawesome)
+```
+
+
+
+```{r}
+#| message: false
+#| warning: false
+
+library(tidyverse)      # Data Wrangling and Plotting
+library(here)           # Files location and loading
+library(showtext)       # Using Fonts More Easily in R Graphs
+library(ggimage)        # Using Images in ggplot2
+library(fontawesome)    # Social Media icons
+library(ggtext)         # Markdown Text in ggplot2
+library(patchwork)      # For compiling plots
+library(magick)         # Work with Images and Logos
+library(scales)         # ggplot2 labels and scaling
+library(units)
+```
+
+
+
+```{r}
+#| message: false
+#| warning: false
+
+# Option 1: tidytuesdayR package 
+
+#tuesdata <- tidytuesdayR::tt_load('2024-01-23')
+english_education <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-01-23/english_education.csv')
+#english_education <- tuesdata$english_education
+
+
+# Define Text Size
+ts = unit(20, units = "cm")   
+
+
+```
+
+
+
+```{r}
+#==============================================================================#
+# Data Wrangling----------------------------------------------------------------
+#==============================================================================#
+
+city_levels <- c("Small Towns", "Medium Towns", "Large Towns", "Cities", "London")
+
+inc_levels = c("Poorer Towns", "Mid-Income Towns", "Richer Towns", "Cities")
+
+df <- english_education |> 
+  # Add populations of Inner and Outer London
+  mutate(
+    population_2011 = case_when(
+      town11nm == "Outer london BUAs" ~ 4942040,
+      town11nm == "Inner London BUAs" ~ 3231901,
+      .default = population_2011
+    )
+  ) |> 
+  mutate(
+    size_flag = case_when(
+      size_flag == "City" ~ "Cities",
+      size_flag %in% c("Inner London BUA", "Outer london BUA") ~ "London",
+      .default = size_flag
+    )
+  ) |> 
+  filter(
+    size_flag %in% city_levels
+  ) |> 
+  mutate(
+    size_flag = fct(size_flag, levels = city_levels),
+    size_flag = fct_rev(size_flag)
+  ) |> 
+  mutate(
+    income_flag = case_when(
+      income_flag %in% c("Cities", NA) ~ "Cities",
+      income_flag == "Higher deprivation towns" ~ "Poorer Towns",
+      income_flag == "Mid deprivation towns" ~ "Mid-Income Towns",
+      income_flag == "Lower deprivation towns" ~ "Richer Towns"
+    ),
+    income_flag = fct(income_flag,
+                      levels = inc_levels)
+  )
+
+# Weighted mean educational attainment scores
+df1 <- df |> 
+  group_by(size_flag) |> 
+  summarise(
+    mean_ed_score = mean(education_score, na.rm = T),
+    med_ed_score = median(education_score, na.rm = T),
+    w_mean = weighted.mean(x = education_score,
+                           w = population_2011,
+                           na.rm = T)
+  ) |> 
+  filter(size_flag!="London")
+
+# Overall weighted mean Educational Attainment Score for UK
+uk_mean <- df |> 
+  summarize(
+    uk_mean = weighted.mean(education_score, w = population_2011)
+  ) |> 
+  as_vector() |> 
+  unname()
+
+# Adding names of cities for labels
+label_cities <- c("Outer London", "Inner London")
+df_match <- tibble(town_name = label_cities)
+
+df2 <- df |> 
+  mutate(
+    town_name = str_remove_all(town11nm, " BUA"),
+    town_name = str_remove_all(town_name, "SD"),
+    town_name = case_when(
+      town_name == "Inner Londons" ~ "Inner London",
+      town_name == "Outer londons" ~ "Outer London"
+    )
+  ) |>
+  filter(town_name %in% label_cities)
+
+#==============================================================================#
+# Options & Visualization Parameters--------------------------------------------
+#==============================================================================#
+
+plot_caption <- paste0("**Data & Inspiration:** Center for Public Integrity | ", "**Graphics:** ")
+```
+
+
+```{r}
+#| fig-width: 10
+#| fig-height: 8
+#| fig-column: page-right
+
+#==============================================================================#
+# Data Visualization------------------------------------------------------------
+#==============================================================================#
+# For Beeswarm
+library(ggbeeswarm)
+
+# For vertical markers
+#devtools::install_github("wilkelab/ungeviz")
+library(ungeviz)
+
+ggplot(data = df) +
+  ggdist::geom_dots(aes(x = education_score, y = size_flag), side = "both", layout = "weave",
+                            color = "#27A0CC", 
+                            size= 1.0) +
+  geom_text(aes(x = -11, y = size_flag, label = size_flag), color = "grey70",
+            size= 4.0, vjust = -3.5, hjust = 0.01) + 
+  geom_vpline(data = df1, mapping = aes(x = mean_ed_score, y = size_flag),
+              height = 1.0, size = 0.1) +
+  geom_vline(xintercept = 0, linetype = 1, color = "grey70") +
+  geom_text(data = df2, color = "grey70",
+            mapping = aes(x = education_score, y = size_flag,
+                          label = town_name, hjust = case_when(town_name == "Outer London" ~ 0, 
+                                                               town_name %in% c("Inner London", "Olney") ~ 1,
+                                                                           .default = 0.5)),
+            vjust = 1.7, size = 0.2 * ts) +
+  scale_x_continuous(
+    minor_breaks = (-10:10), sec.axis = sec_axis(~., name = NULL), position = "top"
+  ) +
+  labs(title = "Smaller towns have the highest average educational attainment",
+       subtitle = "Educational attainment score, by town size, England",
+       x = paste0("←----- Lower attainment", strrep(" ", 60),  strrep(" ", 60), "Higher attainment ----→"),
+       color = "Town income\ndeprivation",
+       caption = "Source: Office for National Statistics analysis using Longitudinal Education Outcomes (LEO) from the Department for Education (DfE)") +
+  theme_minimal(base_size = 12) +
+  theme(plot.margin = margin(0, 0, 0, 0),
+        axis.title = element_text(color = "grey70"),
+        axis.text = element_text(size = 12, color = "grey70"),
+        panel.grid.minor = element_blank(),
+        panel.grid.major.y = element_blank(),
+        panel.grid.major.x = element_line(linewidth = 1),
+    axis.text.y = element_blank(),
+    axis.title.y = element_blank())
+
+
+```
+
