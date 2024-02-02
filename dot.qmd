@@ -22,14 +22,6 @@ library(fontawesome)
 
 library(tidyverse)      # Data Wrangling and Plotting
 library(here)           # Files location and loading
-library(showtext)       # Using Fonts More Easily in R Graphs
-library(ggimage)        # Using Images in ggplot2
-library(fontawesome)    # Social Media icons
-library(ggtext)         # Markdown Text in ggplot2
-library(patchwork)      # For compiling plots
-library(magick)         # Work with Images and Logos
-library(scales)         # ggplot2 labels and scaling
-library(units)
 ```
 
 
