@@ -119,7 +119,7 @@ plot_caption <- paste0("**Data & Inspiration:** Center for Public Integrity | ",
 #| fig-column: page-right
 
 ggplot(data = df, aes(x = education_score, y = size_flag), ) +
-  geom_dots(smooth = smooth_discrete(kernel = "biweight"),
+  geom_dots(smooth = smooth_discrete(kernel = "biweight"), stackratio = 0.8,
     side = "both", layout = "swarm", slab_shape = 21, width = 0.8,
                             slab_color = "#27A0CC", slab_fill = "#27A0CC",
                     scale = 0.65, overflow = "compress", binwidth = unit(c(1.6, Inf), "mm")) +
