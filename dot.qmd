@@ -11,12 +11,7 @@ library(fontawesome)
 
 
 
-
-
-
 [![The original graph obtained from Office for National Statistics analysis using Longitudinal Education Outcomes (LEO) from the Department for Education (DfE) ](img/dot.png)](https://www.ons.gov.uk/peoplepopulationandcommunity/educationandchildcare/articles/whydochildrenandyoungpeopleinsmallertownsdobetteracademicallythanthoseinlargertowns/2023-07-25)
-
-
 
 
 
