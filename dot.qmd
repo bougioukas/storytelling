@@ -20,6 +20,8 @@ library(fontawesome)
 #| message: false
 #| warning: false
 
+library(ggdist)
+
 library(tidyverse)      # Data Wrangling and Plotting
 library(here)           # Files location and loading
 ```
@@ -117,7 +119,7 @@ plot_caption <- paste0("**Data & Inspiration:** Center for Public Integrity | ",
 #| fig-column: page-right
 
 ggplot(data = df, aes(x = education_score, y = size_flag), ) +
-  ggdist::geom_dots(side = "both", layout = "hex", slab_shape = 21, width=0.7,
+  geom_dots(side = "both", layout = "hex", slab_shape = 21, width=0.7,
                             slab_color = "#27A0CC", slab_fill = "#27A0CC",
                     scale = 0.62,
                             dotsize= 1.5) +
