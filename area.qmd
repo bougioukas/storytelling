@@ -240,9 +240,9 @@ p <- ggplot(dat_cocoa, aes(x = year, y = cocoa_beans, fill = region_rev)) +
 
 
 
-final_dat <- dat_cocoa %>% 
-  filter(year=="2021")%>%  # Keep only 2021 value
-  arrange(desc(region_rev)) %>%                # Inverse factor order (first is at the bottom of plot)
+final_dat <- dat_cocoa |>  
+  filter(year=="2021") |>   # Keep only 2021 value
+  arrange(desc(region_rev)) |>                 # Inverse factor order (first is at the bottom of plot)
   mutate(                              # Create new column ypos and
     ypos=cumsum(cocoa_beans) - 0.5 * cocoa_beans      # fill with cumulative sum of invest for 2017
   )                                     
