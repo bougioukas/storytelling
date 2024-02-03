@@ -33,6 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -409,29 +410,45 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
+   
   <ul>
   <li><a href="#why-r-for-data-visualization" id="toc-why-r-for-data-visualization" class="nav-link active" data-scroll-target="#why-r-for-data-visualization">Why R for data visualization?</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<div class="quarto-about-broadside column-page content">
-  <div class="about-main">
-    <div class="about-entity" style="background-image: url('img/pic1.jpg')"></div>
-    <div class="about-contents"><header id="title-block-header" class="quarto-title-block default">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">What is this website about?</h1>
 </div>
-<div class="quarto-title-meta">
-  </div>
-</header><main class="content" id="quarto-document-content">
 
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="img/pic1.jpg" class="img-fluid quarto-figure quarto-figure-left figure-img" style="float: left; margin-right: 20px;" width="350"></p>
+</figure>
+</div>
 <p>Imagine having (almost) all types of data visualization tools and techniques seamlessly brought together in one place, creating a comprehensive and unified platform for unlocking insights from your data. This consolidated <strong>open access</strong> hub allows users to employ diverse visualization methods, from statistical plots to cartograms.</p>
 <p><strong>THE MAIN IDEA</strong></p>
 <p>Initially, a basic plot idea can be generated in natural language using ChatGPT. Once the initial concept is established, the application can transition to R. Through an iterative process of interaction between ChatGPT and R, users can gradually refine and evolve their initial plot idea into a more sophisticated and insightful visualization.</p>
 <div id="me">
 <section id="why-r-for-data-visualization" class="level2">
-<h2 data-anchor-id="why-r-for-data-visualization">Why R for data visualization?</h2>
+<h2 class="anchored" data-anchor-id="why-r-for-data-visualization">Why R for data visualization?</h2>
 <p>Choosing R for data visualization, particularly when leveraging the grammar of graphics through packages like <code>{ggplot2}</code>, offers several compelling reasons:</p>
 <ul>
 <li><p>R is <strong>open source</strong> and freely available, making it accessible to a broad of users.</p></li>
@@ -444,10 +461,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main></div>
-  </div>
-</div>
- <!-- /main -->
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -468,6 +483,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
