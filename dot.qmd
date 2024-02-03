@@ -118,10 +118,9 @@ df2 <- df |>
 #| fig-column: page-right
 
 ggplot(data = df, aes(x = education_score, y = size_flag), ) +
-  geom_dots(smooth = smooth_discrete(kernel = "biweight"), stackratio = 0.8,
-    side = "both", layout = "swarm", slab_shape = 21, width = 0.8,
-                            slab_color = "#27A0CC", slab_fill = "#27A0CC",
-                    scale = 0.65, overflow = "compress", binwidth = unit(c(1.6, Inf), "mm")) +
+  geom_dots(smooth = smooth_discrete(kernel = "epanechnikov"), 
+            stackratio = 0.8, side = "both", layout = "swarm",
+            slab_shape = 21,  slab_color = "#27A0CC", slab_fill = "#27A0CC", scale = 0.65, binwidth = unit(c(1.6, Inf), "mm")) +
   geom_text(aes(x = -12.1, y = size_flag, label = size_flag), color = "grey50", 
             size= 4.0, vjust = -3.5, hjust = 0) + 
   geom_vline(xintercept = 0, linetype = 1, color = "grey50") +
