@@ -9,8 +9,12 @@ library(fontawesome)
 
 The chart we are set to reproduce, originally obtained from [Our World in Data](https://ourworldindata.org/), stands as a prime example of an area plot. Specifically focusing on ["Cocoa Bean Production by Region, 1961 to 2021,"](https://ourworldindata.org/grapher/cocoa-beans-production-by-region) this visualization offers a thorough and comprehensive insight into the evolving trends of cocoa bean production across various regions spanning the last six decades. Through the use of the area plot format, the chart effectively captures the fluctuations and distribution of cocoa production over time, allowing viewers to discern patterns and variations in different geographical areas.
 
+::: {#fig-ourworldindata}
+[![](img/cocoa-beans-production-by-region.png)](https://ourworldindata.org/grapher/cocoa-beans-production-by-region)
 
-[![The original graph obtained from Our World in Data ](img/cocoa-beans-production-by-region.png)](https://ourworldindata.org/grapher/cocoa-beans-production-by-region)
+The original graph obtained from Our World in Data
+:::
+
 
 
 ## STORY: Cocoa bean production by region
@@ -144,8 +148,11 @@ If we execute the code provided by ChatGPT in R, the output is:
 
 ```{r}
 #| echo: false
+#| label: fig-chartbychat1
+#| fig-cap: First chart from code provided by ChatGPT
 #| fig-width: 12
 #| fig-height: 9
+
 
 ggplot(dat_cocoa, aes(x = year, y = cocoa_beans, fill = region)) +
   geom_area() +
@@ -173,8 +180,10 @@ ggplot(dat_cocoa, aes(x = year, y = cocoa_beans, fill = region)) +
 
 
 ```{r}
+#| label: fig-chartbychat3
+#| fig-cap: Final chart
 #| fig-width: 9.5
-#| fig-height: 6.5
+#| fig-height: 6.2
 #| fig-column: page-right
 
 dat_cocoa <- dat_cocoa |> 
@@ -200,24 +209,24 @@ p <- ggplot(dat_cocoa, aes(x = year, y = cocoa_beans, fill = region_rev)) +
   scale_fill_manual(values = my_colors) +  # Customize color palette
   labs(title = "Cocoa bean production by region, 1961 to 2021",
        subtitle = "Global production of cocoa beans, measured in tonnes of production per year.", 
-       caption = "**Data source:** Food and Agriculture Organization of the United Nations", 
+       caption = "**Data source:** Food and Agriculture Organization of the United Nations",
        x = "Year",
        y = "Cocoa Beans") +
-  theme(plot.margin = margin(5, 110, 45, 14),
+  theme(plot.margin = margin(15, 100, 25, 15),
         text=element_text(family="Lato"),
         panel.background = element_blank(),
     plot.title = element_text(
       family = "Playfair Display",
       color = "grey20",
       size = 37,
-      hjust = -0.37),
-    plot.subtitle = element_text(
+      hjust = -0.35),
+    plot.subtitle = element_text(margin = margin(b = 15),
       color = "grey30",
       size = 21,
-      hjust = -0.32),
+      hjust = -0.30),
     plot.caption = element_markdown(
       color = "grey30",
-      size = 21, hjust = -0.31, margin = margin(t = 30)),
+      size = 19, hjust= - 0.20, margin = margin(t = 20)),
     axis.title = element_blank(),
     axis.text = element_text(color = "grey30", size = 20, margin = margin(t = 4)),
     axis.ticks.length.x=unit(0.05,"inch"),
@@ -238,7 +247,7 @@ final_dat <- dat_cocoa %>%
     ypos=cumsum(cocoa_beans) - 0.5 * cocoa_beans      # fill with cumulative sum of invest for 2017
   )                                     
 
-final_dat$ypos[4] <- 5400000
+final_dat$ypos[4] <- 5350000
 
 
 # Add text labels at the end of the graph
@@ -253,7 +262,7 @@ p + geom_text(size = 7, hjust = 0,
   scale_y_continuous(labels = scales::comma_format(scale = 1e-6, suffix = " million t")) +
   coord_cartesian(xlim = c(1960, 2032), expand = FALSE) +
   geom_text(aes(x = Inf, y = -Inf, label = "OurWorldInData.org/agricultural-production | CC BY"), 
-            size = 7.2, hjust = 0.9, vjust = 7.5, color = "grey30")
+            size = 6.5, hjust = 0.9, vjust = 6.4, color = "grey30")
 ```
 
 

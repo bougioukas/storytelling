@@ -452,9 +452,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><p>The chart we are set to reproduce, originally obtained from <a href="https://ourworldindata.org/">Our World in Data</a>, stands as a prime example of an area plot. Specifically focusing on <a href="https://ourworldindata.org/grapher/cocoa-beans-production-by-region">“Cocoa Bean Production by Region, 1961 to 2021,”</a> this visualization offers a thorough and comprehensive insight into the evolving trends of cocoa bean production across various regions spanning the last six decades. Through the use of the area plot format, the chart effectively captures the fluctuations and distribution of cocoa production over time, allowing viewers to discern patterns and variations in different geographical areas.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="https://ourworldindata.org/grapher/cocoa-beans-production-by-region"><img src="img/cocoa-beans-production-by-region.png" class="img-fluid figure-img" alt="The original graph obtained from Our World in Data"></a></p>
-<figcaption>The original graph obtained from Our World in Data</figcaption></figure>
+<div id="fig-ourworldindata" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ourworldindata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><a href="https://ourworldindata.org/grapher/cocoa-beans-production-by-region"><img src="img/cocoa-beans-production-by-region.png" class="img-fluid figure-img"></a></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ourworldindata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The original graph obtained from Our World in Data
+</figcaption></figure>
 </div>
 <section id="story-cocoa-bean-production-by-region" class="level2"><h2 class="anchored" data-anchor-id="story-cocoa-bean-production-by-region">STORY: Cocoa bean production by region</h2>
 <p>We requested information for “Cocoa bean production by region: Africa, Asia, South America, North America, and Oceania” from ChatGTP.</p>
@@ -585,9 +589,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If we execute the code provided by ChatGPT in R, the output is:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="area_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="1152"></p>
-</figure>
+<div id="fig-chartbychat1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-chartbychat1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="area_files/figure-html/fig-chartbychat1-1.png" class="img-fluid figure-img" width="1152">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-chartbychat1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: First chart from code provided by ChatGPT
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -629,24 +637,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">my_colors</span><span class="op">)</span> <span class="op">+</span>  <span class="co"># Customize color palette</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Cocoa bean production by region, 1961 to 2021"</span>,</span>
 <span>       subtitle <span class="op">=</span> <span class="st">"Global production of cocoa beans, measured in tonnes of production per year."</span>, </span>
-<span>       caption <span class="op">=</span> <span class="st">"**Data source:** Food and Agriculture Organization of the United Nations"</span>, </span>
+<span>       caption <span class="op">=</span> <span class="st">"**Data source:** Food and Agriculture Organization of the United Nations"</span>,</span>
 <span>       x <span class="op">=</span> <span class="st">"Year"</span>,</span>
 <span>       y <span class="op">=</span> <span class="st">"Cocoa Beans"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">110</span>, <span class="fl">45</span>, <span class="fl">14</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">100</span>, <span class="fl">25</span>, <span class="fl">15</span><span class="op">)</span>,</span>
 <span>        text<span class="op">=</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>family<span class="op">=</span><span class="st">"Lato"</span><span class="op">)</span>,</span>
 <span>        panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>    plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span></span>
 <span>      family <span class="op">=</span> <span class="st">"Playfair Display"</span>,</span>
 <span>      color <span class="op">=</span> <span class="st">"grey20"</span>,</span>
 <span>      size <span class="op">=</span> <span class="fl">37</span>,</span>
-<span>      hjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.37</span><span class="op">)</span>,</span>
-<span>    plot.subtitle <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span></span>
+<span>      hjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.35</span><span class="op">)</span>,</span>
+<span>    plot.subtitle <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span>b <span class="op">=</span> <span class="fl">15</span><span class="op">)</span>,</span>
 <span>      color <span class="op">=</span> <span class="st">"grey30"</span>,</span>
 <span>      size <span class="op">=</span> <span class="fl">21</span>,</span>
-<span>      hjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.32</span><span class="op">)</span>,</span>
+<span>      hjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.30</span><span class="op">)</span>,</span>
 <span>    plot.caption <span class="op">=</span> <span class="fu"><a href="https://wilkelab.org/ggtext/reference/element_markdown.html">element_markdown</a></span><span class="op">(</span></span>
 <span>      color <span class="op">=</span> <span class="st">"grey30"</span>,</span>
-<span>      size <span class="op">=</span> <span class="fl">21</span>, hjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.31</span>, margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span>t <span class="op">=</span> <span class="fl">30</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>      size <span class="op">=</span> <span class="fl">19</span>, hjust<span class="op">=</span> <span class="op">-</span> <span class="fl">0.20</span>, margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span>t <span class="op">=</span> <span class="fl">20</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>    axis.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>    axis.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"grey30"</span>, size <span class="op">=</span> <span class="fl">20</span>, margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span>t <span class="op">=</span> <span class="fl">4</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>    axis.ticks.length.x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">0.05</span>,<span class="st">"inch"</span><span class="op">)</span>,</span>
@@ -667,7 +675,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>    ypos<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">cocoa_beans</span><span class="op">)</span> <span class="op">-</span> <span class="fl">0.5</span> <span class="op">*</span> <span class="va">cocoa_beans</span>      <span class="co"># fill with cumulative sum of invest for 2017</span></span>
 <span>  <span class="op">)</span>                                     </span>
 <span></span>
-<span><span class="va">final_dat</span><span class="op">$</span><span class="va">ypos</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">5400000</span></span>
+<span><span class="va">final_dat</span><span class="op">$</span><span class="va">ypos</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">5350000</span></span>
 <span></span>
 <span></span>
 <span><span class="co"># Add text labels at the end of the graph</span></span>
@@ -682,11 +690,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/comma.html">comma_format</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">1e-6</span>, suffix <span class="op">=</span> <span class="st">" million t"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html">coord_cartesian</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1960</span>, <span class="fl">2032</span><span class="op">)</span>, expand <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="cn">Inf</span>, y <span class="op">=</span> <span class="op">-</span><span class="cn">Inf</span>, label <span class="op">=</span> <span class="st">"OurWorldInData.org/agricultural-production | CC BY"</span><span class="op">)</span>, </span>
-<span>            size <span class="op">=</span> <span class="fl">7.2</span>, hjust <span class="op">=</span> <span class="fl">0.9</span>, vjust <span class="op">=</span> <span class="fl">7.5</span>, color <span class="op">=</span> <span class="st">"grey30"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>            size <span class="op">=</span> <span class="fl">6.5</span>, hjust <span class="op">=</span> <span class="fl">0.9</span>, vjust <span class="op">=</span> <span class="fl">6.4</span>, color <span class="op">=</span> <span class="st">"grey30"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display page-columns page-full">
-<div class="page-columns page-full">
-<figure class="figure page-columns page-full"><p class="page-columns page-full"><img src="area_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img column-page-right" width="912"></p>
-</figure>
+<div id="fig-chartbychat3" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full"><div aria-describedby="fig-chartbychat3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="area_files/figure-html/fig-chartbychat3-1.png" class="img-fluid figure-img column-page-right" width="912">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-chartbychat3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Final chart
+</figcaption></figure>
 </div>
 </div>
 </div>
