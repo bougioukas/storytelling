@@ -41,7 +41,7 @@ website:
           - text: Radar plot
             href: projects2.qmd 
           - text: Ridgeline chart
-            href: redgeline.qmd                      
+            href: ridgeline.qmd                      
           - text: Scatter plot
             href: projects2.qmd
           - text: Venn/Euler diagram

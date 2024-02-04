@@ -1,5 +1,5 @@
 ---
-title: "Ridgeline Chart"
+title: "Ridgeline chart"
 ---
 
 ```{r}
@@ -38,6 +38,8 @@ str(timeframe)
 
 
 ```{r}
+#| label: fig-final
+#| fig-cap: Final chart
 #| fig-width: 7
 #| fig-height: 8
 
