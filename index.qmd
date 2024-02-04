@@ -8,7 +8,7 @@ title: "What is this website about?"
 Imagine having (almost) all types of data visualization tools and techniques seamlessly brought together in one place, creating a comprehensive and unified platform for unlocking insights from your data. This consolidated **open access** hub allows users to employ diverse visualization methods, from statistical plots to cartograms. 
 
 
-**THE MAIN IDEA:** Our intention is to recreate published figures sourced from scholarly articles, textbooks, or research papers. Initially, the R code for a basic plot can be generated using a natural language app such as ChatGPT. Once the initial concept is established, the application can transition to R. Through an iterative process of interaction between R and online sources, users can gradually refine and evolve their initial plot into a more sophisticated and insightful visualization, ultimately reproducing the published figure.
+**THE MAIN IDEA:** Step-by-step recreation of published figures sourced from scholarly articles, websites, or media sources. Initially, the R code for a basic plot idea can be generated using a natural language app such as ChatGPT. Once the initial concept is established, the application can transition to R. Through an iterative process of interaction between R and online sources, users can gradually refine and evolve their initial plot into a more sophisticated and insightful visualization, ultimately reproducing the published figure.
 
 :::{#me}
 
