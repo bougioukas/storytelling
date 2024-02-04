@@ -1,0 +1,81 @@
+---
+title: "Ridgeline Chart"
+---
+
+```{r}
+#| include: false
+library(fontawesome)
+```
+
+
+We need to load the following packages:
+
+```{r}
+#| message: false
+#| warning: false
+
+library(ggridges)
+
+library(here)
+library(tidyverse)
+```
+
+
+
+First, we import the data *timeframe* in R:
+
+```{r}
+#| warning: false
+
+library(readxl)
+timeframe <- read_excel(here("data", "timeframe.xlsx"))
+
+str(timeframe)
+```
+
+
+
+
+
+```{r}
+#| fig-width: 7
+#| fig-height: 8
+
+
+color1 = '#9977ff'
+color2 = '#5a23ff'
+
+ggplot(timeframe, aes(
+  x=interval,
+  y=reorder(journal, interval, FUN=median),
+  fill=reorder(journal, interval, FUN=median),
+  rel_min_height=0.000000000001
+)) +
+  # Adding "stat = 'density' means the bandwidth (i.e. bin size)
+  # is calculated separately for each journal, rather than for the
+  # dataset as a whole
+  stat_density_ridges(
+    scale = 2,
+    quantile_lines = TRUE,
+    quantiles = 2
+  ) +
+  scale_fill_cyclical(values=c(color1, color2)) +
+  scale_y_discrete(expand = c(0.01, 0.1)) +
+  scale_x_continuous(
+    expand = c(0.01, 0),
+    breaks=seq(0, 1000, 250),
+  ) +
+  coord_cartesian(xlim=c(0,1000)) +
+  labs(x='Age of preprint at publication (days)', y='Journal (preprint density)') +
+  geom_vline(
+    xintercept=166,
+    col="yellow", linetype="dashed", linewidth=1
+  ) +
+  theme_ridges() +
+  theme_bw()
+
+```
+
+
+
+

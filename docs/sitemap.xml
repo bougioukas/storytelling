@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bougioukas.github.io/storytelling/projects2.html</loc>
+    <loc>https://bougioukas.github.io/storytelling/ridgeline.html</loc>
+    <lastmod>2024-02-04T20:52:17.118Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bougioukas.github.io/storytelling/projects.html</loc>
     <lastmod>2024-01-27T09:13:00.333Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bougioukas.github.io/storytelling/index.html</loc>
-    <lastmod>2024-02-04T10:11:38.992Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bougioukas.github.io/storytelling/area.html</loc>
-    <lastmod>2024-02-03T09:43:49.793Z</lastmod>
   </url>
   <url>
     <loc>https://bougioukas.github.io/storytelling/dot.html</loc>
     <lastmod>2024-02-03T15:36:41.613Z</lastmod>
   </url>
   <url>
-    <loc>https://bougioukas.github.io/storytelling/projects.html</loc>
+    <loc>https://bougioukas.github.io/storytelling/area.html</loc>
+    <lastmod>2024-02-04T13:27:45.204Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bougioukas.github.io/storytelling/index.html</loc>
+    <lastmod>2024-02-04T10:11:38.992Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bougioukas.github.io/storytelling/projects2.html</loc>
     <lastmod>2024-01-27T09:13:00.333Z</lastmod>
   </url>
 </urlset>

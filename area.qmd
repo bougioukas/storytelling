@@ -7,7 +7,7 @@ title: "Area plot"
 library(fontawesome)
 ```
 
-The chart we are set to reproduce, originally obtained from [Our World in Data](https://ourworldindata.org/), stands as a prime example of an area plot. Specifically focusing on ["Cocoa Bean Production by Region, 1961 to 2021,"](https://ourworldindata.org/grapher/cocoa-beans-production-by-region) this visualization offers a thorough and comprehensive insight into the evolving trends of cocoa bean production across various regions spanning the last six decades. Through the use of the area plot format, the chart effectively captures the fluctuations and distribution of cocoa production over time, allowing viewers to discern patterns and variations in different geographical areas.
+The chart we are set to recreate, originally obtained from [Our World in Data](https://ourworldindata.org/), stands as a prime example of an area plot. Specifically focusing on ["Cocoa Bean Production by Region, 1961 to 2021,"](https://ourworldindata.org/grapher/cocoa-beans-production-by-region) this visualization offers a thorough and comprehensive insight into the evolving trends of cocoa bean production across various regions spanning the last six decades. Through the use of the area plot format, the chart effectively captures the fluctuations and distribution of cocoa production over time, allowing viewers to discern patterns and variations in different geographical areas.
 
 ::: {#fig-ourworldindata}
 [![](img/cocoa-beans-production-by-region.png)](https://ourworldindata.org/grapher/cocoa-beans-production-by-region)
