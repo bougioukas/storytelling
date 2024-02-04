@@ -22,10 +22,14 @@ website:
             href: projects.qmd            
           - text: Box plot
             href: projects.qmd
+          - text: Bubble plot
+            href: projects.qmd             
           - text: Density plot
-            href: projects2.qmd                  
+            href: projects2.qmd
           - text: Dot plot
             href: dot.qmd
+          - text: Doughnut chart
+            href: projects2.qmd                    
           - text: Heatmap
             href: projects2.qmd
           - text: Histogram
@@ -34,10 +38,10 @@ website:
             href: projects2.qmd
           - text: Pie chart
             href: projects2.qmd
-          - text: Q-Q plot
-            href: projects2.qmd
           - text: Radar plot
-            href: projects2.qmd            
+            href: projects2.qmd 
+          - text: Ridgeline chart
+            href: projects2.qmd                      
           - text: Scatter plot
             href: projects2.qmd
           - text: Venn/Euler diagram
@@ -48,14 +52,10 @@ website:
         menu:
           - text: Bland-Altman plot
             href: projects.qmd
-          - text: Bubble plot
-            href: projects.qmd 
           - text: Cleveland’s dot plot
             href: projects.qmd             
           - text: Correlation matrix
             href: projects.qmd
-          - text: Doughnut chart
-            href: projects2.qmd
           - text: Dumbbell plot
             href: projects2.qmd            
           - text: Epidemic curve
@@ -65,13 +65,15 @@ website:
           - text: Mosaic plot
             href: projects2.qmd
           - text: Pyramid plot
-            href: projects2.qmd              
+            href: projects2.qmd
+          - text: Q-Q plot
+            href: projects2.qmd            
           - text: Raincloud plot
             href: projects2.qmd
-          - text: Ridgeline chart
-            href: projects2.qmd                
           - text: ROC curve
             href: projects2.qmd
+          - text: Stream graph
+            href: projects2.qmd            
           - text: Survival plot
             href: projects2.qmd
           - text: Upset plot
