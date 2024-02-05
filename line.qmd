@@ -141,7 +141,6 @@ geom_abline(intercept = log10(10), slope = log10(2), linetype = "dashed", color 
 
 
 death_log_curves
-
 ```
 
 
