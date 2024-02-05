@@ -35,7 +35,7 @@ website:
           - text: Histogram
             href: projects2.qmd   
           - text: Line chart
-            href: projects2.qmd
+            href: line.qmd
           - text: Pie chart
             href: projects2.qmd
           - text: Radar plot
