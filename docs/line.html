@@ -159,7 +159,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="./projects2.html">
- <span class="dropdown-text">Doughnut chart</span></a>
+ <span class="dropdown-text">Donut chart</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./projects2.html">
@@ -210,6 +210,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="./projects.html">
+ <span class="dropdown-text">Bullet bars</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects.html">
  <span class="dropdown-text">Cleveland’s dot plot</span></a>
   </li>  
         <li>
@@ -234,10 +238,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="./projects2.html">
- <span class="dropdown-text">Pyramid plot</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./projects2.html">
  <span class="dropdown-text">Q-Q plot</span></a>
   </li>  
         <li>
@@ -250,6 +250,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="./projects2.html">
+ <span class="dropdown-text">Split bars</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects2.html">
  <span class="dropdown-text">Stream graph</span></a>
   </li>  
         <li>
@@ -259,6 +263,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="./projects2.html">
  <span class="dropdown-text">Upset plot</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects2.html">
+ <span class="dropdown-text">Waffle chart</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./projects2.html">
@@ -438,7 +446,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Line chart</h1>
 </div>
 
@@ -456,14 +464,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header><p>We need to load the following packages:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggrepel.slowkow.com/">ggrepel</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://nanx.me/ggsci/">ggsci</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.r4photobiology.info/ggpp/">ggpp</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggfx.data-imaginist.com">ggfx</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/ggtext/">ggtext</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yutannihilation.github.io/gghighlight/">gghighlight</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggforce.data-imaginist.com">ggforce</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/EmilHvitfeldt/paletteer">paletteer</a></span><span class="op">)</span></span>
-<span><span class="co">#library(patchwork)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/xiangpin/ggstar/">ggstar</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://eliocamp.github.io/ggnewscale/">ggnewscale</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -544,73 +547,98 @@ $ timestamp       &lt;dttm&gt; 2021-10-09 02:10:32, 2021-10-09 02:10:32, 2021-10
 <p>The data cover a period from 2019-12-31 to 2021-10-07.</p>
 <p>Suppose we are interested in investigating countries with population more than 1 million up to June, 12 2021 and we want also to calculate the cases per 100000 inhabitants and tests per capita:</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">focus_cn</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CHN"</span>, <span class="st">"GBR"</span>, <span class="st">"USA"</span>, <span class="st">"JPN"</span>, <span class="st">"GRC"</span>, <span class="st">"MEX"</span>,</span>
-<span>              <span class="st">"KOR"</span>, <span class="st">"ITA"</span>, <span class="st">"ESP"</span>, <span class="st">"BRA"</span>, <span class="st">"IND"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">focus_cn</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"AUS"</span>, <span class="st">"BEL"</span>, <span class="st">"BRA"</span>,<span class="st">"CAN"</span>,<span class="st">"CHN"</span>, <span class="st">"FRA"</span>, <span class="st">"DEU"</span>,<span class="st">"GBR"</span>,</span>
+<span>              <span class="st">"IND"</span>, <span class="st">"IRN"</span>, <span class="st">"IRL"</span>,<span class="st">"JPN"</span>,<span class="st">"ITA"</span>, <span class="st">"NLD"</span>, <span class="st">"KOR"</span>,</span>
+<span>               <span class="st">"ESP"</span>, <span class="st">"USA"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">covid_deaths</span> <span class="op">&lt;-</span> <span class="va">covid_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">date</span>, <span class="va">iso3c</span>, <span class="va">deaths</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">date</span>, <span class="va">country</span>, <span class="va">iso3c</span>, <span class="va">deaths</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">iso3c</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">date</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">deaths</span> <span class="op">&gt;</span> <span class="fl">10</span>, <span class="va">date</span> <span class="op">&lt;</span> <span class="st">"2020-04-16"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">deaths</span> <span class="op">&gt;</span> <span class="fl">9</span>, <span class="va">date</span> <span class="op">&lt;</span> <span class="st">"2020-04-09"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>days_elapsed <span class="op">=</span> <span class="va">date</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">date</span><span class="op">)</span>,</span>
-<span>         end_label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">date</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">date</span><span class="op">)</span>, <span class="va">iso3c</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>         end_label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">date</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">date</span><span class="op">)</span>, <span class="va">country</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
 <span>         end_label <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">iso3c</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">focus_cn</span> <span class="op">~</span> <span class="va">end_label</span>,</span>
 <span>                      <span class="cn">TRUE</span> <span class="op">~</span> <span class="cn">NA_character_</span><span class="op">)</span>,</span>
-<span>         cgroup <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">iso3c</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">focus_cn</span> <span class="op">~</span> <span class="va">iso3c</span>,</span>
+<span>         cgroup <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">iso3c</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">focus_cn</span> <span class="op">~</span> <span class="va">country</span>,</span>
 <span>                   <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">"OTHER"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">days_elapsed</span> <span class="op">&lt;</span> <span class="fl">55</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">days_elapsed</span> <span class="op">&lt;</span> <span class="fl">45</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We also set particular colors for the selected countries:</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Colors</span></span>
-<span><span class="va">cgroup_cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu">prismatic</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/prismatic/man/clr_darken.html">clr_darken</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/paletteer/man/paletteer_d.html">paletteer_d</a></span><span class="op">(</span><span class="st">"ggsci::category20_d3"</span><span class="op">)</span>, <span class="fl">0.2</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">focus_cn</span><span class="op">)</span><span class="op">]</span>,</span>
-<span>  <span class="st">"gray70"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Colors</span></span>
+<span></span>
+<span><span class="va">cgroup_cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"gray70"</span>, <span class="st">"gray70"</span>, <span class="st">"gray70"</span>, <span class="st">"gray70"</span>, </span>
+<span>                 <span class="st">"#F69E2F"</span>, <span class="st">"#268EC1"</span>,<span class="st">"gray70"</span>,<span class="st">"gray70"</span>,</span>
+<span>                 <span class="st">"gray60"</span>, <span class="st">"gray70"</span>, <span class="st">"gray30"</span>,<span class="st">"#7CD6D7"</span>,</span>
+<span>                 <span class="st">"gray70"</span>,<span class="st">"#7CD6D7"</span>,<span class="st">"#298DC3"</span>, <span class="st">"#B82E5D"</span>, </span>
+<span>                 <span class="st">"#EC5B8F"</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># stars</span></span>
+<span><span class="va">df_stars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  x_star <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6.8</span>, <span class="fl">9.7</span>, <span class="fl">10.2</span>, <span class="fl">15</span>, <span class="fl">7.5</span>, <span class="fl">6.5</span>, <span class="fl">2.2</span>, <span class="fl">0.25</span><span class="op">)</span>,</span>
+<span>  y_star <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">200</span>, <span class="fl">145</span>, <span class="fl">385</span>, <span class="fl">800</span>, <span class="fl">120</span>, <span class="fl">55</span>, <span class="fl">30</span>, <span class="fl">10</span><span class="op">)</span>,</span>
+<span>  group_star <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"d"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cgroup_cols2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#268EC1"</span>, <span class="st">"#B82E5D"</span>, <span class="st">"gray30"</span>, <span class="st">"gray60"</span>, <span class="st">"#F69E2F"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div class="cell page-columns page-full">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">death_log_curves</span> <span class="op">&lt;-</span> <span class="va">covid_deaths</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">cgroup</span> <span class="op">!=</span> <span class="st">"OTHER"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">days_elapsed</span>, y <span class="op">=</span> <span class="va">deaths</span>,</span>
-<span>                         color <span class="op">=</span> <span class="va">cgroup</span>, label <span class="op">=</span> <span class="va">end_label</span>,</span>
-<span>                         group <span class="op">=</span> <span class="va">iso3c</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggrepel.slowkow.com/reference/geom_text_repel.html">geom_text_repel</a></span><span class="op">(</span>nudge_x <span class="op">=</span> <span class="fl">0.2</span>,</span>
-<span>                    nudge_y <span class="op">=</span> <span class="fl">0.1</span>, size <span class="op">=</span> <span class="fl">3</span>,</span>
-<span>                    segment.color <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">cgroup_cols</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">days_elapsed</span>, y <span class="op">=</span> <span class="va">deaths</span>,</span>
+<span>                       color <span class="op">=</span> <span class="va">cgroup</span>, label <span class="op">=</span> <span class="va">end_label</span>,</span>
+<span>                       group <span class="op">=</span> <span class="va">iso3c</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">covid_deaths</span> <span class="op">|&gt;</span> </span>
+<span>               <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">cgroup</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">days_elapsed</span><span class="op">==</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">days_elapsed</span><span class="op">)</span>,</span>
+<span>                                                 <span class="va">cgroup</span> <span class="op">!=</span> <span class="st">"OTHER"</span><span class="op">)</span>,</span>
+<span>             <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">days_elapsed</span>, y <span class="op">=</span> <span class="va">deaths</span>, fill <span class="op">=</span> <span class="va">cgroup</span><span class="op">)</span>, shape <span class="op">=</span> <span class="fl">21</span>, </span>
+<span>             size <span class="op">=</span> <span class="fl">3.3</span>, stroke <span class="op">=</span> <span class="fl">1.0</span>, color <span class="op">=</span> <span class="st">"grey30"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggrepel.slowkow.com/reference/geom_text_repel.html">geom_text_repel</a></span><span class="op">(</span>nudge_x <span class="op">=</span> <span class="fl">0.2</span>,</span>
+<span>                  nudge_y <span class="op">=</span> <span class="fl">0.1</span>, size <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>                  segment.color <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">cgroup_cols</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">cgroup_cols</span><span class="op">)</span> <span class="op">+</span>  </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>intercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>, slope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="fl">1.42</span><span class="op">)</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>, color <span class="op">=</span> <span class="st">"gray"</span>, linewidth <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>intercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>, slope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="fl">1.26</span><span class="op">)</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>, color <span class="op">=</span> <span class="st">"gray"</span>, linewidth <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>intercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>, slope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="fl">1.105</span><span class="op">)</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>, color <span class="op">=</span> <span class="st">"gray"</span>, linewidth <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, y <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>                   xend <span class="op">=</span> <span class="fl">10</span>, yend <span class="op">=</span> <span class="fl">10000</span><span class="op">)</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>, color <span class="op">=</span> <span class="st">"gray"</span>, linewidth <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://eliocamp.github.io/ggnewscale/reference/new_scale.html">new_scale_fill</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggstar/man/geom_star.html">geom_star</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df_stars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x_star</span>, y <span class="op">=</span> <span class="va">y_star</span>, fill <span class="op">=</span> <span class="va">group_star</span><span class="op">)</span>, starstroke <span class="op">=</span> <span class="fl">0.9</span>, size <span class="op">=</span> <span class="fl">3.5</span>, inherit.aes <span class="op">=</span> <span class="cn">F</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">cgroup_cols2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_log10</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="va"><a href="https://scales.r-lib.org/reference/comma.html">comma</a></span>, sec.axis <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/sec_axis.html">dup_axis</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>      breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">20</span>, <span class="fl">50</span>, <span class="fl">100</span>, <span class="fl">200</span>, <span class="fl">500</span>, <span class="fl">1000</span>, <span class="fl">2000</span>, <span class="fl">5000</span>, <span class="fl">10000</span>, <span class="fl">20000</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Days Since 10th Confirmed Death"</span>,</span>
-<span>         y <span class="op">=</span> <span class="st">"Cumulative Number of Deaths (log2 scale)"</span>,</span>
-<span>         title <span class="op">=</span> <span class="st">"Coronavirus deaths in Italy, Spain, the UK and US are increasing more rapidly than they did in China"</span>,</span>
-<span>         subtitle <span class="op">=</span> <span class="st">"Cumulative number of deaths, by number of days since 10th deaths \nStars represent national lockdowns"</span>,</span>
-<span>         caption <span class="op">=</span> <span class="st">"Data: https://coronavirus.jhu.edu/map.html"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    label <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="va"><a href="https://scales.r-lib.org/reference/comma.html">comma</a></span>, sec.axis <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/sec_axis.html">dup_axis</a></span><span class="op">(</span><span class="op">)</span>, limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">33000</span><span class="op">)</span>,</span>
+<span>    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">20</span>, <span class="fl">50</span>, <span class="fl">100</span>, <span class="fl">200</span>, <span class="fl">500</span>, <span class="fl">1000</span>, <span class="fl">2000</span>, <span class="fl">5000</span>, <span class="fl">10000</span>, <span class="fl">20000</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Number of days Since 10th death →"</span>,</span>
+<span>       title <span class="op">=</span> <span class="st">"Coronavirus deaths in Italy, Spain, the UK and US are increasing more rapidly than they did in China"</span>,</span>
+<span>       subtitle <span class="op">=</span> <span class="st">"Cumulative number of deaths, by number of days since 10th deaths \n \ \ \ \ Stars represent national lockdowns *"</span>,</span>
+<span>       caption <span class="op">=</span> <span class="st">"Data: https://coronavirus.jhu.edu/map.html"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"#FFF1E6"</span><span class="op">)</span>,</span>
 <span>        plot.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"#FFF1E6"</span><span class="op">)</span>,</span>
-<span>        axis.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>        axis.ticks <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>intercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>, slope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>, color <span class="op">=</span> <span class="st">"gray"</span>, size <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>intercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>, slope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="fl">1.42</span><span class="op">)</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>, color <span class="op">=</span> <span class="st">"gray"</span>, size <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>intercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>, slope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="fl">1.26</span><span class="op">)</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>, color <span class="op">=</span> <span class="st">"gray"</span>, size <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span></span>
-<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>intercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>, slope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="fl">1.105</span><span class="op">)</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>, color <span class="op">=</span> <span class="st">"gray"</span>, size <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-ℹ Please use `linewidth` instead.</code></pre>
-</div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">death_log_curves</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Don't know how to automatically pick scale for object of type &lt;difftime&gt;.
-Defaulting to continuous.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 392 rows containing missing values (`geom_text_repel()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<div id="fig-final2" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-final2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="line_files/figure-html/fig-final2-1.png" class="img-fluid figure-img" width="1152">
+<span>        panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_line</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#EEE0D5"</span><span class="op">)</span>,</span>
+<span>        panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">16</span>, hjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.95</span><span class="op">)</span>,</span>
+<span>        plot.subtitle <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">13</span>, hjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.11</span>, color <span class="op">=</span> <span class="st">"grey30"</span><span class="op">)</span>,</span>
+<span>        axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        axis.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.ticks <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        legend.position <span class="op">=</span> <span class="st">"none"</span></span>
+<span>        <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">10</span>, y <span class="op">=</span> <span class="fl">10</span><span class="op">^</span><span class="fl">4</span>, label <span class="op">=</span> <span class="st">"DEATHS DOUBLE \n EVERY DAY"</span>, color <span class="op">=</span> <span class="st">"grey50"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">22</span>, y <span class="op">=</span> <span class="fl">2.5</span><span class="op">*</span><span class="fl">10</span><span class="op">^</span><span class="fl">4</span>, label <span class="op">=</span> <span class="st">"...EVERY \n 2 DAYS"</span>, color <span class="op">=</span> <span class="st">"grey50"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">35</span>, y <span class="op">=</span> <span class="fl">3.3</span><span class="op">*</span><span class="fl">10</span><span class="op">^</span><span class="fl">4</span>, label <span class="op">=</span> <span class="st">"...EVERY \n 3 DAYS"</span>, color <span class="op">=</span> <span class="st">"grey50"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">35</span>, y <span class="op">=</span> <span class="fl">350</span>, label <span class="op">=</span> <span class="st">"...EVERY WEEK"</span>, color <span class="op">=</span> <span class="st">"grey50"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">43</span>, y <span class="op">=</span> <span class="fl">2.5</span><span class="op">*</span><span class="fl">1000</span>, label <span class="op">=</span> <span class="st">"China"</span>, color <span class="op">=</span> <span class="st">"#F69E2F"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">death_log_curves</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display page-columns page-full">
+<div id="fig-final2" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full"><div aria-describedby="fig-final2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="line_files/figure-html/fig-final2-1.png" class="img-fluid figure-img column-page-right" width="1152">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-final2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Final chart

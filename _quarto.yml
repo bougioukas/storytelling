@@ -28,7 +28,7 @@ website:
             href: projects2.qmd
           - text: Dot plot
             href: dot.qmd
-          - text: Doughnut chart
+          - text: Donut chart
             href: projects2.qmd                    
           - text: Heatmap
             href: projects2.qmd
@@ -52,6 +52,8 @@ website:
         menu:
           - text: Bland-Altman plot
             href: projects.qmd
+          - text: Bullet bars
+            href: projects.qmd            
           - text: Cleveland’s dot plot
             href: projects.qmd             
           - text: Correlation matrix
@@ -64,20 +66,22 @@ website:
             href: projects2.qmd            
           - text: Mosaic plot
             href: projects2.qmd
-          - text: Pyramid plot
-            href: projects2.qmd
           - text: Q-Q plot
             href: projects2.qmd            
           - text: Raincloud plot
             href: projects2.qmd
           - text: ROC curve
             href: projects2.qmd
+          - text: Split bars
+            href: projects2.qmd            
           - text: Stream graph
             href: projects2.qmd            
           - text: Survival plot
             href: projects2.qmd
           - text: Upset plot
-            href: projects2.qmd                  
+            href: projects2.qmd
+          - text: Waffle chart
+            href: projects2.qmd                 
           - text: Waterfall chart
             href: projects2.qmd            
       - text: Networks

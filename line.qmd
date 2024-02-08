@@ -15,14 +15,9 @@ We need to load the following packages:
 #| warning: false
 
 library(ggrepel)
-library(ggsci)
-library(ggpp)
-library(ggfx)
 library(ggtext)
-library(gghighlight)
-library(ggforce)
-library(paletteer)
-#library(patchwork)
+library(ggstar)
+library(ggnewscale)
 
 library(here)
 library(tidyverse)
@@ -74,21 +69,22 @@ Suppose we are interested in investigating countries with population more than 1
 
 
 ```{r}
-focus_cn <- c("CHN", "GBR", "USA", "JPN", "GRC", "MEX",
-              "KOR", "ITA", "ESP", "BRA", "IND")
+focus_cn <- c("AUS", "BEL", "BRA","CAN","CHN", "FRA", "DEU","GBR",
+              "IND", "IRN", "IRL","JPN","ITA", "NLD", "KOR",
+               "ESP", "USA")
 
 covid_deaths <- covid_data %>%
-  select(date, iso3c, deaths) %>%
+  select(date, country, iso3c, deaths) %>%
   group_by(iso3c) %>%
   arrange(date) %>%
-  filter(deaths > 10, date < "2020-04-16") %>%
+  filter(deaths > 9, date < "2020-04-09") %>%
   mutate(days_elapsed = date - min(date),
-         end_label = ifelse(date == max(date), iso3c, NA),
+         end_label = ifelse(date == max(date), country, NA),
          end_label = case_when(iso3c %in% focus_cn ~ end_label,
                       TRUE ~ NA_character_),
-         cgroup = case_when(iso3c %in% focus_cn ~ iso3c,
+         cgroup = case_when(iso3c %in% focus_cn ~ country,
                    TRUE ~ "OTHER")) %>% 
-  filter(days_elapsed < 55) |> 
+  filter(days_elapsed < 45) |> 
   ungroup()
 ```
 
@@ -97,50 +93,88 @@ covid_deaths <- covid_data %>%
 We also set particular colors for the selected countries:
 
 ```{r}
-## Colors
-cgroup_cols <- c(prismatic::clr_darken(
-  paletteer_d("ggsci::category20_d3"), 0.2)[1:length(focus_cn)],
-  "gray70")
+# Colors
+
+cgroup_cols <- c("gray70", "gray70", "gray70", "gray70", 
+                 "#F69E2F", "#268EC1","gray70","gray70",
+                 "gray60", "gray70", "gray30","#7CD6D7",
+                 "gray70","#7CD6D7","#298DC3", "#B82E5D", 
+                 "#EC5B8F")
+
+
+# stars
+df_stars <- data.frame(
+  x_star = c(6.8, 9.7, 10.2, 15, 7.5, 6.5, 2.2, 0.25),
+  y_star = c(200, 145, 385, 800, 120, 55, 30, 10),
+  group_star = c("a", "a", "b", "c", "d", "d", "e", "d")
+)
+
+cgroup_cols2 <- c("#268EC1", "#B82E5D", "gray30", "gray60", "#F69E2F")
+
 ```
 
 
 
 
 ```{r}
+#| message: false
+#| warning: false
 #| label: fig-final2
 #| fig-cap: Final chart
 #| fig-width: 12
 #| fig-height: 8
+#| fig-column: page-right
 
 death_log_curves <- covid_deaths %>% filter(cgroup != "OTHER") %>% 
-    ggplot(mapping = aes(x = days_elapsed, y = deaths,
-                         color = cgroup, label = end_label,
-                         group = iso3c)) +
-    geom_line(size = 0.8) +
-    geom_text_repel(nudge_x = 0.2,
-                    nudge_y = 0.1, size = 3,
-                    segment.color = NA) +
-    guides(color = "none") +
-    scale_color_manual(values = cgroup_cols) +
+  ggplot(mapping = aes(x = days_elapsed, y = deaths,
+                       color = cgroup, label = end_label,
+                       group = iso3c)) +
+  geom_line(size = 1.2) +
+  geom_point(data = covid_deaths |> 
+               dplyr::group_by(cgroup) |> filter(days_elapsed==max(days_elapsed),
+                                                 cgroup != "OTHER"),
+             aes(x = days_elapsed, y = deaths, fill = cgroup), shape = 21, 
+             size = 3.3, stroke = 1.0, color = "grey30") +
+  geom_text_repel(nudge_x = 0.2,
+                  nudge_y = 0.1, size = 4,
+                  segment.color = NA) +
+  scale_color_manual(values = cgroup_cols) +
+  scale_fill_manual(values = cgroup_cols) +  
+  geom_abline(intercept = log10(10), slope = log10(1.42), linetype = "dashed", color = "gray", linewidth = 0.8) +
+  geom_abline(intercept = log10(10), slope = log10(1.26), linetype = "dashed", color = "gray", linewidth = 0.8) +
+  geom_abline(intercept = log10(10), slope = log10(1.105), linetype = "dashed", color = "gray", linewidth = 0.8) +
+  geom_segment(aes(x = 0, y = 10,
+                   xend = 10, yend = 10000), linetype = "dashed", color = "gray", linewidth = 0.8) + 
+  new_scale_fill() +
+  geom_star(data = df_stars, aes(x = x_star, y = y_star, fill = group_star), starstroke = 0.9, size = 3.5, inherit.aes = F) +
+  scale_fill_manual(values = cgroup_cols2) +
+  scale_x_continuous(expand = c(0, 0)) +
   scale_y_log10(
-      label = scales::comma, sec.axis = dup_axis(),
-      breaks = c(10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000)) +
-    labs(x = "Days Since 10th Confirmed Death",
-         y = "Cumulative Number of Deaths (log2 scale)",
-         title = "Coronavirus deaths in Italy, Spain, the UK and US are increasing more rapidly than they did in China",
-         subtitle = "Cumulative number of deaths, by number of days since 10th deaths \nStars represent national lockdowns",
-         caption = "Data: https://coronavirus.jhu.edu/map.html") +
+    label = scales::comma, sec.axis = dup_axis(), limits = c(10, 33000),
+    breaks = c(10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000)) +
+  labs(x = "Number of days Since 10th death →",
+       title = "Coronavirus deaths in Italy, Spain, the UK and US are increasing more rapidly than they did in China",
+       subtitle = "Cumulative number of deaths, by number of days since 10th deaths \n \ \ \ \ Stars represent national lockdowns *",
+       caption = "Data: https://coronavirus.jhu.edu/map.html") +
   theme(panel.background = element_rect(fill = "#FFF1E6"),
         plot.background = element_rect(fill = "#FFF1E6"),
-        axis.title = element_blank(),
-        axis.ticks = element_blank()) +
-geom_abline(intercept = log10(10), slope = log10(2), linetype = "dashed", color = "gray", size = 0.8) +
-  geom_abline(intercept = log10(10), slope = log10(1.42), linetype = "dashed", color = "gray", size = 0.8) +
-    geom_abline(intercept = log10(10), slope = log10(1.26), linetype = "dashed", color = "gray", size = 0.8) +
-      geom_abline(intercept = log10(10), slope = log10(1.105), linetype = "dashed", color = "gray", size = 0.8)
-
+        panel.grid.major = element_line(color = "#EEE0D5"),
+        panel.grid.minor = element_blank(),
+        plot.title = element_text(size = 16, hjust = -0.95),
+        plot.subtitle = element_text(size = 13, hjust = -0.11, color = "grey30"),
+        axis.title.y = element_blank(),
+        axis.text = element_text(size = 12),
+        axis.ticks = element_blank(),
+        legend.position = "none"
+        ) +
+    annotate("text", x = 10, y = 10^4, label = "DEATHS DOUBLE \n EVERY DAY", color = "grey50") +
+      annotate("text", x = 22, y = 2.5*10^4, label = "...EVERY \n 2 DAYS", color = "grey50") +
+     annotate("text", x = 35, y = 3.3*10^4, label = "...EVERY \n 3 DAYS", color = "grey50") +
+       annotate("text", x = 35, y = 350, label = "...EVERY WEEK", color = "grey50") +
+  annotate("text", x = 43, y = 2.5*1000, label = "China", color = "#F69E2F")
 
 death_log_curves
+
 ```
 
 
