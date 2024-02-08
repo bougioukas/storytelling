@@ -29,6 +29,7 @@ We load the file `covid_data.csv` in R.
 
 ```{r}
 #| message: false
+#| warning: false
 
 library(readr)
 covid_data <- read_csv("data/covid_data.csv", col_types = cols(date = col_date(format = "%m/%d/%Y"))) 
