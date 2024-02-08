@@ -65,9 +65,6 @@ The data frame contains `r nrow(covid_data)` rows and `r ncol(covid_data)` varia
 
 The data cover a period from `r min(covid_data$date)` to `r max(covid_data$date)`.
 
-Suppose we are interested in investigating countries with population more than 1 million up to June, 12 2021 and we want also to calculate the cases per 100000 inhabitants and tests per capita:
-
-
 
 ```{r}
 focus_cn <- c("AUS", "BEL", "BRA","CAN","CHN", "FRA", "DEU","GBR",
@@ -111,6 +108,16 @@ df_stars <- data.frame(
 )
 
 cgroup_cols2 <- c("#268EC1", "#B82E5D", "gray30", "gray60", "#F69E2F")
+
+
+# line annotations
+df_lines <- data.frame(
+  x = c(10, 22, 35, 35),
+  y = c(10^4, 2.5*10^4, 3.3*10^4, 350),
+  labels = c("DEATHS DOUBLE \n EVERY DAY", "...EVERY \n 2 DAYS",
+            "...EVERY \n 3 DAYS", "...EVERY WEEK")
+)
+
 
 ```
 
@@ -168,10 +175,7 @@ death_log_curves <- covid_deaths %>% filter(cgroup != "OTHER") %>%
         axis.ticks = element_blank(),
         legend.position = "none"
         ) +
-    annotate("text", x = 10, y = 10^4, label = "DEATHS DOUBLE \n EVERY DAY", color = "grey50") +
-      annotate("text", x = 22, y = 2.5*10^4, label = "...EVERY \n 2 DAYS", color = "grey50") +
-     annotate("text", x = 35, y = 3.3*10^4, label = "...EVERY \n 3 DAYS", color = "grey50") +
-       annotate("text", x = 35, y = 350, label = "...EVERY WEEK", color = "grey50") +
+  annotate("text", x = df_lines$x, y = df_lines$y, label = df_lines$labels, color = "grey50") +
   annotate("text", x = 43, y = 2.5*1000, label = "China", color = "#F69E2F")
 
 death_log_curves

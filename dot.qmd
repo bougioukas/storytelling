@@ -80,9 +80,11 @@ df <- english_education |>
 df1 <- df |> 
   group_by(size_flag) |> 
   summarise(
-    mean_ed_score = mean(education_score, na.rm = T), na.rm = T
+    mean_ed_score = mean(education_score, na.rm = T)
   ) |> 
-  filter(size_flag!="London")
+  filter(size_flag!="London") |> 
+  add_column(y = c(1.6, 2.6, 3.6, 4.6), yend = c(2.4, 3.4, 4.4, 5.4))
+  
 
 # Overall weighted mean Educational Attainment Score for UK
 uk_mean <- df |> 
@@ -159,10 +161,7 @@ ggplot(data = df, aes(x = education_score, y = size_flag), ) +
     color = "grey50",
     linewidth = 0.8
   ) +
-  annotate("segment", x = df1$mean_ed_score[1], xend = df1$mean_ed_score[1], y = 1.6, yend = 2.4, linewidth = 0.8) +
-    annotate("segment", x = df1$mean_ed_score[2], xend = df1$mean_ed_score[2], y = 2.6, yend = 3.4, linewidth = 0.8) +
-      annotate("segment", x = df1$mean_ed_score[3], xend = df1$mean_ed_score[3], y = 3.6, yend = 4.4, linewidth = 0.8) +
-      annotate("segment", x = df1$mean_ed_score[4], xend = df1$mean_ed_score[4], y = 4.6, yend = 5.4, linewidth = 0.8) +
+  annotate("segment", x = df1$mean_ed_score, xend = df1$mean_ed_score, y = df1$y, yend = df1$yend, linewidth = 0.8) +
   annotate("text", x = 3.2, y = 4.57, label = "Average for size group", color = "grey50") +
     annotate(
     geom = "curve",
