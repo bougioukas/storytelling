@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.5.9">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>STORYTELLING WITH R GRAPHS AND ChatGPT - Line chart</title>
+<title>STORYTELLING WITH R GRAPHS AND ChatGPT – Line chart</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -180,6 +180,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="./projects2.html">
  <span class="dropdown-text">Radar plot</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./radial.html">
+ <span class="dropdown-text">Radial chart</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./ridgeline.html">
@@ -442,7 +446,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
     </div>
 <!-- main -->
@@ -461,7 +465,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>We need to load the following packages:</p>
+</header><div class="callout callout-style-default callout-tip callout-titled" title="Used geometries">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Used geometries
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Main geometry:</strong></p>
+<ul>
+<li><code>geom_line</code></li>
+</ul>
+<p><strong>Secondary geometries:</strong></p>
+<ul>
+<li><code>geom_point</code></li>
+<li><code>geom_text_repel</code></li>
+<li><code>geom_abline</code></li>
+<li><code>geom_segment</code></li>
+<li><code>geom_star</code></li>
+</ul>
+</div>
+</div>
+<p>We need to load the following packages:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggrepel.slowkow.com/">ggrepel</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/ggtext/">ggtext</a></span><span class="op">)</span></span>

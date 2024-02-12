@@ -39,7 +39,9 @@ website:
           - text: Pie chart
             href: projects2.qmd
           - text: Radar plot
-            href: projects2.qmd 
+            href: projects2.qmd
+          - text: Radial chart
+            href: radial.qmd
           - text: Ridgeline chart
             href: ridgeline.qmd                      
           - text: Scatter plot

@@ -8,6 +8,27 @@ library(fontawesome)
 ```
 
 
+::: {.callout-tip title="Used geometries"}
+
+**Main geometry:**
+
+- `geom_line`
+
+
+**Secondary geometries:**
+
+- `geom_point`
+- `geom_text_repel`
+- `geom_abline`
+- `geom_segment`
+- `geom_star`
+:::
+
+
+
+
+
+
 We need to load the following packages:
 
 ```{r}
