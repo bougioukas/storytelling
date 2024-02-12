@@ -78,14 +78,14 @@ ggplot() +
   scale_x_continuous(limits = c(0, 20)) +
   coord_polar() +
   guides(color = guide_legend(title = "Before 2004", reverse = TRUE,
-                              keywidth = 1.8, order = 1,
+                              keywidth = 2.1, order = 1,
                               title.position = "right")) +
   theme(panel.background = element_blank(),
         axis.title = element_blank(),
         axis.text = element_blank(),
         axis.ticks = element_blank(),
         legend.position = "bottom",
-        legend.title = element_text(size = 16),
+        legend.title = element_text(size = 20, color = "gray30"),
         legend.margin = margin(t = -75),
         legend.text = element_blank()
         )
