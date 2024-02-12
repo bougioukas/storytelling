@@ -30,7 +30,7 @@ The original graph obtained from 1 dataset 100 visualizations created by ferdio.
 
 
 
-First, we create the dataframe in R:
+First, we create the dataframes in R:
 
 ```{r}
 #| warning: false
@@ -88,10 +88,6 @@ ggplot() +
         legend.title = element_text(size = 16),
         legend.margin = margin(t = -75),
         legend.text = element_blank()
-        #legend.key.size = unit(1.5, "lines"),
-        #legend.key.width = unit(1, "cm")
-        #legend.key.height = unit(3.1, "mm") 
-        #legend.key = element_rect(size = 0.01)
         )
 
 ```
