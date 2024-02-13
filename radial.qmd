@@ -68,7 +68,7 @@ ggplot() +
   geom_text(data = filter(df, group == "group1"), aes(x = 0, y, label = country), size = 8, hjust = 1.4) +
   scale_color_manual(values = cols1) +
   guides(color = guide_legend(title = paste0(strrep(" ", 5), "After 2004"),
-                              override.aes = list(size = c(10, 10, 10)),
+                              override.aes = list(size = c(12, 12, 12)),
                               reverse = TRUE,
                               keywidth = 1.5, order = 1,
                               title.position = "right")) +
@@ -82,7 +82,7 @@ ggplot() +
   scale_x_continuous(limits = c(0, 20)) +
   coord_polar() +
   guides(color = guide_legend(title = paste0(strrep(" ", 5), "Before 2004", strrep(" ", 15)),
-                              reverse = TRUE, override.aes = list(size = c(10, 10, 10)),
+                              reverse = TRUE, override.aes = list(size = c(12, 12, 12)),
                               keywidth = 1.5, order = 1,
                               title.position = "right")) +
   theme(panel.background = element_blank(),
