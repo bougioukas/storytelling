@@ -42,6 +42,7 @@ df <- tibble(
   group = c("group1", "group1", "group1", "group2", "group2", "group2")
 )
 
+# set the colors
 cols1 <- c("#F9BBB3", "#7A8092",  "#79B0F6")
 cols2 <- c("#EE5440", "#283250", "#3274D8")
 
