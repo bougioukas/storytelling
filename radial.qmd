@@ -27,65 +27,94 @@ A radial bar chart is essentially a bar chart plotted on a **polar coordinates s
 
 ## STORY: UNESCO heritage sites of Scandinavian countries
 
-We requested information for "UNESCO heritag sites of Scandinavian countries Sweden, Denmark, and Norway between 2004 and 2022" from ChatGTP.
+The #79 graph on Fredio's website is generated from a single dataset detailing the numbers of UNESCO World Heritage Sites in Scandinavian countries (Sweden, Denmark, and Norway) inscribed before and after 2004, extending up to 2022.
 
+According to properties inscribed on the [World Heritage List](https://whc.unesco.org/en/list/) up to 2022:
+
+
+### Sweden 
 
 ::: {#exercise-joins .callout-important icon="false"}
-## `r fa("comment", fill = "#0008C1")` ChatGPT 3.5
+## [(https://whc.unesco.org/en/statesparties/se)](https://whc.unesco.org/en/statesparties/se)
 
-**You** 
+**Before 2004 (including):**
 
-What do you know about "UNESCO heritage sites of Scandinavian countries Sweden, Denmark, and Norway between 2004 and 2022"?
+- Royal Domain of Drottningholm (1991)
+- Birka and Hovgården (1993)
+- Engelsberg Ironworks (1993)
+- Rock Carvings in Tanum (1994)
+- Skogskyrkogården (1994)
+- Hanseatic Town of Visby (1995)
+- Church Town of Gammelstad, Luleå (1996)
+- Laponian Area (1996)
+- Naval Port of Karlskrona (1998)
+- Agricultural Landscape of Southern Öland (2000)
+- High Coast / Kvarken Archipelago (2000, 2006)
+- Mining Area of the Great Copper Mountain in Falun (2001)
+- Grimeton Radio Station, Varberg (2004)
+
+
+
+**After 2004:**
+
+- Struve Geodetic Arc (2005)
+- Decorated Farmhouses of Hälsingland (2012)
+:::
 
 <br>
 
-**ChatGPT** 
+### Denmark
 
-Between 2004 and 2022, several UNESCO World Heritage Sites were designated in the Scandinavian countries of Sweden, Denmark, and Norway. These sites were recognized for their cultural, historical, and natural significance. Here are some notable UNESCO World Heritage Sites in each country during that period:
+::: {#exercise-joins .callout-important icon="false"}
+## [(https://whc.unesco.org/en/statesparties/dk)](https://whc.unesco.org/en/statesparties/dk)
 
-**Sweden:**
+**Before 2004 (including):**
 
-1. **Royal Domain of Drottningholm Palace**: This palace is located on the island of Lovö in Stockholm County and is the private residence of the Swedish royal family.
+- Jelling Mounds, Runic Stones and Church (1994)
+- Roskilde Cathedral (1995)
+- Kronborg Castle (2000)
+- Ilulissat Icefjord (2004)
 
-2. **Skogskyrkogården (The Woodland Cemetery)**: Situated in Stockholm, this cemetery is known for its harmonious integration of natural landscape and architectural design.
 
-3. **Birka and Hovgården**: These archaeological sites, located on the islands of Björkö and Adelsö in Lake Mälaren, were important trading centers during the Viking Age.
+**After 2004:**
 
-4. **Rock Carvings in Tanum**: These prehistoric petroglyphs, located in Tanum Municipality, depict scenes of daily life, rituals, and symbolism dating back to the Bronze Age and Iron Age.
-
-5. **Church Town of Gammelstad, Luleå**: This well-preserved example of a church town consists of over 400 wooden houses surrounding a medieval stone church, illustrating the traditional Scandinavian church village.
-
-**Denmark:**
-
-1. **Kronborg Castle**: Located in Helsingør, this Renaissance castle is famous as the setting for William Shakespeare's play "Hamlet."
-
-2. **Roskilde Cathedral**: This Gothic cathedral, located in Roskilde, is the burial site for Danish monarchs and a prime example of brick Gothic architecture.
-
-3. **Jelling Mounds, Runic Stones and Church**: These archaeological sites in Jelling include burial mounds, runestones, and a church, representing the transition from paganism to Christianity in Denmark during the Viking Age.
-
-4. **Ilulissat Icefjord**: This natural site in Greenland, an autonomous territory of Denmark, is renowned for its dramatic icebergs calving from the Sermeq Kujalleq glacier into Disko Bay.
-
-5. **Stevns Klint**: This geological site features a cliff formation along the coast of Zealand, revealing evidence of the Chicxulub asteroid impact that caused the extinction of the dinosaurs.
-
-**Norway:**
-
-1. **Bryggen**: Located in Bergen, Bryggen is a series of Hanseatic commercial buildings along the waterfront, representing an important trading hub in the Middle Ages.
-
-2. **Urnes Stave Church**: Situated in Ornes, this wooden stave church is a prime example of Scandinavian medieval architecture and is known for its intricate carvings.
-
-3. **Røros Mining Town and the Circumference**: This well-preserved mining town in Central Norway illustrates the mining industry's role in the region's history and development.
-
-4. **West Norwegian Fjords – Geirangerfjord and Nærøyfjord**: These stunning fjords, located in Western Norway, showcase dramatic landscapes shaped by glacial activity.
-
-5. **Struve Geodetic Arc**: This transnational site, stretching across ten countries including Norway, consists of a chain of survey triangulations used to measure the Earth's shape and size.
-
-These are just a few examples of the UNESCO World Heritage Sites designated in Sweden, Denmark, and Norway between 2004 and 2022, highlighting the rich cultural and natural heritage of the Scandinavian region.
+- Wadden Sea (2009, 2014)
+- Stevns Klint (2014)
+- Christiansfeld, a Moravian Church Settlement (2015)
+- The par force hunting landscape in North Zealand (2015)
+- Kujataa Greenland: Norse and Inuit Farming at the Edge of the Ice Cap (2017)
+- Aasivissuit – Nipisat. Inuit Hunting Ground between Ice and Sea (2018)
 
 :::
 
+<br>
+
+
+### Norway
+
+::: {#exercise-joins .callout-important icon="false"}
+## [(https://whc.unesco.org/en/statesparties/no)](https://whc.unesco.org/en/statesparties/no)
+
+**Before 2004 (including):**
+
+- Bryggen (1979)
+- Urnes Stave Church (1979)
+- Røros Mining Town and the Circumference (1980, 2010)
+- Rock Art of Alta (1985)
+- Vegaøyan – The Vega Archipelago (2004)
+
+
+**After 2004:**
+
+- West Norwegian Fjords – Geirangerfjord and Nærøyfjord (2005)
+- Rjukan-Notodden Industrial Heritage Site (2015)
+- Struve Geodetic Arc (2005)
+:::
 
 
 <br>
+
+## GEOMETRIES
 
 ::: {.callout-note icon="false"}
 ## `r fa("shapes", fill = "#1DC5CE")` Used geometries
@@ -103,6 +132,7 @@ These are just a few examples of the UNESCO World Heritage Sites designated in S
 
 <br>
 
+## IN R
 
 We need to load the following packages:
 
@@ -125,7 +155,7 @@ First, we create the dataframe in R:
 df <- tibble(
   x = c(8, 10, 15, 5, 4, 13),
   y = c(1:3, 1:3),
-  country = c("Norway", "Denmark", "Sweeden", "Norway", "Denmark", "Sweeden"),
+  country = c("Norway", "Denmark", "Sweden", "Norway", "Denmark", "Sweden"),
   group = c("group1", "group1", "group1", "group2", "group2", "group2")
 )
 
@@ -136,8 +166,10 @@ cols2 <- c("#EE5440", "#283250", "#3274D8")
 ```
 
 
+<br>
 
 
+The ggplot:
 
 ```{r}
 #| label: fig-final
@@ -148,8 +180,8 @@ cols2 <- c("#EE5440", "#283250", "#3274D8")
 
 df |> 
 ggplot() +
-  geom_segment(data = filter(df, group == "group1"), aes(x = 0, xend = x, y = y, yend = y, 
-                               color = country), 
+  geom_segment(data = filter(df, group == "group1"), 
+               aes(x = 0, xend = x, y = y, yend = y, color = country), 
                linewidth = 16, lineend = 'round') +
   geom_text(data = filter(df, group == "group1"), aes(x, y, label = x), color = "white", size = 8) +
   geom_text(data = filter(df, group == "group1"), aes(x = 0, y, label = country), size = 8, hjust = 1.4) +
@@ -157,11 +189,11 @@ ggplot() +
   guides(color = guide_legend(title = paste0(strrep(" ", 5), "After 2004"),
                               override.aes = list(size = c(12, 12, 12)),
                               reverse = TRUE,
-                              keywidth = 1.5, order = 1,
+                              keywidth = 1.5, 
                               title.position = "right")) +
   new_scale_color() +
-  geom_segment(data = filter(df, group == "group2"), aes(x = 0, xend = x, y = y, yend = y, 
-                               color = country),
+  geom_segment(data = filter(df, group == "group2"), 
+               aes(x = 0, xend = x, y = y, yend = y, color = country),
                linewidth = 16, lineend = 'round') +
   geom_text(data = filter(df, group == "group2"), aes(x, y, label = x), color = "white", size = 8) +
   scale_color_manual(values = cols2) +
