@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.9">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>STORYTELLING WITH R GRAPHS AND ChatGPT – Radial chart</title>
+<title>STORYTELLING WITH R GRAPHS &amp; ChatGPT – Radial bar chart</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -104,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     <img src="./img/logo.png" alt="" class="navbar-logo"></a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">STORYTELLING WITH R GRAPHS AND ChatGPT</span>
+    <span class="navbar-title">STORYTELLING WITH R GRAPHS &amp; ChatGPT</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -183,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="./radial.html">
- <span class="dropdown-text">Radial chart</span></a>
+ <span class="dropdown-text">Radial bar chart</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./ridgeline.html">
@@ -446,12 +446,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#story-unesco-heritage-sites-of-scandinavian-countries" id="toc-story-unesco-heritage-sites-of-scandinavian-countries" class="nav-link active" data-scroll-target="#story-unesco-heritage-sites-of-scandinavian-countries">STORY: UNESCO heritage sites of Scandinavian countries</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Radial chart</h1>
+<h1 class="title">Radial bar chart</h1>
 </div>
 
 
@@ -465,21 +469,94 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>We need to load the following packages:</p>
+</header><p>The chart we are set to recreate, originally obtained from <a href="https://100.datavizproject.com/">1 dataset 100 visualizations</a> created by Ferdio.</p>
+<div id="fig-ferdio" class="quarto-figure quarto-figure-left quarto-float anchored" style="float: left; margin-right: 20px;">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ferdio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure"><p><a href="https://100.datavizproject.com/data-type/viz79/"><img src="img/original_radial.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="float: left; margin-right: 20px;;width:20.0%"></a></p>
+</figure>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ferdio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The original graph #79 (click on the figure to be redirected to the source). <br><br> A radial bar chart is essentially a bar chart plotted on a <strong>polar coordinates system</strong>, rather than on a Cartesian one.
+</figcaption></figure>
+</div>
+<center>
+<hr style="width:100%">
+</center>
+<section id="story-unesco-heritage-sites-of-scandinavian-countries" class="level2"><h2 class="anchored" data-anchor-id="story-unesco-heritage-sites-of-scandinavian-countries">STORY: UNESCO heritage sites of Scandinavian countries</h2>
+<p>We requested information for “UNESCO heritag sites of Scandinavian countries Sweden, Denmark, and Norway between 2004 and 2022” from ChatGTP.</p>
+<div id="exercise-joins" class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#0008C1;overflow:visible;position:relative;"><path d="M123.6 391.3c12.9-9.4 29.6-11.8 44.6-6.4c26.5 9.6 56.2 15.1 87.8 15.1c124.7 0 208-80.5 208-160s-83.3-160-208-160S48 160.5 48 240c0 32 12.4 62.8 35.7 89.2c8.6 9.7 12.8 22.5 11.8 35.5c-1.4 18.1-5.7 34.7-11.3 49.4c17-7.9 31.1-16.7 39.4-22.7zM21.2 431.9c1.8-2.7 3.5-5.4 5.1-8.1c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208s-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6c-15.1 6.6-32.3 12.6-50.1 16.1c-.8 .2-1.6 .3-2.4 .5c-4.4 .8-8.7 1.5-13.2 1.9c-.2 0-.5 .1-.7 .1c-5.1 .5-10.2 .8-15.3 .8c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4c4.1-4.2 7.8-8.7 11.3-13.5c1.7-2.3 3.3-4.6 4.8-6.9c.1-.2 .2-.3 .3-.5z"></path></svg> ChatGPT 3.5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>You</strong></p>
+<p>What do you know about “UNESCO heritage sites of Scandinavian countries Sweden, Denmark, and Norway between 2004 and 2022”?</p>
+<p><br></p>
+<p><strong>ChatGPT</strong></p>
+<p>Between 2004 and 2022, several UNESCO World Heritage Sites were designated in the Scandinavian countries of Sweden, Denmark, and Norway. These sites were recognized for their cultural, historical, and natural significance. Here are some notable UNESCO World Heritage Sites in each country during that period:</p>
+<p><strong>Sweden:</strong></p>
+<ol type="1">
+<li><p><strong>Royal Domain of Drottningholm Palace</strong>: This palace is located on the island of Lovö in Stockholm County and is the private residence of the Swedish royal family.</p></li>
+<li><p><strong>Skogskyrkogården (The Woodland Cemetery)</strong>: Situated in Stockholm, this cemetery is known for its harmonious integration of natural landscape and architectural design.</p></li>
+<li><p><strong>Birka and Hovgården</strong>: These archaeological sites, located on the islands of Björkö and Adelsö in Lake Mälaren, were important trading centers during the Viking Age.</p></li>
+<li><p><strong>Rock Carvings in Tanum</strong>: These prehistoric petroglyphs, located in Tanum Municipality, depict scenes of daily life, rituals, and symbolism dating back to the Bronze Age and Iron Age.</p></li>
+<li><p><strong>Church Town of Gammelstad, Luleå</strong>: This well-preserved example of a church town consists of over 400 wooden houses surrounding a medieval stone church, illustrating the traditional Scandinavian church village.</p></li>
+</ol>
+<p><strong>Denmark:</strong></p>
+<ol type="1">
+<li><p><strong>Kronborg Castle</strong>: Located in Helsingør, this Renaissance castle is famous as the setting for William Shakespeare’s play “Hamlet.”</p></li>
+<li><p><strong>Roskilde Cathedral</strong>: This Gothic cathedral, located in Roskilde, is the burial site for Danish monarchs and a prime example of brick Gothic architecture.</p></li>
+<li><p><strong>Jelling Mounds, Runic Stones and Church</strong>: These archaeological sites in Jelling include burial mounds, runestones, and a church, representing the transition from paganism to Christianity in Denmark during the Viking Age.</p></li>
+<li><p><strong>Ilulissat Icefjord</strong>: This natural site in Greenland, an autonomous territory of Denmark, is renowned for its dramatic icebergs calving from the Sermeq Kujalleq glacier into Disko Bay.</p></li>
+<li><p><strong>Stevns Klint</strong>: This geological site features a cliff formation along the coast of Zealand, revealing evidence of the Chicxulub asteroid impact that caused the extinction of the dinosaurs.</p></li>
+</ol>
+<p><strong>Norway:</strong></p>
+<ol type="1">
+<li><p><strong>Bryggen</strong>: Located in Bergen, Bryggen is a series of Hanseatic commercial buildings along the waterfront, representing an important trading hub in the Middle Ages.</p></li>
+<li><p><strong>Urnes Stave Church</strong>: Situated in Ornes, this wooden stave church is a prime example of Scandinavian medieval architecture and is known for its intricate carvings.</p></li>
+<li><p><strong>Røros Mining Town and the Circumference</strong>: This well-preserved mining town in Central Norway illustrates the mining industry’s role in the region’s history and development.</p></li>
+<li><p><strong>West Norwegian Fjords – Geirangerfjord and Nærøyfjord</strong>: These stunning fjords, located in Western Norway, showcase dramatic landscapes shaped by glacial activity.</p></li>
+<li><p><strong>Struve Geodetic Arc</strong>: This transnational site, stretching across ten countries including Norway, consists of a chain of survey triangulations used to measure the Earth’s shape and size.</p></li>
+</ol>
+<p>These are just a few examples of the UNESCO World Heritage Sites designated in Sweden, Denmark, and Norway between 2004 and 2022, highlighting the rich cultural and natural heritage of the Scandinavian region.</p>
+</div>
+</div>
+<p><br></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#1DC5CE;overflow:visible;position:relative;"><path d="M315.4 15.5C309.7 5.9 299.2 0 288 0s-21.7 5.9-27.4 15.5l-96 160c-5.9 9.9-6.1 22.2-.4 32.2s16.3 16.2 27.8 16.2H384c11.5 0 22.2-6.2 27.8-16.2s5.5-22.3-.4-32.2l-96-160zM288 312V456c0 22.1 17.9 40 40 40H472c22.1 0 40-17.9 40-40V312c0-22.1-17.9-40-40-40H328c-22.1 0-40 17.9-40 40zM128 512a128 128 0 1 0 0-256 128 128 0 1 0 0 256z"></path></svg> Used geometries
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Main geometry:</strong></p>
+<ul>
+<li><code>geom_segment</code></li>
+</ul>
+<p><strong>Secondary geometries:</strong></p>
+<ul>
+<li><code>geom_text</code></li>
+</ul>
+</div>
+</div>
+<p><br></p>
+<p>We need to load the following packages:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://eliocamp.github.io/ggnewscale/">ggnewscale</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The chart we are set to recreate, originally obtained from <a href="https://100.datavizproject.com/data-type/viz79/">1 dataset 100 visualizations</a> created by ferdio.</p>
-<div id="fig-ourworldindata" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ourworldindata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="https://100.datavizproject.com/data-type/viz79/"><img src="img/original_radial.png" class="img-fluid figure-img"></a></p>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ourworldindata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The original graph obtained from 1 dataset 100 visualizations created by ferdio.
-</figcaption></figure>
-</div>
-<p>First, we create the dataframes in R:</p>
+<p><br></p>
+<p>First, we create the dataframe in R:</p>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">10</span>, <span class="fl">15</span>, <span class="fl">5</span>, <span class="fl">4</span>, <span class="fl">13</span><span class="op">)</span>,</span>
@@ -540,10 +617,11 @@ Figure&nbsp;2: Final chart
 </div>
 </div>
 </div>
+<p><br></p>
+<p>In general, the numbers of world heritage sites in Scandinavian countries have increased between 2004 and 2022. Sweden maintained its status as the country with the highest number of UNESCO World Heritage Sites throughout the period, underscoring its rich cultural and natural heritage. However, Denmark emerged as the front runner in terms of acquiring new designations, surpassing both Sweden and Norway in this aspect. Remarkably, Denmark saw a surge in the addition of UNESCO sites, particularly after 2004, contrasting with Sweden and Norway, which garnered most of their designations prior to that year.</p>
 
 
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");

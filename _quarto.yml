@@ -3,7 +3,7 @@ project:
   output-dir: docs
   
 website:
-  title: "STORYTELLING WITH R GRAPHS AND ChatGPT"
+  title: "STORYTELLING WITH R GRAPHS & ChatGPT"
   site-url: "https://bougioukas.github.io/storytelling/"
   favicon: "img/logo.png"
   navbar:
@@ -40,7 +40,7 @@ website:
             href: projects2.qmd
           - text: Radar plot
             href: projects2.qmd
-          - text: Radial chart
+          - text: Radial bar chart
             href: radial.qmd
           - text: Ridgeline chart
             href: ridgeline.qmd                      
@@ -172,6 +172,8 @@ format:
     smooth-scroll: true
     theme:
       - custom.scss
+    fontsize: 1.10em
+    linestretch: 1.35      
     link-external-newwindow: true
     toc: true
     citations-hover: true

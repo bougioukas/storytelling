@@ -1,11 +1,107 @@
 ---
-title: "Radial chart"
+title: "Radial bar chart"
 ---
 
 ```{r}
 #| include: false
 library(fontawesome)
 ```
+
+
+The chart we are set to recreate, originally obtained from [1 dataset 100 visualizations](https://100.datavizproject.com/) created by Ferdio.
+
+
+::: {#fig-ferdio}
+
+[![](img/original_radial.png){style="float: left; margin-right: 20px;" fig-align="left" width=20%}](https://100.datavizproject.com/data-type/viz79/)
+
+The original graph #79 (click on the figure to be redirected to the source).
+<br>
+<br>
+A radial bar chart is essentially a bar chart plotted on a **polar coordinates system**, rather than on a Cartesian one.
+:::
+
+
+<center><hr style="width:100%"></center>
+
+
+## STORY: UNESCO heritage sites of Scandinavian countries
+
+We requested information for "UNESCO heritag sites of Scandinavian countries Sweden, Denmark, and Norway between 2004 and 2022" from ChatGTP.
+
+
+::: {#exercise-joins .callout-important icon="false"}
+## `r fa("comment", fill = "#0008C1")` ChatGPT 3.5
+
+**You** 
+
+What do you know about "UNESCO heritage sites of Scandinavian countries Sweden, Denmark, and Norway between 2004 and 2022"?
+
+<br>
+
+**ChatGPT** 
+
+Between 2004 and 2022, several UNESCO World Heritage Sites were designated in the Scandinavian countries of Sweden, Denmark, and Norway. These sites were recognized for their cultural, historical, and natural significance. Here are some notable UNESCO World Heritage Sites in each country during that period:
+
+**Sweden:**
+
+1. **Royal Domain of Drottningholm Palace**: This palace is located on the island of Lovö in Stockholm County and is the private residence of the Swedish royal family.
+
+2. **Skogskyrkogården (The Woodland Cemetery)**: Situated in Stockholm, this cemetery is known for its harmonious integration of natural landscape and architectural design.
+
+3. **Birka and Hovgården**: These archaeological sites, located on the islands of Björkö and Adelsö in Lake Mälaren, were important trading centers during the Viking Age.
+
+4. **Rock Carvings in Tanum**: These prehistoric petroglyphs, located in Tanum Municipality, depict scenes of daily life, rituals, and symbolism dating back to the Bronze Age and Iron Age.
+
+5. **Church Town of Gammelstad, Luleå**: This well-preserved example of a church town consists of over 400 wooden houses surrounding a medieval stone church, illustrating the traditional Scandinavian church village.
+
+**Denmark:**
+
+1. **Kronborg Castle**: Located in Helsingør, this Renaissance castle is famous as the setting for William Shakespeare's play "Hamlet."
+
+2. **Roskilde Cathedral**: This Gothic cathedral, located in Roskilde, is the burial site for Danish monarchs and a prime example of brick Gothic architecture.
+
+3. **Jelling Mounds, Runic Stones and Church**: These archaeological sites in Jelling include burial mounds, runestones, and a church, representing the transition from paganism to Christianity in Denmark during the Viking Age.
+
+4. **Ilulissat Icefjord**: This natural site in Greenland, an autonomous territory of Denmark, is renowned for its dramatic icebergs calving from the Sermeq Kujalleq glacier into Disko Bay.
+
+5. **Stevns Klint**: This geological site features a cliff formation along the coast of Zealand, revealing evidence of the Chicxulub asteroid impact that caused the extinction of the dinosaurs.
+
+**Norway:**
+
+1. **Bryggen**: Located in Bergen, Bryggen is a series of Hanseatic commercial buildings along the waterfront, representing an important trading hub in the Middle Ages.
+
+2. **Urnes Stave Church**: Situated in Ornes, this wooden stave church is a prime example of Scandinavian medieval architecture and is known for its intricate carvings.
+
+3. **Røros Mining Town and the Circumference**: This well-preserved mining town in Central Norway illustrates the mining industry's role in the region's history and development.
+
+4. **West Norwegian Fjords – Geirangerfjord and Nærøyfjord**: These stunning fjords, located in Western Norway, showcase dramatic landscapes shaped by glacial activity.
+
+5. **Struve Geodetic Arc**: This transnational site, stretching across ten countries including Norway, consists of a chain of survey triangulations used to measure the Earth's shape and size.
+
+These are just a few examples of the UNESCO World Heritage Sites designated in Sweden, Denmark, and Norway between 2004 and 2022, highlighting the rich cultural and natural heritage of the Scandinavian region.
+
+:::
+
+
+
+<br>
+
+::: {.callout-note icon="false"}
+## `r fa("shapes", fill = "#1DC5CE")` Used geometries
+
+**Main geometry:**
+
+- `geom_segment`
+
+
+**Secondary geometries:**
+
+- `geom_text`
+:::
+
+
+<br>
 
 
 We need to load the following packages:
@@ -19,18 +115,9 @@ library(ggnewscale)
 ```
 
 
-The chart we are set to recreate, originally obtained from [1 dataset 100 visualizations](https://100.datavizproject.com/data-type/viz79/) created by ferdio.
+<br>
 
-
-::: {#fig-ourworldindata}
-[![](img/original_radial.png)](https://100.datavizproject.com/data-type/viz79/)
-
-The original graph obtained from 1 dataset 100 visualizations created by ferdio.
-:::
-
-
-
-First, we create the dataframes in R:
+First, we create the dataframe in R:
 
 ```{r}
 #| warning: false
@@ -96,3 +183,9 @@ ggplot() +
         legend.spacing.x = unit(-0.5, "mm")
   )
 ```
+
+<br>
+
+In general, the numbers of world heritage sites in Scandinavian countries have increased between 2004 and 2022.
+Sweden maintained its status as the country with the highest number of UNESCO World Heritage Sites throughout the period, underscoring its rich cultural and natural heritage. However, Denmark emerged as the front runner in terms of acquiring new designations, surpassing both Sweden and Norway in this aspect. Remarkably, Denmark saw a surge in the addition of UNESCO sites, particularly after 2004, contrasting with Sweden and Norway, which garnered most of their designations prior to that year. 
+
