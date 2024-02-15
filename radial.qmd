@@ -27,7 +27,7 @@ A radial bar chart is essentially a bar chart plotted on a **polar coordinates s
 
 ## STORY: UNESCO heritage sites of Scandinavian countries
 
-The #79 graph on Fredio's website is generated from a single dataset detailing the numbers of UNESCO World Heritage Sites in Scandinavian countries (Sweden, Denmark, and Norway) inscribed before and after 2004, extending up to 2022.
+The #79 graph on Ferdio's website is generated from a single dataset detailing the numbers of UNESCO World Heritage Sites in Scandinavian countries (Sweden, Denmark, and Norway) inscribed before and after 2004, extending up to 2022.
 
 According to properties inscribed on the [World Heritage List](https://whc.unesco.org/en/list/) up to 2022:
 
@@ -134,7 +134,7 @@ According to properties inscribed on the [World Heritage List](https://whc.unesc
 
 ## IN R
 
-We need to load the following packages:
+First, we load the necessary packages.
 
 ```{r}
 #| message: false
@@ -147,7 +147,7 @@ library(ggnewscale)
 
 <br>
 
-First, we create the dataframe in R:
+Then we create a dataframe with four columns in R:
 
 ```{r}
 #| warning: false
@@ -158,10 +158,26 @@ df <- tibble(
   country = c("Norway", "Denmark", "Sweden", "Norway", "Denmark", "Sweden"),
   group = c("group1", "group1", "group1", "group2", "group2", "group2")
 )
+```
+
+**x:** A numeric variable containing the numbers of UNESCO World Heritage Sites. We use these numbers to define the end of the segments on the x-axis.
+
+**y:** A numeric variable containing the position of the segment on the y-axis.
+
+**country:** A character variable containing country names.
+
+**group:** A character variable containing "group1" and "group2" corresponding to "After 2004" and "Before 2004", respectively.
+
+<br>
+
+We also create two color sets: 
+
+```{r}
+#| warning: false
 
 # set the colors
-cols1 <- c("#F9BBB3", "#7A8092",  "#79B0F6")
-cols2 <- c("#EE5440", "#283250", "#3274D8")
+cols1 <- c("#F9BBB3", "#7A8092",  "#79B0F6")   # for group1 
+cols2 <- c("#EE5440", "#283250", "#3274D8")    # for group2
 
 ```
 
@@ -169,7 +185,7 @@ cols2 <- c("#EE5440", "#283250", "#3274D8")
 <br>
 
 
-The ggplot:
+We will create a **stacked** radial bar chart:
 
 ```{r}
 #| label: fig-final

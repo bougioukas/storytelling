@@ -494,7 +494,7 @@ Figure&nbsp;1: The original graph #79 (click on the figure to be redirected to t
 <hr style="width:100%">
 </center>
 <section id="story-unesco-heritage-sites-of-scandinavian-countries" class="level2"><h2 class="anchored" data-anchor-id="story-unesco-heritage-sites-of-scandinavian-countries">STORY: UNESCO heritage sites of Scandinavian countries</h2>
-<p>The #79 graph on Fredio’s website is generated from a single dataset detailing the numbers of UNESCO World Heritage Sites in Scandinavian countries (Sweden, Denmark, and Norway) inscribed before and after 2004, extending up to 2022.</p>
+<p>The #79 graph on Ferdio’s website is generated from a single dataset detailing the numbers of UNESCO World Heritage Sites in Scandinavian countries (Sweden, Denmark, and Norway) inscribed before and after 2004, extending up to 2022.</p>
 <p>According to properties inscribed on the <a href="https://whc.unesco.org/en/list/">World Heritage List</a> up to 2022:</p>
 <section id="sweden" class="level3"><h3 class="anchored" data-anchor-id="sweden">Sweden</h3>
 <div id="exercise-joins" class="callout callout-style-default callout-important no-icon callout-titled">
@@ -612,29 +612,36 @@ Figure&nbsp;1: The original graph #79 (click on the figure to be redirected to t
 </div>
 <p><br></p>
 </section><section id="in-r" class="level2"><h2 class="anchored" data-anchor-id="in-r">IN R</h2>
-<p>We need to load the following packages:</p>
+<p>First, we load the necessary packages.</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://eliocamp.github.io/ggnewscale/">ggnewscale</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
-<p>First, we create the dataframe in R:</p>
+<p>Then we create a dataframe with four columns in R:</p>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">10</span>, <span class="fl">15</span>, <span class="fl">5</span>, <span class="fl">4</span>, <span class="fl">13</span><span class="op">)</span>,</span>
 <span>  y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>,</span>
 <span>  country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Norway"</span>, <span class="st">"Denmark"</span>, <span class="st">"Sweden"</span>, <span class="st">"Norway"</span>, <span class="st">"Denmark"</span>, <span class="st">"Sweden"</span><span class="op">)</span>,</span>
 <span>  group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"group1"</span>, <span class="st">"group1"</span>, <span class="st">"group1"</span>, <span class="st">"group2"</span>, <span class="st">"group2"</span>, <span class="st">"group2"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># set the colors</span></span>
-<span><span class="va">cols1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#F9BBB3"</span>, <span class="st">"#7A8092"</span>,  <span class="st">"#79B0F6"</span><span class="op">)</span></span>
-<span><span class="va">cols2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#EE5440"</span>, <span class="st">"#283250"</span>, <span class="st">"#3274D8"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>x:</strong> A numeric variable containing the numbers of UNESCO World Heritage Sites. We use these numbers to define the end of the segments on the x-axis.</p>
+<p><strong>y:</strong> A numeric variable containing the position of the segment on the y-axis.</p>
+<p><strong>country:</strong> A character variable containing country names.</p>
+<p><strong>group:</strong> A character variable containing “group1” and “group2” corresponding to “After 2004” and “Before 2004”, respectively.</p>
+<p><br></p>
+<p>We also create two color sets:</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># set the colors</span></span>
+<span><span class="va">cols1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#F9BBB3"</span>, <span class="st">"#7A8092"</span>,  <span class="st">"#79B0F6"</span><span class="op">)</span>   <span class="co"># for group1 </span></span>
+<span><span class="va">cols2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#EE5440"</span>, <span class="st">"#283250"</span>, <span class="st">"#3274D8"</span><span class="op">)</span>    <span class="co"># for group2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
-<p>The ggplot:</p>
+<p>We will create a <strong>stacked</strong> radial bar chart:</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">group</span> <span class="op">==</span> <span class="st">"group1"</span><span class="op">)</span>, </span>
 <span>               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, xend <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, yend <span class="op">=</span> <span class="va">y</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span>, </span>
