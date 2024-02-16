@@ -179,6 +179,7 @@ format:
     citations-hover: true
     footnotes-hover: true
     code-link: true
-
+filters:
+  - line-highlight
 editor: source
 
