@@ -2,9 +2,19 @@
 title: "Radial bar chart"
 ---
 
+
+
+
 ```{r}
 #| include: false
 library(fontawesome)
+
+
+knitr::opts_chunk$set(
+  fig.width = 10,
+  fig.height = 10
+)
+
 ```
 
 
@@ -18,7 +28,7 @@ The chart we are set to recreate, originally obtained from [1 dataset 100 visual
 The original graph #79 (click on the figure to be redirected to the source).
 <br>
 <br>
-A radial bar chart is essentially a bar chart plotted on a **polar coordinates system**, rather than on a Cartesian one.
+A radial bar chart is essentially a bar chart plotted on a **polar coordinates system**, rather than on a Cartesian one. In our case, the grpah is a **stacked** radial bar chart. 
 :::
 
 
@@ -132,7 +142,10 @@ According to properties inscribed on the [World Heritage List](https://whc.unesc
 
 <br>
 
-## IN R
+## `r fa("r-project", fill = "#0008C1")`: STEP-BY-STEP GRAPH RECREATION
+
+
+### STEP 0: Data preparation
 
 First, we load the necessary packages.
 
@@ -185,7 +198,7 @@ cols2 <- c("#EE5440", "#283250", "#3274D8")    # for group2
 <br>
 
 
-**STEP 1:** Create a basic bar plot for "group1" (After 2004)
+### STEP 1: Create a basic bar plot for "group1"
 
 We create a simple horizontal bar graph for the "group1" (After 2004) using `geom_segment`:
 
@@ -200,14 +213,14 @@ df |>
 ggplot() +
   geom_segment(data = filter(df, group == "group1"), 
                aes(x = 0, xend = x, y = y, yend = y, color = country), 
-               linewidth = 16, lineend = 'round')
+               linewidth = 10, lineend = 'round')
 ```
 
 
 <br>
 
 
-**STEP 2: Add labels and set new colors**
+### STEP 2: Add labels and set new colors
 
 We add the numbers of UNESCO World Heritage Sites as labels at the end of the bars by incorporating a text-based geometry (`geom_text`) and we specify a custom color palette by applying the `scale_color_manual` scale function:
 
@@ -224,17 +237,16 @@ df |>
 ggplot() +
   geom_segment(data = filter(df, group == "group1"), 
                aes(x = 0, xend = x, y = y, yend = y, color = country), 
-               linewidth = 16, lineend = 'round') +
+               linewidth = 10, lineend = 'round') +
   geom_text(data = filter(df, group == "group1"), 
-            aes(x, y, label = x), color = "white", size = 8) +
+            aes(x, y, label = x), color = "white", size = 6) +
   scale_color_manual(values = cols1)
 ```
 
 <br>
 
 
-**STEP 3: Add bars, labels and a second color scale for "group2" (Before 2004)**
-
+### STEP 3: Add bars, labels and a second color scale for "group2"
 Next a custom color palettes can be specified using the `scale_color_manual` function:
 
 ```{r}
@@ -250,16 +262,16 @@ df |>
 ggplot() +
   geom_segment(data = filter(df, group == "group1"), 
                aes(x = 0, xend = x, y = y, yend = y, color = country), 
-               linewidth = 16, lineend = 'round') +
+               linewidth = 10, lineend = 'round') +
   geom_text(data = filter(df, group == "group1"), 
-            aes(x, y, label = x), color = "white", size = 8) +
+            aes(x, y, label = x), color = "white", size = 6) +
   scale_color_manual(values = cols1) +
   new_scale_color() +
   geom_segment(data = filter(df, group == "group2"), 
                aes(x = 0, xend = x, y = y, yend = y, color = country),
-               linewidth = 16, lineend = 'round') +
+               linewidth = 10, lineend = 'round') +
   geom_text(data = filter(df, group == "group2"), 
-            aes(x, y, label = x), color = "white", size = 8) +
+            aes(x, y, label = x), color = "white", size = 6) +
   scale_color_manual(values = cols2) 
   
 ```
@@ -268,7 +280,7 @@ ggplot() +
 <br>
 
 
-**STEP 4:**
+### STEP 4: Set legend guides for each scale
 
 
 ```{r}
@@ -284,17 +296,17 @@ df |>
 ggplot() +
   geom_segment(data = filter(df, group == "group1"), 
                aes(x = 0, xend = x, y = y, yend = y, color = country), 
-               linewidth = 16, lineend = 'round') +
+               linewidth = 10, lineend = 'round') +
   geom_text(data = filter(df, group == "group1"), 
-            aes(x, y, label = x), color = "white", size = 8) +
+            aes(x, y, label = x), color = "white", size = 6) +
   scale_color_manual(values = cols1) +
   guides(color = guide_legend(title = "After 2004")) +
   new_scale_color() +
   geom_segment(data = filter(df, group == "group2"), 
                aes(x = 0, xend = x, y = y, yend = y, color = country),
-               linewidth = 16, lineend = 'round') +
+               linewidth = 10, lineend = 'round') +
   geom_text(data = filter(df, group == "group2"), 
-            aes(x, y, label = x), color = "white", size = 8) +
+            aes(x, y, label = x), color = "white", size = 6) +
   scale_color_manual(values = cols2) +
   guides(color = guide_legend(title = "Before 2004"))
 ```
@@ -303,7 +315,7 @@ ggplot() +
 
 <br>
 
-**STEP 5:**
+### STEP 5: Switch to the polar coordinate system
 
 ```{r}
 #| message: false
@@ -312,111 +324,115 @@ ggplot() +
 #| fig-cap: fig3
 #| fig-width: 14
 #| fig-height: 14
-#| source-line-numbers: "18,19"
+#| source-line-numbers: "18-20"
 
 df |> 
 ggplot() +
   geom_segment(data = filter(df, group == "group1"), 
                aes(x = 0, xend = x, y = y, yend = y, color = country), 
-               linewidth = 16, lineend = 'round') +
+               linewidth = 10, lineend = 'round') +
   geom_text(data = filter(df, group == "group1"), 
-            aes(x, y, label = x), color = "white", size = 8) +
+            aes(x, y, label = x), color = "white", size = 6) +
   scale_color_manual(values = cols1) +
   guides(color = guide_legend(title = "After 2004")) +
   new_scale_color() +
   geom_segment(data = filter(df, group == "group2"), 
                aes(x = 0, xend = x, y = y, yend = y, color = country),
-               linewidth = 16, lineend = 'round') +
+               linewidth = 10, lineend = 'round') +
   geom_text(data = filter(df, group == "group2"), 
-            aes(x, y, label = x), color = "white", size = 8) +
+            aes(x, y, label = x), color = "white", size = 6) +
   scale_color_manual(values = cols2) +
   guides(color = guide_legend(title = "Before 2004")) +
   coord_polar() + 
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom",
+        legend.text = element_blank())
 
 ```
 
 <br>
 
-**STEP 6:**
+### STEP 6: Adjust the legend of the graph
 
 ```{r}
 #| label: fig-final45
 #| fig-cap: Final chart
 #| fig-width: 14
 #| fig-height: 14
-#| source-line-numbers: "8,9,11-15,22-27"
+#| source-line-numbers: "8,9,11-15,23-28"
 
 df |> 
 ggplot() +
   geom_segment(data = filter(df, group == "group1"), 
                aes(x = 0, xend = x, y = y, yend = y, color = country), 
-               linewidth = 16, lineend = 'round') +
+               linewidth = 10, lineend = 'round') +
   geom_text(data = filter(df, group == "group1"), 
-            aes(x, y, label = x), color = "white", size = 8) +
+            aes(x, y, label = x), color = "white", size = 6) +
   geom_text(data = filter(df, group == "group1"), 
-            aes(x = 0, y, label = country), size = 8, hjust = 1.4) +
+            aes(x = 0, y, label = country), size = 6, hjust = 1.4) +
   scale_color_manual(values = cols1) +
   guides(color = guide_legend(title = paste0(strrep(" ", 5), "After 2004"),
-                              override.aes = list(size = c(12, 12, 12)),
+                              override.aes = list(size = c(10, 10, 10)),
                               reverse = TRUE,
                               keywidth = 1.5, 
                               title.position = "right")) +
   new_scale_color() +
   geom_segment(data = filter(df, group == "group2"), 
                aes(x = 0, xend = x, y = y, yend = y, color = country),
-               linewidth = 16, lineend = 'round') +
-  geom_text(data = filter(df, group == "group2"), aes(x, y, label = x), color = "white", size = 8) +
+               linewidth = 10, lineend = 'round') +
+  geom_text(data = filter(df, group == "group2"), 
+            aes(x, y, label = x), color = "white", size = 6) +
   scale_color_manual(values = cols2) +
   scale_x_continuous(limits = c(0, 20)) +  
   scale_y_continuous(expand = expansion(mult = 0.3), limits = c(0, 3)) +
   guides(color = guide_legend(title = paste0(strrep(" ", 5), "Before 2004", strrep(" ", 15)),
-                              reverse = TRUE, override.aes = list(size = c(12, 12, 12)),
+                              reverse = TRUE, override.aes = list(size = c(10, 10, 10)),
                               keywidth = 1.5, order = 1,
                               title.position = "right")) +
   coord_polar() +
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom",
+        legend.text = element_blank())
 ```
 
 
 
 <br>
 
-**STEP 7:**
+### STEP 7: Apply final theme adjustments to the graph 
 
-We will create a **stacked** radial bar chart:
+
 
 ```{r}
 #| label: fig-final
 #| fig-cap: Final chart
-#| fig-width: 14
-#| fig-height: 14
-#| source-line-numbers: "27-30,32-35"
+#| source-line-numbers: "30-33,36-39"
 
 
 df |> 
-ggplot() +
+  ggplot() +
   geom_segment(data = filter(df, group == "group1"), 
                aes(x = 0, xend = x, y = y, yend = y, color = country), 
-               linewidth = 16, lineend = 'round') +
-  geom_text(data = filter(df, group == "group1"), aes(x, y, label = x), color = "white", size = 8) +
-  geom_text(data = filter(df, group == "group1"), aes(x = 0, y, label = country), size = 8, hjust = 1.4) +
+               linewidth = 10, lineend = 'round') +
+  geom_text(data = filter(df, group == "group1"), 
+            aes(x, y, label = x), color = "white", size = 6) +
+  geom_text(data = filter(df, group == "group1"), 
+            aes(x = 0, y, label = country), size = 6, hjust = 1.4) +
   scale_color_manual(values = cols1) +
   guides(color = guide_legend(title = paste0(strrep(" ", 5), "After 2004"),
-                              override.aes = list(size = c(12, 12, 12)),
+                              override.aes = list(size = c(10, 10, 10)),
                               reverse = TRUE,
                               keywidth = 1.5, 
                               title.position = "right")) +
   new_scale_color() +
   geom_segment(data = filter(df, group == "group2"), 
                aes(x = 0, xend = x, y = y, yend = y, color = country),
-               linewidth = 16, lineend = 'round') +
-  geom_text(data = filter(df, group == "group2"), aes(x, y, label = x), color = "white", size = 8) +
+               linewidth = 10, lineend = 'round') +
+  geom_text(data = filter(df, group == "group2"), 
+            aes(x, y, label = x), color = "white", size = 6) +
   scale_color_manual(values = cols2) +
   scale_x_continuous(limits = c(0, 20)) +  
   scale_y_continuous(expand = expansion(mult = 0.3), limits = c(0, 3)) +
   guides(color = guide_legend(title = paste0(strrep(" ", 5), "Before 2004", strrep(" ", 15)),
-                              reverse = TRUE, override.aes = list(size = c(12, 12, 12)),
+                              reverse = TRUE, override.aes = list(size = c(10, 10, 10)),
                               keywidth = 1.5, order = 1,
                               title.position = "right")) +
   coord_polar() +
@@ -425,11 +441,13 @@ ggplot() +
         axis.text = element_blank(),
         axis.ticks = element_blank(),
         legend.position = "bottom",
-        legend.title = element_text(size = 22, color = "gray50"),
-        legend.margin = margin(t = -75, ),
         legend.text = element_blank(),
-        legend.spacing.x = unit(-0.5, "mm")
+        legend.title = element_text(size = 16, color = "gray50"),
+        legend.key = element_rect(fill = "white"),
+        legend.margin = margin(t = -65, ),
+        legend.spacing.x = unit(-1.8, "mm")
   )
+
 ```
 
 <br>
