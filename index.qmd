@@ -9,6 +9,7 @@ Imagine having (almost) all types of data visualization tools and techniques sea
 
 
 **THE MAIN IDEA:** Step-by-step recreation of published graphs sourced from scholarly articles, websites, or media sources. All the graphs presented in this website are generated using R program. Line-highlighting is employed to accentuate the added code in every step.
+
 :::{#me}
 
 <br>
