@@ -117,8 +117,9 @@ According to properties inscribed on the [World Heritage List](https://whc.unesc
 **After 2004:**
 
 - West Norwegian Fjords – Geirangerfjord and Nærøyfjord (2005)
-- Rjukan-Notodden Industrial Heritage Site (2015)
 - Struve Geodetic Arc (2005)
+- Rjukan-Notodden Industrial Heritage Site (2015)
+
 :::
 
 
@@ -134,7 +135,7 @@ According to properties inscribed on the [World Heritage List](https://whc.unesc
 - `geom_segment`
 
 
-**Secondary geometries:**
+**Secondary geometry:**
 
 - `geom_text`
 :::
@@ -205,8 +206,6 @@ We create a simple horizontal bar graph for the "group1" (After 2004) using `geo
 ```{r}
 #| label: fig-fig1
 #| fig-cap: fig1
-#| fig-width: 14
-#| fig-height: 14
 
 
 df |> 
@@ -229,8 +228,6 @@ We add the numbers of UNESCO World Heritage Sites as labels at the end of the ba
 #| warning: false
 #| label: fig-fig2
 #| fig-cap: fig2
-#| fig-width: 14
-#| fig-height: 14
 #| source-line-numbers: "6-8"
 
 df |> 
@@ -254,8 +251,6 @@ Next a custom color palettes can be specified using the `scale_color_manual` fun
 #| warning: false
 #| label: fig-fig3
 #| fig-cap: fig3
-#| fig-width: 14
-#| fig-height: 14
 #| source-line-numbers: "9-15"
 
 df |> 
@@ -286,10 +281,8 @@ ggplot() +
 ```{r}
 #| message: false
 #| warning: false
-#| label: fig-fig3.347
-#| fig-cap: fig3
-#| fig-width: 14
-#| fig-height: 14
+#| label: fig-fig4
+#| fig-cap: fig4
 #| source-line-numbers: "9,17"
 
 df |> 
@@ -320,10 +313,8 @@ ggplot() +
 ```{r}
 #| message: false
 #| warning: false
-#| label: fig-fig3.365
-#| fig-cap: fig3
-#| fig-width: 14
-#| fig-height: 14
+#| label: fig-fig5
+#| fig-cap: fig5
 #| source-line-numbers: "18-20"
 
 df |> 
@@ -351,14 +342,49 @@ ggplot() +
 
 <br>
 
-### STEP 6: Adjust the legend of the graph
+### STEP 6: Adjust the limits of the axes
 
 ```{r}
-#| label: fig-final45
-#| fig-cap: Final chart
-#| fig-width: 14
-#| fig-height: 14
-#| source-line-numbers: "8,9,11-15,23-28"
+#| message: false
+#| warning: false
+#| label: fig-fig6
+#| fig-cap: fig6
+#| source-line-numbers: "17-18"
+
+df |> 
+ggplot() +
+  geom_segment(data = filter(df, group == "group1"), 
+               aes(x = 0, xend = x, y = y, yend = y, color = country), 
+               linewidth = 10, lineend = 'round') +
+  geom_text(data = filter(df, group == "group1"), 
+            aes(x, y, label = x), color = "white", size = 6) +
+  scale_color_manual(values = cols1) +
+  guides(color = guide_legend(title = "After 2004")) +
+  new_scale_color() +
+  geom_segment(data = filter(df, group == "group2"), 
+               aes(x = 0, xend = x, y = y, yend = y, color = country),
+               linewidth = 10, lineend = 'round') +
+  geom_text(data = filter(df, group == "group2"), 
+            aes(x, y, label = x), color = "white", size = 6) +
+  scale_color_manual(values = cols2) +
+  scale_x_continuous(limits = c(0, 20)) +  
+  scale_y_continuous(expand = expansion(mult = 0.3), limits = c(0, 3)) +
+  guides(color = guide_legend(title = "Before 2004")) +
+  coord_polar() + 
+  theme(legend.position = "bottom",
+        legend.text = element_blank())
+```
+
+
+
+### STEP 7: Add country labels and adjust the legend of the graph
+
+```{r}
+#| message: false
+#| warning: false
+#| label: fig-fig7
+#| fig-cap: fig7
+#| source-line-numbers: "8,9,11-15,25-28"
 
 df |> 
 ggplot() +
@@ -394,16 +420,17 @@ ggplot() +
 ```
 
 
-
 <br>
 
-### STEP 7: Apply final theme adjustments to the graph 
+### STEP 8: Apply final theme adjustments to the graph 
 
 
 
 ```{r}
-#| label: fig-final
-#| fig-cap: Final chart
+#| message: false
+#| warning: false
+#| label: fig-fig8
+#| fig-cap: fig8
 #| source-line-numbers: "30-33,36-39"
 
 
