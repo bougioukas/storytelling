@@ -199,7 +199,7 @@ cols2 <- c("#EE5440", "#283250", "#3274D8")    # for group2
 <br>
 
 
-### STEP 1: Create a basic bar plot for "group1"
+### STEP 1: Create a bar plot with segments for "group1"
 
 We create a simple horizontal bar graph for the "group1" (After 2004) using `geom_segment`:
 
@@ -308,14 +308,14 @@ ggplot() +
 
 <br>
 
-### STEP 5: Switch to the polar coordinate system
+### STEP 5: Switch to the polar coordinate system and change the legend position
 
 ```{r}
 #| message: false
 #| warning: false
 #| label: fig-fig5
 #| fig-cap: fig5
-#| source-line-numbers: "18-20"
+#| source-line-numbers: "18-19"
 
 df |> 
 ggplot() +
@@ -335,8 +335,7 @@ ggplot() +
   scale_color_manual(values = cols2) +
   guides(color = guide_legend(title = "Before 2004")) +
   coord_polar() + 
-  theme(legend.position = "bottom",
-        legend.text = element_blank())
+  theme(legend.position = "bottom")
 
 ```
 
@@ -371,20 +370,57 @@ ggplot() +
   scale_y_continuous(expand = expansion(mult = 0.3), limits = c(0, 3)) +
   guides(color = guide_legend(title = "Before 2004")) +
   coord_polar() + 
-  theme(legend.position = "bottom",
-        legend.text = element_blank())
+  theme(legend.position = "bottom")
 ```
 
 
 
-### STEP 7: Add country labels and adjust the legend of the graph
+### STEP 7: Add country labels
 
 ```{r}
 #| message: false
 #| warning: false
 #| label: fig-fig7
 #| fig-cap: fig7
-#| source-line-numbers: "8,9,11-15,25-28"
+#| source-line-numbers: "8,9"
+
+df |> 
+ggplot() +
+  geom_segment(data = filter(df, group == "group1"), 
+               aes(x = 0, xend = x, y = y, yend = y, color = country), 
+               linewidth = 10, lineend = 'round') +
+  geom_text(data = filter(df, group == "group1"), 
+            aes(x, y, label = x), color = "white", size = 6) +
+  geom_text(data = filter(df, group == "group1"), 
+            aes(x = 0, y, label = country), size = 6, hjust = 1.4) +
+  scale_color_manual(values = cols1) +
+  guides(color = guide_legend(title = "After 2004")) +
+  new_scale_color() +
+  geom_segment(data = filter(df, group == "group2"), 
+               aes(x = 0, xend = x, y = y, yend = y, color = country),
+               linewidth = 10, lineend = 'round') +
+  geom_text(data = filter(df, group == "group2"), 
+            aes(x, y, label = x), color = "white", size = 6) +
+  scale_color_manual(values = cols2) +
+  scale_x_continuous(limits = c(0, 20)) +  
+  scale_y_continuous(expand = expansion(mult = 0.3), limits = c(0, 3)) +
+  guides(color = guide_legend(title = "Before 2004")) +
+  coord_polar() +
+  theme(legend.position = "bottom")
+```
+
+
+<br>
+
+### STEP 8: Fine-tune the graph's legend
+
+
+```{r}
+#| message: false
+#| warning: false
+#| label: fig-fig8
+#| fig-cap: fig8
+#| source-line-numbers: "11-15,25-28,31,32"
 
 df |> 
 ggplot() +
@@ -416,22 +452,23 @@ ggplot() +
                               title.position = "right")) +
   coord_polar() +
   theme(legend.position = "bottom",
-        legend.text = element_blank())
+        legend.title = element_text(size = 16, color = "gray50"),        
+        legend.text = element_blank()
+  )
 ```
 
 
-<br>
 
-### STEP 8: Apply final theme adjustments to the graph 
 
+### STEP 9: Apply final theme adjustments to the graph 
 
 
 ```{r}
 #| message: false
 #| warning: false
-#| label: fig-fig8
-#| fig-cap: fig8
-#| source-line-numbers: "30-33,36-39"
+#| label: fig-fig9
+#| fig-cap: fig9
+#| source-line-numbers: "30-33,37-39"
 
 
 df |> 
@@ -468,17 +505,37 @@ df |>
         axis.text = element_blank(),
         axis.ticks = element_blank(),
         legend.position = "bottom",
+        legend.title = element_text(size = 16, color = "gray50"),        
         legend.text = element_blank(),
-        legend.title = element_text(size = 16, color = "gray50"),
-        legend.key = element_rect(fill = "white"),
         legend.margin = margin(t = -65, ),
-        legend.spacing.x = unit(-1.8, "mm")
+        legend.spacing.x = unit(-1.8, "mm"),
+        legend.key = element_rect(fill = "white")        
   )
 
 ```
 
 <br>
 
+
+
+
+:::{.solutionbox}
+
+::::{.solutionbox-header}
+:::::{.solutionbox-icon}
+:::::
+Story of the graph
+::::
+
+::::{.solutionbox-body}
 In general, the numbers of world heritage sites in Scandinavian countries have increased between 2004 and 2022.
 Sweden maintained its status as the country with the highest number of UNESCO World Heritage Sites throughout the period, underscoring its rich cultural and natural heritage. However, Denmark emerged as the front runner in terms of acquiring new designations, surpassing both Sweden and Norway in this aspect. Remarkably, Denmark saw a surge in the addition of UNESCO sites, particularly after 2004, contrasting with Sweden and Norway, which garnered most of their designations prior to that year. 
+::::
+
+:::
+
+
+
+
+
 

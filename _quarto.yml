@@ -170,8 +170,7 @@ website:
 format:
   html:
     smooth-scroll: true
-    theme:
-      - custom.scss
+    theme: custom.scss
     fontsize: 1.10em
     linestretch: 1.35      
     link-external-newwindow: true

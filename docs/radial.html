@@ -464,14 +464,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <a href="#step-by-step-graph-recreation" id="toc-step-by-step-graph-recreation" class="nav-link" data-scroll-target="#step-by-step-graph-recreation"><svg aria-hidden="true" role="img" viewbox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#0008C1;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"></path></svg>: STEP-BY-STEP GRAPH RECREATION</a>
   <ul class="collapse">
 <li><a href="#step-0-data-preparation" id="toc-step-0-data-preparation" class="nav-link" data-scroll-target="#step-0-data-preparation">STEP 0: Data preparation</a></li>
-  <li><a href="#step-1-create-a-basic-bar-plot-for-group1" id="toc-step-1-create-a-basic-bar-plot-for-group1" class="nav-link" data-scroll-target="#step-1-create-a-basic-bar-plot-for-group1">STEP 1: Create a basic bar plot for “group1”</a></li>
+  <li><a href="#step-1-create-a-bar-plot-with-segments-for-group1" id="toc-step-1-create-a-bar-plot-with-segments-for-group1" class="nav-link" data-scroll-target="#step-1-create-a-bar-plot-with-segments-for-group1">STEP 1: Create a bar plot with segments for “group1”</a></li>
   <li><a href="#step-2-add-labels-and-set-new-colors" id="toc-step-2-add-labels-and-set-new-colors" class="nav-link" data-scroll-target="#step-2-add-labels-and-set-new-colors">STEP 2: Add labels and set new colors</a></li>
   <li><a href="#step-3-add-bars-labels-and-a-second-color-scale-for-group2" id="toc-step-3-add-bars-labels-and-a-second-color-scale-for-group2" class="nav-link" data-scroll-target="#step-3-add-bars-labels-and-a-second-color-scale-for-group2">STEP 3: Add bars, labels and a second color scale for “group2”</a></li>
   <li><a href="#step-4-set-legend-guides-for-each-scale" id="toc-step-4-set-legend-guides-for-each-scale" class="nav-link" data-scroll-target="#step-4-set-legend-guides-for-each-scale">STEP 4: Set legend guides for each scale</a></li>
-  <li><a href="#step-5-switch-to-the-polar-coordinate-system" id="toc-step-5-switch-to-the-polar-coordinate-system" class="nav-link" data-scroll-target="#step-5-switch-to-the-polar-coordinate-system">STEP 5: Switch to the polar coordinate system</a></li>
+  <li><a href="#step-5-switch-to-the-polar-coordinate-system-and-change-the-legend-position" id="toc-step-5-switch-to-the-polar-coordinate-system-and-change-the-legend-position" class="nav-link" data-scroll-target="#step-5-switch-to-the-polar-coordinate-system-and-change-the-legend-position">STEP 5: Switch to the polar coordinate system and change the legend position</a></li>
   <li><a href="#step-6-adjust-the-limits-of-the-axes" id="toc-step-6-adjust-the-limits-of-the-axes" class="nav-link" data-scroll-target="#step-6-adjust-the-limits-of-the-axes">STEP 6: Adjust the limits of the axes</a></li>
-  <li><a href="#step-7-add-country-labels-and-adjust-the-legend-of-the-graph" id="toc-step-7-add-country-labels-and-adjust-the-legend-of-the-graph" class="nav-link" data-scroll-target="#step-7-add-country-labels-and-adjust-the-legend-of-the-graph">STEP 7: Add country labels and adjust the legend of the graph</a></li>
-  <li><a href="#step-8-apply-final-theme-adjustments-to-the-graph" id="toc-step-8-apply-final-theme-adjustments-to-the-graph" class="nav-link" data-scroll-target="#step-8-apply-final-theme-adjustments-to-the-graph">STEP 8: Apply final theme adjustments to the graph</a></li>
+  <li><a href="#step-7-add-country-labels" id="toc-step-7-add-country-labels" class="nav-link" data-scroll-target="#step-7-add-country-labels">STEP 7: Add country labels</a></li>
+  <li><a href="#step-8-fine-tune-the-graphs-legend" id="toc-step-8-fine-tune-the-graphs-legend" class="nav-link" data-scroll-target="#step-8-fine-tune-the-graphs-legend">STEP 8: Fine-tune the graph’s legend</a></li>
+  <li><a href="#step-9-apply-final-theme-adjustments-to-the-graph" id="toc-step-9-apply-final-theme-adjustments-to-the-graph" class="nav-link" data-scroll-target="#step-9-apply-final-theme-adjustments-to-the-graph">STEP 9: Apply final theme adjustments to the graph</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -655,7 +656,7 @@ Figure&nbsp;1: The original graph #79 (click on the figure to be redirected to t
 <span><span class="va">cols2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#EE5440"</span>, <span class="st">"#283250"</span>, <span class="st">"#3274D8"</span><span class="op">)</span>    <span class="co"># for group2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
-</section><section id="step-1-create-a-basic-bar-plot-for-group1" class="level3"><h3 class="anchored" data-anchor-id="step-1-create-a-basic-bar-plot-for-group1">STEP 1: Create a basic bar plot for “group1”</h3>
+</section><section id="step-1-create-a-bar-plot-with-segments-for-group1" class="level3"><h3 class="anchored" data-anchor-id="step-1-create-a-bar-plot-with-segments-for-group1">STEP 1: Create a bar plot with segments for “group1”</h3>
 <p>We create a simple horizontal bar graph for the “group1” (After 2004) using <code>geom_segment</code>:</p>
 <div class="cell">
 <div class="sourceCode" id="cb4" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
@@ -759,9 +760,9 @@ Figure&nbsp;5: fig4
 </div>
 </div>
 <p><br></p>
-</section><section id="step-5-switch-to-the-polar-coordinate-system" class="level3"><h3 class="anchored" data-anchor-id="step-5-switch-to-the-polar-coordinate-system">STEP 5: Switch to the polar coordinate system</h3>
-<div class="cell" data-source-line-numbers="18-20">
-<div class="sourceCode" id="cb8" data-source-line-numbers="18-20" data-code-line-numbers="18-20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
+</section><section id="step-5-switch-to-the-polar-coordinate-system-and-change-the-legend-position" class="level3"><h3 class="anchored" data-anchor-id="step-5-switch-to-the-polar-coordinate-system-and-change-the-legend-position">STEP 5: Switch to the polar coordinate system and change the legend position</h3>
+<div class="cell" data-source-line-numbers="18-19">
+<div class="sourceCode" id="cb8" data-source-line-numbers="18-19" data-code-line-numbers="18-19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">group</span> <span class="op">==</span> <span class="st">"group1"</span><span class="op">)</span>, </span>
 <span>               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, xend <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, yend <span class="op">=</span> <span class="va">y</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span>, </span>
@@ -779,8 +780,7 @@ Figure&nbsp;5: fig4
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">cols2</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html">guide_legend</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Before 2004"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html">coord_polar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
-<span>        legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-fig5" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -815,8 +815,7 @@ Figure&nbsp;6: fig5
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span>, limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html">guide_legend</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Before 2004"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html">coord_polar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
-<span>        legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-fig6" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -828,9 +827,46 @@ Figure&nbsp;7: fig6
 </div>
 </div>
 </div>
-</section><section id="step-7-add-country-labels-and-adjust-the-legend-of-the-graph" class="level3"><h3 class="anchored" data-anchor-id="step-7-add-country-labels-and-adjust-the-legend-of-the-graph">STEP 7: Add country labels and adjust the legend of the graph</h3>
-<div class="cell" data-source-line-numbers="8,9,11-15,25-28">
-<div class="sourceCode" id="cb10" data-source-line-numbers="8,9,11-15,25-28" data-code-line-numbers="8,9,11-15,25-28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
+</section><section id="step-7-add-country-labels" class="level3"><h3 class="anchored" data-anchor-id="step-7-add-country-labels">STEP 7: Add country labels</h3>
+<div class="cell" data-source-line-numbers="8,9">
+<div class="sourceCode" id="cb10" data-source-line-numbers="8,9" data-code-line-numbers="8,9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">group</span> <span class="op">==</span> <span class="st">"group1"</span><span class="op">)</span>, </span>
+<span>               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, xend <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, yend <span class="op">=</span> <span class="va">y</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span>, </span>
+<span>               linewidth <span class="op">=</span> <span class="fl">10</span>, lineend <span class="op">=</span> <span class="st">'round'</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">group</span> <span class="op">==</span> <span class="st">"group1"</span><span class="op">)</span>, </span>
+<span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, label <span class="op">=</span> <span class="va">x</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"white"</span>, size <span class="op">=</span> <span class="fl">6</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">group</span> <span class="op">==</span> <span class="st">"group1"</span><span class="op">)</span>, </span>
+<span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, <span class="va">y</span>, label <span class="op">=</span> <span class="va">country</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">6</span>, hjust <span class="op">=</span> <span class="fl">1.4</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">cols1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html">guide_legend</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"After 2004"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://eliocamp.github.io/ggnewscale/reference/new_scale.html">new_scale_color</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">group</span> <span class="op">==</span> <span class="st">"group2"</span><span class="op">)</span>, </span>
+<span>               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, xend <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, yend <span class="op">=</span> <span class="va">y</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span>,</span>
+<span>               linewidth <span class="op">=</span> <span class="fl">10</span>, lineend <span class="op">=</span> <span class="st">'round'</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">group</span> <span class="op">==</span> <span class="st">"group2"</span><span class="op">)</span>, </span>
+<span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, label <span class="op">=</span> <span class="va">x</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"white"</span>, size <span class="op">=</span> <span class="fl">6</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">cols2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">20</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>  </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span>, limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html">guide_legend</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Before 2004"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html">coord_polar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig7" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="radial_files/figure-html/fig-fig7-1.png" class="img-fluid figure-img" width="960">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: fig7
+</figcaption></figure>
+</div>
+</div>
+</div>
+<p><br></p>
+</section><section id="step-8-fine-tune-the-graphs-legend" class="level3"><h3 class="anchored" data-anchor-id="step-8-fine-tune-the-graphs-legend">STEP 8: Fine-tune the graph’s legend</h3>
+<div class="cell" data-source-line-numbers="11-15,25-28,31,32">
+<div class="sourceCode" id="cb11" data-source-line-numbers="11-15,25-28,31,32" data-code-line-numbers="11-15,25-28,31,32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">group</span> <span class="op">==</span> <span class="st">"group1"</span><span class="op">)</span>, </span>
 <span>               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, xend <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, yend <span class="op">=</span> <span class="va">y</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span>, </span>
@@ -860,22 +896,23 @@ Figure&nbsp;7: fig6
 <span>                              title.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html">coord_polar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
-<span>        legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>        legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">16</span>, color <span class="op">=</span> <span class="st">"gray50"</span><span class="op">)</span>,        </span>
+<span>        legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig7" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig7-1.png" class="img-fluid figure-img" width="960">
+<div id="fig-fig8" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="radial_files/figure-html/fig-fig8-1.png" class="img-fluid figure-img" width="960">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8: fig7
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: fig8
 </figcaption></figure>
 </div>
 </div>
 </div>
-<p><br></p>
-</section><section id="step-8-apply-final-theme-adjustments-to-the-graph" class="level3"><h3 class="anchored" data-anchor-id="step-8-apply-final-theme-adjustments-to-the-graph">STEP 8: Apply final theme adjustments to the graph</h3>
-<div class="cell" data-source-line-numbers="30-33,36-39">
-<div class="sourceCode" id="cb11" data-source-line-numbers="30-33,36-39" data-code-line-numbers="30-33,36-39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
+</section><section id="step-9-apply-final-theme-adjustments-to-the-graph" class="level3"><h3 class="anchored" data-anchor-id="step-9-apply-final-theme-adjustments-to-the-graph">STEP 9: Apply final theme adjustments to the graph</h3>
+<div class="cell" data-source-line-numbers="30-33,37-39">
+<div class="sourceCode" id="cb12" data-source-line-numbers="30-33,37-39" data-code-line-numbers="30-33,37-39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">group</span> <span class="op">==</span> <span class="st">"group1"</span><span class="op">)</span>, </span>
 <span>               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, xend <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, yend <span class="op">=</span> <span class="va">y</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span>, </span>
@@ -909,25 +946,35 @@ Figure&nbsp;8: fig7
 <span>        axis.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>        axis.ticks <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>        legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
+<span>        legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">16</span>, color <span class="op">=</span> <span class="st">"gray50"</span><span class="op">)</span>,        </span>
 <span>        legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>        legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">16</span>, color <span class="op">=</span> <span class="st">"gray50"</span><span class="op">)</span>,</span>
-<span>        legend.key <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span>,</span>
 <span>        legend.margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span>t <span class="op">=</span> <span class="op">-</span><span class="fl">65</span>, <span class="op">)</span>,</span>
-<span>        legend.spacing.x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1.8</span>, <span class="st">"mm"</span><span class="op">)</span></span>
+<span>        legend.spacing.x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1.8</span>, <span class="st">"mm"</span><span class="op">)</span>,</span>
+<span>        legend.key <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span>        </span>
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig8" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig8-1.png" class="img-fluid figure-img" width="960">
+<div id="fig-fig9" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="radial_files/figure-html/fig-fig9-1.png" class="img-fluid figure-img" width="960">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9: fig8
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: fig9
 </figcaption></figure>
 </div>
 </div>
 </div>
 <p><br></p>
+<div class="solutionbox">
+<div class="solutionbox-header">
+<div class="solutionbox-icon">
+
+</div>
+<p>Story of the graph</p>
+</div>
+<div class="solutionbox-body">
 <p>In general, the numbers of world heritage sites in Scandinavian countries have increased between 2004 and 2022. Sweden maintained its status as the country with the highest number of UNESCO World Heritage Sites throughout the period, underscoring its rich cultural and natural heritage. However, Denmark emerged as the front runner in terms of acquiring new designations, surpassing both Sweden and Norway in this aspect. Remarkably, Denmark saw a surge in the addition of UNESCO sites, particularly after 2004, contrasting with Sweden and Norway, which garnered most of their designations prior to that year.</p>
+</div>
+</div>
 
 
 </section></section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
