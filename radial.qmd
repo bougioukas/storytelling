@@ -524,7 +524,7 @@ df |>
 ::::{.solutionbox-header}
 :::::{.solutionbox-icon}
 :::::
-Story of the graph
+Storytelling with the graph
 ::::
 
 ::::{.solutionbox-body}
