@@ -413,7 +413,7 @@ ggplot() +
 
 <br>
 
-### STEP 8: Fine-tune the graph's legend
+### STEP 8: Fine-tune the chart's legend
 
 
 ```{r}
@@ -461,7 +461,7 @@ ggplot() +
 
 
 
-### STEP 9: Apply final theme adjustments to the graph 
+### STEP 9: Apply final theme adjustments to the chart 
 
 
 ```{r}
@@ -524,7 +524,7 @@ df |>
 ::::{.solutionbox-header}
 :::::{.solutionbox-icon}
 :::::
-Storytelling with the graph
+Storytelling with the chart
 ::::
 
 ::::{.solutionbox-body}
