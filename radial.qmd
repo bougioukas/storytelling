@@ -182,6 +182,7 @@ df <- tibble(
 
 **group:** A character variable containing "group1" and "group2" corresponding to "After 2004" and "Before 2004", respectively.
 
+
 <br>
 
 We also create two color sets: 
