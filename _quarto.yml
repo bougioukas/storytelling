@@ -173,15 +173,15 @@ format:
     smooth-scroll: true
     theme: custom.scss
     grid:
-      sidebar-width: 250px
+#      sidebar-width: 250px
       body-width: 950px
-      margin-width: 300px
-      gutter-width: 1.5em
+      margin-width: 150px
+#      gutter-width: 1.5em
     fontsize: 1.10em
     linestretch: 1.35      
     link-external-newwindow: true
     toc: true
-    toc-location: right
+    toc-location: left
     citations-hover: true
     footnotes-hover: true
     code-link: true
