@@ -3,9 +3,10 @@ project:
   output-dir: docs
   
 website:
-  title: "STORYTELLING WITH R GRAPHS"
+  title: "RECREATING DATA VISUALIZATIONS IN R"
   site-url: "https://bougioukas.github.io/storytelling/"
   favicon: "img/logo.png"
+  reader-mode: true
   navbar:
     right:
       - text: Tables
@@ -171,10 +172,16 @@ format:
   html:
     smooth-scroll: true
     theme: custom.scss
+    grid:
+      sidebar-width: 250px
+      body-width: 950px
+      margin-width: 300px
+      gutter-width: 1.5em
     fontsize: 1.10em
     linestretch: 1.35      
     link-external-newwindow: true
     toc: true
+    toc-location: right
     citations-hover: true
     footnotes-hover: true
     code-link: true

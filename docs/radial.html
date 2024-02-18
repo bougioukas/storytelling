@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.9">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>STORYTELLING WITH R GRAPHS – Radial bar chart</title>
+<title>RECREATING DATA VISUALIZATIONS IN R – Radial bar chart</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     <img src="./img/logo.png" alt="" class="navbar-logo"></a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">STORYTELLING WITH R GRAPHS</span>
+    <span class="navbar-title">RECREATING DATA VISUALIZATIONS IN R</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -442,6 +442,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
     <a href="https://github.com/bougioukas/storytelling" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
 </div>
       </div> <!-- /container-fluid -->
     </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
@@ -493,7 +498,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>The chart we are set to recreate, originally obtained from <a href="https://100.datavizproject.com/">1 dataset 100 visualizations</a> created by Ferdio.</p>
+</header><p>The chart we are set to recreate, originally obtained from <a href="https://100.datavizproject.com/">1 dataset 100 visualizations</a> website created by Ferdio.</p>
 <div id="fig-ferdio" class="quarto-figure quarto-figure-left quarto-float anchored" style="float: left; margin-right: 20px;">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ferdio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-figure quarto-figure-left">
@@ -502,14 +507,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ferdio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The original graph #79 (click on the figure to be redirected to the source). <br><br> A radial bar chart is essentially a bar chart plotted on a <strong>polar coordinates system</strong>, rather than on a Cartesian one. In our case, the grpah is a <strong>stacked</strong> radial bar chart.
+Figure&nbsp;1: The original chart #79 (click on the figure to be redirected to the source). <br><br> A radial bar chart is essentially a bar chart plotted on a <strong>polar coordinates system</strong>, rather than on a Cartesian one. In our case, the data visualization is a <strong>stacked</strong> radial bar chart.
 </figcaption></figure>
 </div>
 <center>
 <hr style="width:100%">
 </center>
 <section id="story-unesco-heritage-sites-of-scandinavian-countries" class="level2"><h2 class="anchored" data-anchor-id="story-unesco-heritage-sites-of-scandinavian-countries">STORY: UNESCO heritage sites of Scandinavian countries</h2>
-<p>The #79 graph on Ferdio’s website is generated from a single dataset detailing the numbers of UNESCO World Heritage Sites in Scandinavian countries (Sweden, Denmark, and Norway) inscribed before and after 2004, extending up to 2022.</p>
+<p>The <a href="https://100.datavizproject.com/data-type/viz79/">#79 data visualization</a> on Ferdio’s website is generated from a single dataset detailing the numbers of <img src="img/unesco.png" class="img-fluid" style="width:3.0%"> UNESCO World Heritage Sites in Scandinavian countries (Sweden, Denmark, and Norway) inscribed before and after 2004, extending up to 2022.</p>
 <p>According to properties inscribed on the <a href="https://whc.unesco.org/en/list/">World Heritage List</a> up to 2022:</p>
 <section id="sweden" class="level3"><h3 class="anchored" data-anchor-id="sweden">Sweden</h3>
 <div id="exercise-joins" class="callout callout-style-default callout-important no-icon callout-titled">
@@ -665,12 +670,12 @@ Figure&nbsp;1: The original graph #79 (click on the figure to be redirected to t
 <span>               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, xend <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, yend <span class="op">=</span> <span class="va">y</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span>, </span>
 <span>               linewidth <span class="op">=</span> <span class="fl">10</span>, lineend <span class="op">=</span> <span class="st">'round'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig1" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig1-1.png" class="img-fluid figure-img" width="960">
+<div id="fig-fig2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="radial_files/figure-html/fig-fig2-1.png" class="img-fluid figure-img" width="960">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: fig1
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: fig2
 </figcaption></figure>
 </div>
 </div>
@@ -688,12 +693,12 @@ Figure&nbsp;2: fig1
 <span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, label <span class="op">=</span> <span class="va">x</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"white"</span>, size <span class="op">=</span> <span class="fl">6</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">cols1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig2" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig2-1.png" class="img-fluid figure-img" width="960">
+<div id="fig-fig3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="radial_files/figure-html/fig-fig3-1.png" class="img-fluid figure-img" width="960">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: fig2
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: fig3
 </figcaption></figure>
 </div>
 </div>
@@ -718,12 +723,12 @@ Figure&nbsp;3: fig2
 <span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, label <span class="op">=</span> <span class="va">x</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"white"</span>, size <span class="op">=</span> <span class="fl">6</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">cols2</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig3" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig3-1.png" class="img-fluid figure-img" width="960">
+<div id="fig-fig4" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="radial_files/figure-html/fig-fig4-1.png" class="img-fluid figure-img" width="960">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: fig3
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: fig4
 </figcaption></figure>
 </div>
 </div>
@@ -749,12 +754,12 @@ Figure&nbsp;4: fig3
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">cols2</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html">guide_legend</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Before 2004"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig4" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig4-1.png" class="img-fluid figure-img" width="960">
+<div id="fig-fig5" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="radial_files/figure-html/fig-fig5-1.png" class="img-fluid figure-img" width="960">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: fig4
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: fig5
 </figcaption></figure>
 </div>
 </div>
@@ -782,12 +787,12 @@ Figure&nbsp;5: fig4
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html">coord_polar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig5" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig5-1.png" class="img-fluid figure-img" width="960">
+<div id="fig-fig6" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="radial_files/figure-html/fig-fig6-1.png" class="img-fluid figure-img" width="960">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6: fig5
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: fig6
 </figcaption></figure>
 </div>
 </div>
@@ -817,12 +822,12 @@ Figure&nbsp;6: fig5
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html">coord_polar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig6" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig6-1.png" class="img-fluid figure-img" width="960">
+<div id="fig-fig7" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="radial_files/figure-html/fig-fig7-1.png" class="img-fluid figure-img" width="960">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7: fig6
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: fig7
 </figcaption></figure>
 </div>
 </div>
@@ -853,12 +858,12 @@ Figure&nbsp;7: fig6
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html">coord_polar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig7" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig7-1.png" class="img-fluid figure-img" width="960">
+<div id="fig-fig8" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="radial_files/figure-html/fig-fig8-1.png" class="img-fluid figure-img" width="960">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8: fig7
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: fig8
 </figcaption></figure>
 </div>
 </div>
@@ -900,12 +905,12 @@ Figure&nbsp;8: fig7
 <span>        legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig8" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig8-1.png" class="img-fluid figure-img" width="960">
+<div id="fig-fig9" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="radial_files/figure-html/fig-fig9-1.png" class="img-fluid figure-img" width="960">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9: fig8
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: fig9
 </figcaption></figure>
 </div>
 </div>
@@ -953,12 +958,12 @@ Figure&nbsp;9: fig8
 <span>        legend.key <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span>        </span>
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig9" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig9-1.png" class="img-fluid figure-img" width="960">
+<div id="fig-fig10" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="radial_files/figure-html/fig-fig10-1.png" class="img-fluid figure-img" width="960">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10: fig9
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: fig10
 </figcaption></figure>
 </div>
 </div>
