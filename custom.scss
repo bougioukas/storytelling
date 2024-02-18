@@ -122,3 +122,17 @@ div.quarto-post .listing-categories .listing-category {
     border: solid 1px var(--bs-gray-400);
     font-size: .8em;
 }
+
+
+// Custom styles for bold text color
+strong {
+  color: black; /* Change 'red' to the desired color */
+}
+
+
+// Custom styles for hyperlink color
+a {
+  color: blue; /* Change 'blue' to the desired color */
+}
+
+

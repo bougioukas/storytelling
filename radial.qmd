@@ -143,7 +143,7 @@ According to properties inscribed on the [World Heritage List](https://whc.unesc
 
 <br>
 
-## `r fa("r-project", fill = "#0008C1")`: STEP-BY-STEP GRAPH RECREATION
+## `r fa("r-project", fill = "#0008C1")`: STEP-BY-STEP CHART RECREATION
 
 
 ### STEP 0: Data preparation

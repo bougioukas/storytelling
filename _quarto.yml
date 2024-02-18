@@ -171,7 +171,8 @@ website:
 format:
   html:
     smooth-scroll: true
-    theme: custom.scss
+    theme: 
+      - custom.scss
     grid:
       sidebar-width: 250px
       body-width: 950px
