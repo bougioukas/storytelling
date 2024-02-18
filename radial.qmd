@@ -518,7 +518,6 @@ df |>
 <br>
 
 
-
 :::{.solutionbox}
 
 ::::{.solutionbox-header}
