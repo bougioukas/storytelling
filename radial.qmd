@@ -132,12 +132,12 @@ According to properties inscribed on the [World Heritage List](https://whc.unesc
 
 **Main geometry:**
 
-- `geom_segment`
+- `geom_segment()`
 
 
 **Secondary geometry:**
 
-- `geom_text`
+- `geom_text()`
 :::
 
 

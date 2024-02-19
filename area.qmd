@@ -2,38 +2,46 @@
 title: "Area plot"
 ---
 
+
 ```{r}
 #| include: false
 library(fontawesome)
+
+
+knitr::opts_chunk$set(
+  fig.width = 10,
+  fig.height = 10
+)
+
 ```
 
-The chart we are set to recreate, originally obtained from [Our World in Data](https://ourworldindata.org/), stands as a prime example of an area plot. Specifically focusing on ["Cocoa Bean Production by Region, 1961 to 2021,"](https://ourworldindata.org/grapher/cocoa-beans-production-by-region) this visualization offers a thorough and comprehensive insight into the evolving trends of cocoa bean production across various regions spanning the last six decades. Through the use of the area plot format, the chart effectively captures the fluctuations and distribution of cocoa production over time, allowing viewers to discern patterns and variations in different geographical areas.
 
-::: {#fig-ourworldindata}
-[![](img/cocoa-beans-production-by-region.png)](https://ourworldindata.org/grapher/cocoa-beans-production-by-region)
+The chart we are set to recreate, originally obtained from [Our World in Data](https://ourworldindata.org/), stands as a prime example of an area plot. Specifically focusing on "Cocoa Bean Production by Region, 1961 to 2021". 
 
-The original graph obtained from Our World in Data
+::: {#fig-ferdio}
+
+[![](img/cocoa-beans-production-by-region.png){style="float: left; margin-right: 20px;" fig-align="left" width=25%}](https://ourworldindata.org/grapher/cocoa-beans-production-by-region)
+
+The original plot of Cocoa Bean Production (click on the figure to be redirected to the source).
+<br>
+<br>
+An area plot, also known as a **stacked** area plot, is a type of data visualization that displays quantitative data over a continuous interval or time period. It is similar to a line plot but with the area below the lines filled in, usually with colors representing different categories or groups within the data.
 :::
+
+
+<center><hr style="width:100%"></center>
 
 
 
 ## STORY: Cocoa bean production by region
 
-We requested information for "Cocoa bean production by region: Africa, Asia, South America, North America, and Oceania" from ChatGTP.
+The cocoa bean, also referred to as cocoa, is the dried and fully fermented fatty seed of Theobroma cacao, from which cocoa solids and cocoa oil are extracted. The "beans" are the essential ingredient for chocolate and cacao products. Products received from cocoa beans are not only used in chocolates, but also in a wide range of food products.
 
 
 ::: {#exercise-joins .callout-important icon="false"}
-## `r fa("comment", fill = "#0008C1")` ChatGPT 3.5
+## ![](img/cocoa.png){width=3%} Cocoa bean production by region: Africa, Asia, South America, North America, and Oceania
 
-**You** 
-
-I need information for “Cocoa bean production by region: Africa, Asia, South America, North America, and Oceania”.
-
-<br>
-
-**ChatGPT** 
-
-As of my last knowledge update in January 2022, I can provide you with a general overview of cocoa bean production by region. However, please note that specific figures may have changed since then, so it's advisable to consult the latest reports or databases for the most up-to-date information. Here's a general breakdown of cocoa bean production by region:
+Here's a general breakdown of cocoa bean production by region:
 
 1. **Africa:**
    - Africa is the largest producer of cocoa beans, accounting for a significant majority of the world's production.
@@ -58,7 +66,6 @@ As of my last knowledge update in January 2022, I can provide you with a general
 
 Cocoa production is influenced by factors such as climate, soil conditions, and economic considerations. The industry also faces challenges related to sustainability, fair trade practices, and environmental concerns.
 
-For the most recent and detailed information, it is recommended to refer to reports from organizations like the Food and Agriculture Organization (FAO), the International Cocoa Organization (ICCO), or other relevant agricultural and trade sources.
 :::
 
 
@@ -264,6 +271,23 @@ p + geom_text(size = 7, hjust = 0,
   geom_text(aes(x = Inf, y = -Inf, label = "OurWorldInData.org/agricultural-production | CC BY"), 
             size = 6.5, hjust = 0.9, vjust = 6.4, color = "grey30")
 ```
+
+
+:::{.solutionbox}
+
+::::{.solutionbox-header}
+:::::{.solutionbox-icon}
+:::::
+Storytelling with the chart
+::::
+
+::::{.solutionbox-body}
+
+this visualization offers a thorough and comprehensive insight into the evolving trends of cocoa bean production across various regions spanning the last six decades. Through the use of the area plot format, the chart effectively captures the fluctuations and distribution of cocoa production over time, allowing viewers to discern patterns and variations in different geographical areas.
+
+::::
+
+:::
 
 
 
