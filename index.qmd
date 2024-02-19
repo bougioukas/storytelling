@@ -2,7 +2,7 @@
 title: "What is this website about?"
 ---
 
-![](img/pic1.jpg){style="float: left; margin-right: 20px;" fig-align="left" width="350"}
+![](img/pic1.png){style="float: left; margin-right: 20px;" fig-align="left" width="200"}
 
 
 Imagine having (almost) all types of data visualization tools and techniques seamlessly brought together in one place, creating a comprehensive and unified platform for unlocking insights from your data. This consolidated **open access** hub allows users to employ diverse visualization methods, from statistical plots to cartograms. 
