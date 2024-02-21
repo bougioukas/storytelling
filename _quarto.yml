@@ -1,7 +1,6 @@
 project:
   type: website
   output-dir: docs
-  
 website:
   title: "RECREATING DATA VISUALIZATIONS IN R"
   site-url: "https://bougioukas.github.io/storytelling/"
@@ -17,7 +16,7 @@ website:
             href: projects2.qmd
       - text: Basic
         menu:
-          - text: Area plot
+          - text: Area chart
             href: area.qmd
           - text: Bar plot
             href: projects.qmd            

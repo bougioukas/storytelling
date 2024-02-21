@@ -146,7 +146,7 @@ According to properties inscribed on the [World Heritage List](https://whc.unesc
 ## `r fa("r-project", fill = "#0008C1")`: STEP-BY-STEP CHART RECREATION
 
 
-### STEP 0: Data preparation
+### STEP 0: Packages and data preparation
 
 First, we load the necessary packages.
 
@@ -154,8 +154,9 @@ First, we load the necessary packages.
 #| message: false
 #| warning: false
 
-library(tidyverse)
+# load packages
 library(ggnewscale)
+library(tidyverse)
 ```
 
 
@@ -200,7 +201,7 @@ cols2 <- c("#EE5440", "#283250", "#3274D8")    # for group2
 <br>
 
 
-### STEP 1: Create a bar plot with segments for "group1"
+### STEP 1: Create a bar chart with segments for "group1"
 
 We create a simple horizontal bar graph for the "group1" (After 2004) using `geom_segment`:
 
