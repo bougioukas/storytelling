@@ -499,17 +499,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><p>The chart we are set to recreate, originally obtained from <a href="https://100.datavizproject.com/">1 dataset 100 visualizations</a> website created by Ferdio.</p>
-<div id="fig-ferdio" class="quarto-figure quarto-figure-left quarto-float anchored" style="float: left; margin-right: 20px;">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ferdio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure"><p><a href="https://100.datavizproject.com/data-type/viz79/"><img src="img/original_radial.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="float: left; margin-right: 20px;;width:20.0%"></a></p>
 </figure>
 </div>
+<p><strong>ORIGINAL CHART:</strong> <a href="https://100.datavizproject.com/data-type/viz79/">#79 stacked radial bar chart</a></p>
+<p>A radial bar chart is essentially a bar chart plotted on a <strong>polar coordinates system</strong>, rather than on a Cartesian one. In our case, the data visualization is a <strong>stacked</strong> radial bar chart where categories are stacked on top of each other within each radial segment.</p>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ferdio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The original chart #79 (click on the figure to be redirected to the source). <br><br> A radial bar chart is essentially a bar chart plotted on a <strong>polar coordinates system</strong>, rather than on a Cartesian one. In our case, the data visualization is a <strong>stacked</strong> radial bar chart.
-</figcaption></figure>
-</div>
+<p><br><br><br><br><br></p>
 <center>
 <hr style="width:100%">
 </center>
@@ -663,7 +661,7 @@ Figure&nbsp;1: The original chart #79 (click on the figure to be redirected to t
 </div>
 <p><br></p>
 </section><section id="step-1-create-a-bar-chart-with-segments-for-group1" class="level3"><h3 class="anchored" data-anchor-id="step-1-create-a-bar-chart-with-segments-for-group1">STEP 1: Create a bar chart with segments for “group1”</h3>
-<p>We create a simple horizontal bar graph for the “group1” (After 2004) using <code>geom_segment</code>:</p>
+<p>We create a simple horizontal bar graph for the “group1” (After 2004) using <code><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment()</a></code>:</p>
 <div class="cell">
 <div class="sourceCode" id="cb4" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -671,13 +669,9 @@ Figure&nbsp;1: The original chart #79 (click on the figure to be redirected to t
 <span>               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, xend <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, yend <span class="op">=</span> <span class="va">y</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span>, </span>
 <span>               linewidth <span class="op">=</span> <span class="fl">10</span>, lineend <span class="op">=</span> <span class="st">'round'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig2" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig2-1.png" class="img-fluid figure-img" width="960">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: fig2
-</figcaption></figure>
+<div>
+<figure class="figure"><p><img src="radial_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
 </div>
 </div>
 </div>
@@ -694,19 +688,14 @@ Figure&nbsp;2: fig2
 <span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, label <span class="op">=</span> <span class="va">x</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"white"</span>, size <span class="op">=</span> <span class="fl">6</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">cols1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig3" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig3-1.png" class="img-fluid figure-img" width="960">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: fig3
-</figcaption></figure>
+<div>
+<figure class="figure"><p><img src="radial_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
 </div>
 </div>
 </div>
 <p><br></p>
 </section><section id="step-3-add-bars-labels-and-a-second-color-scale-for-group2" class="level3"><h3 class="anchored" data-anchor-id="step-3-add-bars-labels-and-a-second-color-scale-for-group2">STEP 3: Add bars, labels and a second color scale for “group2”</h3>
-<p>Next a custom color palettes can be specified using the <code>scale_color_manual</code> function:</p>
 <div class="cell" data-source-line-numbers="9-15">
 <div class="sourceCode" id="cb6" data-source-line-numbers="9-15" data-code-line-numbers="9-15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -724,13 +713,9 @@ Figure&nbsp;3: fig3
 <span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, label <span class="op">=</span> <span class="va">x</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"white"</span>, size <span class="op">=</span> <span class="fl">6</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">cols2</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig4" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig4-1.png" class="img-fluid figure-img" width="960">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: fig4
-</figcaption></figure>
+<div>
+<figure class="figure"><p><img src="radial_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
 </div>
 </div>
 </div>
@@ -755,13 +740,9 @@ Figure&nbsp;4: fig4
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">cols2</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html">guide_legend</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Before 2004"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig5" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig5-1.png" class="img-fluid figure-img" width="960">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: fig5
-</figcaption></figure>
+<div>
+<figure class="figure"><p><img src="radial_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
 </div>
 </div>
 </div>
@@ -788,13 +769,9 @@ Figure&nbsp;5: fig5
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html">coord_polar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig6" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig6-1.png" class="img-fluid figure-img" width="960">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6: fig6
-</figcaption></figure>
+<div>
+<figure class="figure"><p><img src="radial_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
 </div>
 </div>
 </div>
@@ -823,13 +800,9 @@ Figure&nbsp;6: fig6
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html">coord_polar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig7" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig7-1.png" class="img-fluid figure-img" width="960">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7: fig7
-</figcaption></figure>
+<div>
+<figure class="figure"><p><img src="radial_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
 </div>
 </div>
 </div>
@@ -859,13 +832,9 @@ Figure&nbsp;7: fig7
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html">coord_polar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig8" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig8-1.png" class="img-fluid figure-img" width="960">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8: fig8
-</figcaption></figure>
+<div>
+<figure class="figure"><p><img src="radial_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
 </div>
 </div>
 </div>
@@ -906,13 +875,9 @@ Figure&nbsp;8: fig8
 <span>        legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig9" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig9-1.png" class="img-fluid figure-img" width="960">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9: fig9
-</figcaption></figure>
+<div>
+<figure class="figure"><p><img src="radial_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
 </div>
 </div>
 </div>
@@ -959,13 +924,9 @@ Figure&nbsp;9: fig9
 <span>        legend.key <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span>        </span>
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig10" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fig10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="radial_files/figure-html/fig-fig10-1.png" class="img-fluid figure-img" width="960">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10: fig10
-</figcaption></figure>
+<div>
+<figure class="figure"><p><img src="radial_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
 </div>
 </div>
 </div>

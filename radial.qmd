@@ -4,7 +4,6 @@ title: "Radial bar chart"
 
 
 
-
 ```{r}
 #| include: false
 library(fontawesome)
@@ -21,19 +20,25 @@ knitr::opts_chunk$set(
 The chart we are set to recreate, originally obtained from [1 dataset 100 visualizations](https://100.datavizproject.com/) website created by Ferdio.
 
 
-::: {#fig-ferdio}
+::: {}
 
 [![](img/original_radial.png){style="float: left; margin-right: 20px;" fig-align="left" width=20%}](https://100.datavizproject.com/data-type/viz79/)
 
-The original chart #79 (click on the figure to be redirected to the source).
-<br>
-<br>
-A radial bar chart is essentially a bar chart plotted on a **polar coordinates system**, rather than on a Cartesian one. In our case, the data visualization is a **stacked** radial bar chart. 
+
+**ORIGINAL CHART:** [#79 stacked radial bar chart](https://100.datavizproject.com/data-type/viz79/)
+
+
+A radial bar chart is essentially a bar chart plotted on a **polar coordinates system**, rather than on a Cartesian one. In our case, the data visualization is a **stacked** radial bar chart where categories are stacked on top of each other within each radial segment. 
+
 :::
 
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <center><hr style="width:100%"></center>
-
 
 ## STORY: UNESCO heritage sites of Scandinavian countries
 
@@ -203,11 +208,11 @@ cols2 <- c("#EE5440", "#283250", "#3274D8")    # for group2
 
 ### STEP 1: Create a bar chart with segments for "group1"
 
-We create a simple horizontal bar graph for the "group1" (After 2004) using `geom_segment`:
+We create a simple horizontal bar graph for the "group1" (After 2004) using `geom_segment()`:
 
 ```{r}
-#| label: fig-fig2
-#| fig-cap: fig2
+#| message: false
+#| warning: false
 
 
 df |> 
@@ -228,8 +233,6 @@ We add the numbers of UNESCO World Heritage Sites as labels at the end of the ba
 ```{r}
 #| message: false
 #| warning: false
-#| label: fig-fig3
-#| fig-cap: fig3
 #| source-line-numbers: "6-8"
 
 df |> 
@@ -246,13 +249,10 @@ ggplot() +
 
 
 ### STEP 3: Add bars, labels and a second color scale for "group2"
-Next a custom color palettes can be specified using the `scale_color_manual` function:
 
 ```{r}
 #| message: false
 #| warning: false
-#| label: fig-fig4
-#| fig-cap: fig4
 #| source-line-numbers: "9-15"
 
 df |> 
@@ -283,8 +283,6 @@ ggplot() +
 ```{r}
 #| message: false
 #| warning: false
-#| label: fig-fig5
-#| fig-cap: fig5
 #| source-line-numbers: "9,17"
 
 df |> 
@@ -315,8 +313,6 @@ ggplot() +
 ```{r}
 #| message: false
 #| warning: false
-#| label: fig-fig6
-#| fig-cap: fig6
 #| source-line-numbers: "18-19"
 
 df |> 
@@ -348,8 +344,6 @@ ggplot() +
 ```{r}
 #| message: false
 #| warning: false
-#| label: fig-fig7
-#| fig-cap: fig7
 #| source-line-numbers: "17-18"
 
 df |> 
@@ -382,8 +376,6 @@ ggplot() +
 ```{r}
 #| message: false
 #| warning: false
-#| label: fig-fig8
-#| fig-cap: fig8
 #| source-line-numbers: "8,9"
 
 df |> 
@@ -420,8 +412,6 @@ ggplot() +
 ```{r}
 #| message: false
 #| warning: false
-#| label: fig-fig9
-#| fig-cap: fig9
 #| source-line-numbers: "11-15,25-28,31,32"
 
 df |> 
@@ -468,8 +458,6 @@ ggplot() +
 ```{r}
 #| message: false
 #| warning: false
-#| label: fig-fig10
-#| fig-cap: fig10
 #| source-line-numbers: "30-33,37-39"
 
 

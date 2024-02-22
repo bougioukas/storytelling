@@ -114,7 +114,6 @@ library(tidyverse)
 
 # load custom fonts
 font_add_google("Playfair Display", regular.wt = 400)
-font_add_google("Lato", regular.wt = 400)
 showtext_auto()
 
 ```
