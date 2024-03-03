@@ -82,7 +82,7 @@ drc <- read_excel("data/drc.xlsx")
 head(drc)
 ```
 
-
+We have eight peptides labeled as "NYE9V", "NYE6V", "NYE3Y", "NYE6T", "NYE4D", "NYE4A", "NYE5Y", and "NYE5F", each with six replicates denoted from 1 to 6 (e.g., NYE9V1, NYE9V2, NYE9V3, etc.). The data values for these peptides appear to have been normalized within the range of 0 to 100. To analyze the data, we will utilize the mean values obtained for each dose per peptide.
 
 ```{r}
 #| message: false
@@ -93,13 +93,13 @@ drc_tidy <- drc |>
                names_to = "sample",
                values_to = "response") |> 
   mutate(
-    condition = str_sub(sample, 1, 5),
+    peptides = str_sub(sample, 1, 5),
     replicate = str_sub(sample, 6, 6)
   )
 
 
-drc_per_condition <- drc_tidy |> 
-  group_by(dose, condition) |> 
+drc_per_peptide <- drc_tidy |> 
+  group_by(dose, peptides) |> 
   summarize(
     #sem = sd(response)/sqrt(n()),
             response = mean(response)
@@ -108,13 +108,13 @@ drc_per_condition <- drc_tidy |>
 
 model <- drm(data = drc_tidy,
              formula = response ~ dose,
-             curveid = condition,
+             curveid = peptides,
              fct = LL.4(names = c("Hill slope", "Min", "Max", "EC50")))  
 
 
 predicted_data <- data.frame(
   dose = rep(drc$dose, times = 8),
-  condition = rep(c("NYE9V", "NYE6V", "NYE3Y", "NYE6T", 
+  peptides = rep(c("NYE9V", "NYE6V", "NYE3Y", "NYE6T", 
                     "NYE4D", "NYE4A", "NYE5Y", "NYE5F"), 
                   each = nrow(drc))
   
@@ -124,8 +124,8 @@ predicted_data$prediction <- predict(model, newdata = predicted_data)
 
 
 
-drc_per_condition <- drc_per_condition |> 
-  mutate(condition = factor(condition, levels =  c("NYE9V", "NYE6V", "NYE3Y", 
+drc_per_peptide <- drc_per_peptide |> 
+  mutate(peptides = factor(peptides, levels =  c("NYE9V", "NYE6V", "NYE3Y", 
                                                    "NYE6T", "NYE4D", "NYE4A", 
                                                    "NYE5Y", "NYE5F"),
                             labels =  c("NYE 9V", "NYE 6V", "NYE 3Y", 
@@ -135,7 +135,7 @@ drc_per_condition <- drc_per_condition |>
 
 
 predicted_data <- predicted_data |> 
-  mutate(condition = factor(condition, levels =  c("NYE9V", "NYE6V", "NYE3Y", 
+  mutate(peptides = factor(peptides, levels =  c("NYE9V", "NYE6V", "NYE3Y", 
                                                    "NYE6T", "NYE4D", "NYE4A", 
                                                    "NYE5Y", "NYE5F"),
                             labels =  c("NYE 9V", "NYE 6V", "NYE 3Y", 
@@ -170,8 +170,8 @@ my_colors <- c("#E81B67", "#F5921C", "#6E4C9F", "#97CB62",
 #| warning: false
 #| label: fig-final2
 
-drc_per_condition |> 
-  ggplot(aes(x = log10(dose), y = response, color = condition)) + 
+drc_per_peptide |> 
+  ggplot(aes(x = log10(dose), y = response, color = peptides)) + 
   geom_point(size = 3) +
   geom_line(data = predicted_data, linewidth = 1.3, show.legend = FALSE,
             aes(x = log10(dose), y = prediction)) +
@@ -202,7 +202,7 @@ drc_per_condition |>
     labels = paste("<span style='color:",
                                    my_colors,
                                    "'>",
-                   levels(drc_per_condition$condition),
+                   levels(drc_per_peptide$peptides),
                                    "</span>"),
     values = my_colors) +
   annotate("text", x = log(10^-2.45), y = 20, size = 6,
