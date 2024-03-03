@@ -60,6 +60,8 @@ website:
             href: projects.qmd             
           - text: Correlation matrix
             href: projects.qmd
+          - text: Dose-response curves
+            href: drc.qmd
           - text: Dumbbell plot
             href: projects2.qmd            
           - text: Epidemic curve

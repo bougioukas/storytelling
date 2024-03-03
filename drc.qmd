@@ -1,0 +1,233 @@
+---
+title: "Dose-response curves"
+---
+
+```{r}
+#| include: false
+library(fontawesome)
+
+knitr::opts_chunk$set(
+  fig.width = 8.5,
+  fig.height = 5
+)
+
+```
+
+
+
+The chart we are set to recreate, originally obtained from the article "The discriminatory power of the T cell receptor" (doi: [10.7554/eLife.67092](https://doi.org/10.7554/eLife.67092)) published in *eLife*, stands as a prime example of a dose-response curves chart. 
+
+::: {}
+
+[![](img/drc.png){style="float: left; margin-right: 20px;" fig-align="left" width=35%}](https://iiif.elifesciences.org/lax/67092%2Felife-67092-fig2-v3.tif/full/1500,/0/default.jpg)
+
+
+**ORIGINAL CHART:** [Example dose-responses for naïve T cells. ](https://iiif.elifesciences.org/lax/67092%2Felife-67092-fig2-v3.tif/full/1500,/0/default.jpg)
+
+A dose-response curves chart is a graphical representation used in various scientific fields, including pharmacology, toxicology, and environmental science, to illustrate the association between the dose of a substance and the response it elicits in a biological system. The x-axis typically represents the dose or concentration of the substance administered, while the y-axis represents the magnitude of the response.
+
+:::
+
+<br>
+<br>
+
+<center><hr style="width:100%"></center>
+
+
+
+
+::: {.callout-tip title="Used geometries"}
+
+**Main geometries:**
+
+- `geom_line()`
+- `geom_point()`
+
+
+**Secondary geometries:**
+
+- `geom_text()`
+- `geom_hline()`
+:::
+
+
+
+
+
+
+We need to load the following packages:
+
+```{r}
+#| message: false
+#| warning: false
+
+library(drc)
+library(tidyverse)
+library(here)
+library(broom)
+library(ggtext)
+```
+
+
+
+We load the file `drc.xlsx` in R.
+
+```{r}
+#| message: false
+#| warning: false
+
+library(readxl)
+drc <- read_excel("data/drc.xlsx")
+
+head(drc)
+```
+
+
+
+```{r}
+#| message: false
+#| warning: false
+
+drc_tidy <- drc |> 
+  pivot_longer(cols = -dose,
+               names_to = "sample",
+               values_to = "response") |> 
+  mutate(
+    condition = str_sub(sample, 1, 5),
+    replicate = str_sub(sample, 6, 6)
+  )
+
+
+drc_per_condition <- drc_tidy |> 
+  group_by(dose, condition) |> 
+  summarize(
+    #sem = sd(response)/sqrt(n()),
+            response = mean(response)
+            )
+
+
+model <- drm(data = drc_tidy,
+             formula = response ~ dose,
+             curveid = condition,
+             fct = LL.4(names = c("Hill slope", "Min", "Max", "EC50")))  
+
+
+predicted_data <- data.frame(
+  dose = rep(drc$dose, times = 8),
+  condition = rep(c("NYE9V", "NYE6V", "NYE3Y", "NYE6T", 
+                    "NYE4D", "NYE4A", "NYE5Y", "NYE5F"), 
+                  each = nrow(drc))
+  
+)
+
+predicted_data$prediction <- predict(model, newdata = predicted_data)
+
+
+
+drc_per_condition <- drc_per_condition |> 
+  mutate(condition = factor(condition, levels =  c("NYE9V", "NYE6V", "NYE3Y", 
+                                                   "NYE6T", "NYE4D", "NYE4A", 
+                                                   "NYE5Y", "NYE5F"),
+                            labels =  c("NYE 9V", "NYE 6V", "NYE 3Y", 
+                                        "NYE 6T", "NYE 4D", "NYE 4A", 
+                                        "NYE 5Y", "NYE 5F"))
+         )
+
+
+predicted_data <- predicted_data |> 
+  mutate(condition = factor(condition, levels =  c("NYE9V", "NYE6V", "NYE3Y", 
+                                                   "NYE6T", "NYE4D", "NYE4A", 
+                                                   "NYE5Y", "NYE5F"),
+                            labels =  c("NYE 9V", "NYE 6V", "NYE 3Y", 
+                                        "NYE 6T", "NYE 4D", "NYE 4A", 
+                                        "NYE 5Y", "NYE 5F"))
+         )
+
+```
+
+
+
+We also set particular colors for the selected countries:
+
+```{r}
+#| message: false
+#| warning: false
+
+
+# Colors
+
+my_colors <- c("#E81B67", "#F5921C", "#6E4C9F", "#97CB62",
+               "#6BD2C7", "#3D78C7", "#3D78c7", "#3952A4", "#2B267C")
+
+
+```
+
+
+
+
+```{r}
+#| message: false
+#| warning: false
+#| label: fig-final2
+
+drc_per_condition |> 
+  ggplot(aes(x = log10(dose), y = response, color = condition)) + 
+  geom_point(size = 3) +
+  geom_line(data = predicted_data, linewidth = 1.3, show.legend = FALSE,
+            aes(x = log10(dose), y = prediction)) +
+  geom_hline(yintercept = 15, col="grey20", linetype="dotted", linewidth = 0.8
+  ) +
+  scale_y_continuous(
+    limits = c(0, 115), 
+    breaks = seq(0, 100, 50),
+    minor_breaks = seq(0, 115, 10)
+  ) +
+  scale_x_continuous(
+    limits = c(-6, 3), 
+    breaks = -6:3,
+    expand = c(0,0),
+    minor_breaks = log10(rep(1:9, 7)*(10^rep(-10:3, each = 9))),
+    labels = function(lab) {
+      do.call(
+        expression,
+        lapply(paste(lab), function(x) bquote("10"^.(x)))
+      )
+    }
+  ) +
+  guides(x = guide_axis(minor.ticks = TRUE),
+         y = guide_axis(minor.ticks = TRUE),
+         color = guide_legend(override.aes = list(size = 3.5))
+         ) +
+  scale_color_manual(
+    labels = paste("<span style='color:",
+                                   my_colors,
+                                   "'>",
+                   levels(drc_per_condition$condition),
+                                   "</span>"),
+    values = my_colors) +
+  annotate("text", x = log(10^-2.45), y = 20, size = 6,
+           label = expression("P"["15"]), color = "grey20") +
+  annotate("text", x = log(10^-2.55), y = 110, hjust = 0, size = 6,
+           label = "1G-4 electroporated \nnaïve T cells", color = "grey20") +
+  labs(x = "Peptide (μΜ)", y = "Normalised \nCD69-positive cells (%)",
+       tag = "B") +
+  theme(panel.background = element_blank(),
+        axis.title = element_text(size = 18),
+        axis.text = element_text(size = 16),
+        axis.line = element_line(color="black", linewidth = 0.7),
+        axis.ticks.length = unit(10, "pt"),
+        axis.minor.ticks.length = rel(0.5),
+        axis.ticks = element_line(size = 0.9),
+        legend.title = element_blank(),
+        legend.text = element_markdown(size = 16),
+        legend.key.size = unit(1.1, "cm"),
+        legend.key.width = unit(0.9,"cm"),
+        legend.margin = margin(l = -0.8, b = -1.45, unit = "cm"),
+        plot.tag = element_text(size = 40),
+        plot.tag.position = c(0.01, 0.96)
+        )
+
+```
+
+
+
