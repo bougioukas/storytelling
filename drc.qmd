@@ -82,7 +82,7 @@ drc <- read_excel("data/drc.xlsx")
 head(drc)
 ```
 
-We have eight peptides labeled as "NYE9V", "NYE6V", "NYE3Y", "NYE6T", "NYE4D", "NYE4A", "NYE5Y", and "NYE5F", each with six replicates denoted from 1 to 6 (e.g., NYE9V1, NYE9V2, NYE9V3, etc.). The data values for these peptides appear to have been normalized within the range of 0 to 100. To analyze the data, we will utilize the mean values obtained for each dose per peptide.
+We have eight peptides labeled as "NYE9V", "NYE6V", "NYE3Y", "NYE6T", "NYE4D", "NYE4A", "NYE5Y", and "NYE5F", each with six replicates denoted from 1 to 6 (e.g., NYE9V1, NYE9V2, NYE9V3, etc.). The data values for these peptides appear to be within the range of 0 to 100. To represent the data, we will calculate the mean value for each dose per peptide.
 
 ```{r}
 #| message: false

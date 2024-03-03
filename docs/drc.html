@@ -543,7 +543,7 @@ Used geometries
 #   NYE5F5 &lt;dbl&gt;, NYE9V6 &lt;dbl&gt;, NYE6V6 &lt;dbl&gt;, NYE3Y6 &lt;dbl&gt;, NYE6T6 &lt;dbl&gt;, …</code></pre>
 </div>
 </div>
-<p>We have eight peptides labeled as “NYE9V”, “NYE6V”, “NYE3Y”, “NYE6T”, “NYE4D”, “NYE4A”, “NYE5Y”, and “NYE5F”, each with six replicates denoted from 1 to 6 (e.g., NYE9V1, NYE9V2, NYE9V3, etc.). The data values for these peptides appear to have been normalized within the range of 0 to 100. To analyze the data, we will utilize the mean values obtained for each dose per peptide.</p>
+<p>We have eight peptides labeled as “NYE9V”, “NYE6V”, “NYE3Y”, “NYE6T”, “NYE4D”, “NYE4A”, “NYE5Y”, and “NYE5F”, each with six replicates denoted from 1 to 6 (e.g., NYE9V1, NYE9V2, NYE9V3, etc.). The data values for these peptides appear to be within the range of 0 to 100. To represent the data, we will calculate the mean value for each dose per peptide.</p>
 <div class="cell">
 <div class="sourceCode" id="cb4" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">drc_tidy</span> <span class="op">&lt;-</span> <span class="va">drc</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="op">-</span><span class="va">dose</span>,</span>
