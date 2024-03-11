@@ -424,8 +424,8 @@ ggplot() +
   geom_text(data = filter(df, group == "group1"), 
             aes(x = 0, y, label = country), size = 6, hjust = 1.4) +
   scale_color_manual(values = cols1) +
-  guides(color = guide_legend(title = paste0(strrep(" ", 5), "After 2004"),
-                              override.aes = list(size = c(10, 10, 10)),
+  guides(color = guide_legend(title = paste0(strrep(" ", 7), "After 2004"),
+                              override.aes = list(size = c(5, 5, 5)),
                               reverse = TRUE,
                               keywidth = 1.5, 
                               title.position = "right")) +
@@ -438,14 +438,14 @@ ggplot() +
   scale_color_manual(values = cols2) +
   scale_x_continuous(limits = c(0, 20)) +  
   scale_y_continuous(expand = expansion(mult = 0.3), limits = c(0, 3)) +
-  guides(color = guide_legend(title = paste0(strrep(" ", 5), "Before 2004", strrep(" ", 15)),
-                              reverse = TRUE, override.aes = list(size = c(10, 10, 10)),
+  guides(color = guide_legend(title = paste0(strrep(" ", 7), "Before 2004", strrep(" ", 10)),
+                              reverse = TRUE, override.aes = list(size = c(5, 5, 5)),
                               keywidth = 1.5, order = 1,
                               title.position = "right")) +
   coord_polar() +
   theme(legend.position = "bottom",
-        legend.title = element_text(size = 16, color = "gray50"),        
-        legend.text = element_blank()
+        legend.title = element_text(size = 14, color = "gray50"),        
+        legend.text = element_text(margin = margin(r = -2, unit = 'cm'), color = NA)
   )
 ```
 
@@ -471,8 +471,8 @@ df |>
   geom_text(data = filter(df, group == "group1"), 
             aes(x = 0, y, label = country), size = 6, hjust = 1.4) +
   scale_color_manual(values = cols1) +
-  guides(color = guide_legend(title = paste0(strrep(" ", 5), "After 2004"),
-                              override.aes = list(size = c(10, 10, 10)),
+  guides(color = guide_legend(title = paste0(strrep(" ", 7), "After 2004"),
+                              override.aes = list(size = c(5, 5, 5)),
                               reverse = TRUE,
                               keywidth = 1.5, 
                               title.position = "right")) +
@@ -485,8 +485,8 @@ df |>
   scale_color_manual(values = cols2) +
   scale_x_continuous(limits = c(0, 20)) +  
   scale_y_continuous(expand = expansion(mult = 0.3), limits = c(0, 3)) +
-  guides(color = guide_legend(title = paste0(strrep(" ", 5), "Before 2004", strrep(" ", 15)),
-                              reverse = TRUE, override.aes = list(size = c(10, 10, 10)),
+  guides(color = guide_legend(title = paste0(strrep(" ", 7), "Before 2004", strrep(" ", 10)),
+                              reverse = TRUE, override.aes = list(size = c(5, 5, 5)),
                               keywidth = 1.5, order = 1,
                               title.position = "right")) +
   coord_polar() +
@@ -495,11 +495,11 @@ df |>
         axis.text = element_blank(),
         axis.ticks = element_blank(),
         legend.position = "bottom",
-        legend.title = element_text(size = 16, color = "gray50"),        
-        legend.text = element_blank(),
-        legend.margin = margin(t = -65, ),
-        legend.spacing.x = unit(-1.8, "mm"),
-        legend.key = element_rect(fill = "white")        
+        legend.title = element_text(size = 14, color = "gray50"),
+        legend.text = element_text(margin = margin(r = -2, unit = 'cm'), color = NA),        
+        legend.margin = margin(t = -65),
+        legend.spacing.x = unit(0.5, "cm"),
+        legend.key = element_rect(color = NA, fill = NA)
   )
 
 ```
