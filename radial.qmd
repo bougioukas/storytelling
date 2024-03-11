@@ -425,7 +425,7 @@ ggplot() +
             aes(x = 0, y, label = country), size = 6, hjust = 1.4) +
   scale_color_manual(values = cols1) +
   guides(color = guide_legend(title = paste0(strrep(" ", 7), "After 2004"),
-                              override.aes = list(size = c(5, 5, 5)),
+                              override.aes = list(size = c(3, 4, -2)),
                               reverse = TRUE,
                               keywidth = 1.5, 
                               title.position = "right")) +
@@ -439,7 +439,7 @@ ggplot() +
   scale_x_continuous(limits = c(0, 20)) +  
   scale_y_continuous(expand = expansion(mult = 0.3), limits = c(0, 3)) +
   guides(color = guide_legend(title = paste0(strrep(" ", 7), "Before 2004", strrep(" ", 10)),
-                              reverse = TRUE, override.aes = list(size = c(5, 5, 5)),
+                              reverse = TRUE, override.aes = list(size = c(3, 4, -2)),
                               keywidth = 1.5, order = 1,
                               title.position = "right")) +
   coord_polar() +
@@ -472,9 +472,9 @@ df |>
             aes(x = 0, y, label = country), size = 6, hjust = 1.4) +
   scale_color_manual(values = cols1) +
   guides(color = guide_legend(title = paste0(strrep(" ", 7), "After 2004"),
-                              override.aes = list(size = c(5, 5, 5)),
+                              override.aes = list(size = c(3, 4, -2)),
                               reverse = TRUE,
-                              keywidth = 1.5, 
+                              keywidth = 1.0, 
                               title.position = "right")) +
   new_scale_color() +
   geom_segment(data = filter(df, group == "group2"), 
@@ -486,8 +486,8 @@ df |>
   scale_x_continuous(limits = c(0, 20)) +  
   scale_y_continuous(expand = expansion(mult = 0.3), limits = c(0, 3)) +
   guides(color = guide_legend(title = paste0(strrep(" ", 7), "Before 2004", strrep(" ", 10)),
-                              reverse = TRUE, override.aes = list(size = c(5, 5, 5)),
-                              keywidth = 1.5, order = 1,
+                              reverse = TRUE, override.aes = list(size = c(3, 4, -2)),
+                              keywidth = 1.0, order = 1,
                               title.position = "right")) +
   coord_polar() +
   theme(panel.background = element_blank(),
