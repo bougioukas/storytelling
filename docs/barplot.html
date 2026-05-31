@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.27">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Ridgeline chart – RECREATING DATA VISUALIZATIONS IN R</title>
+<title>Bar plot – RECREATING DATA VISUALIZATIONS IN R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -459,12 +459,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#geometries" id="toc-geometries" class="nav-link active" data-scroll-target="#geometries">GEOMETRIES</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Ridgeline chart</h1>
+<h1 class="title">Bar plot</h1>
 </div>
 
 
@@ -478,77 +482,181 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>We need to load the following packages:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/ggridges/">ggridges</a></span><span class="op">)</span></span>
+</header><section id="geometries" class="level2"><h2 class="anchored" data-anchor-id="geometries">GEOMETRIES</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#1DC5CE;overflow:visible;position:relative;"><path d="M315.4 15.5C309.7 5.9 299.2 0 288 0s-21.7 5.9-27.4 15.5l-96 160c-5.9 9.9-6.1 22.2-.4 32.2s16.3 16.2 27.8 16.2H384c11.5 0 22.2-6.2 27.8-16.2s5.5-22.3-.4-32.2l-96-160zM288 312V456c0 22.1 17.9 40 40 40H472c22.1 0 40-17.9 40-40V312c0-22.1-17.9-40-40-40H328c-22.1 0-40 17.9-40 40zM128 512a128 128 0 1 0 0-256 128 128 0 1 0 0 256z"></path></svg> Used geometries
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Main geometry:</strong></p>
+<ul>
+<li><code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col()</a></code></li>
+</ul>
+<p><strong>Secondary geometries:</strong></p>
+<ul>
+<li><code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text()</a></code></li>
+<li><code><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html">geom_linerange()</a></code></li>
+</ul>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># ==============================================================================</span></span>
+<span><span class="co"># RECREATING THE EUROPEAN PARLIAMENT SMOKER RATES INFOGRAPHIC IN R</span></span>
+<span><span class="co"># ==============================================================================</span></span>
 <span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>The chart we are set to recreate, originally obtained from <a href="https://elifesciences.org/articles/45133">Meta-Research: Tracking the popularity and outcomes of all bioRxiv preprints</a>.</p>
-<p>First, we import the data <em>timeframe</em> in R:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
-<span><span class="va">timeframe</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"timeframe.xlsx"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># 1. Load required libraries</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/YuLab-SMU/ggimage">ggimage</a></span><span class="op">)</span> <span class="co"># Handles native rectangular image drawing in ggplot2</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">timeframe</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre data-code-line-numbers=""><code>tibble [7,653 × 3] (S3: tbl_df/tbl/data.frame)
- $ id      : num [1:7653] 2967 8845 16624 18517 24519 ...
- $ interval: num [1:7653] 1312 1113 1051 1045 936 ...
- $ journal : chr [1:7653] "PeerJ" "Nucleic Acids Research" "Journal of Neuroscience" "PeerJ" ...</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">color1</span> <span class="op">=</span> <span class="st">'#9977ff'</span></span>
-<span><span class="va">color2</span> <span class="op">=</span> <span class="st">'#5a23ff'</span></span>
+<span><span class="co"># 2. Build the Dataset</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"BG"</span>, <span class="st">"EL"</span>, <span class="st">"HR"</span>, <span class="st">"RO"</span>, <span class="st">"LV"</span>, <span class="st">"AT"</span>, <span class="st">"CY"</span>, <span class="st">"LT"</span>, <span class="st">"FR"</span>, <span class="st">"PL"</span>, <span class="st">"SK"</span>, <span class="st">"HU"</span>, <span class="st">"EE"</span>, </span>
+<span>              <span class="st">"EU"</span>, <span class="st">"DE"</span>, <span class="st">"ES"</span>, <span class="st">"IT"</span>, <span class="st">"SI"</span>, <span class="st">"CZ"</span>, <span class="st">"MT"</span>, <span class="st">"BE"</span>, <span class="st">"PT"</span>, <span class="st">"LU"</span>, <span class="st">"IE"</span>, <span class="st">"FI"</span>, <span class="st">"DK"</span>, <span class="st">"NL"</span>, <span class="st">"SE"</span><span class="op">)</span>,</span>
+<span>  rate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">37</span>, <span class="fl">36</span>, <span class="fl">35</span>, <span class="fl">34</span>, <span class="fl">33</span>, <span class="fl">32</span>, <span class="fl">29</span>, <span class="fl">29</span>, <span class="fl">27</span>, <span class="fl">27</span>, <span class="fl">27</span>, <span class="fl">26</span>, <span class="fl">25</span>, </span>
+<span>           <span class="fl">24</span>, <span class="fl">24</span>, <span class="fl">24</span>, <span class="fl">24</span>, <span class="fl">24</span>, <span class="fl">23</span>, <span class="fl">22</span>, <span class="fl">21</span>, <span class="fl">21</span>, <span class="fl">19</span>, <span class="fl">16</span>, <span class="fl">15</span>, <span class="fl">14</span>, <span class="fl">11</span>, <span class="fl">8</span><span class="op">)</span>,</span>
+<span>  is_eu <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="fl">13</span><span class="op">)</span>, <span class="cn">TRUE</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="fl">14</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">timeframe</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span></span>
-<span>  x<span class="op">=</span><span class="va">interval</span>,</span>
-<span>  y<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op">(</span><span class="va">journal</span>, <span class="va">interval</span>, FUN<span class="op">=</span><span class="va">median</span><span class="op">)</span>,</span>
-<span>  fill<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op">(</span><span class="va">journal</span>, <span class="va">interval</span>, FUN<span class="op">=</span><span class="va">median</span><span class="op">)</span>,</span>
-<span>  rel_min_height<span class="op">=</span><span class="fl">0.000000000001</span></span>
-<span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="co"># Adding "stat = 'density' means the bandwidth (i.e. bin size)</span></span>
-<span>  <span class="co"># is calculated separately for each journal, rather than for the</span></span>
-<span>  <span class="co"># dataset as a whole</span></span>
-<span>  <span class="fu"><a href="https://wilkelab.org/ggridges/reference/stat_density_ridges.html">stat_density_ridges</a></span><span class="op">(</span></span>
-<span>    scale <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>    quantile_lines <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>    quantiles <span class="op">=</span> <span class="fl">2</span></span>
+<span><span class="co"># Fix the factor ordering so BG stays at the top of the flipped chart</span></span>
+<span><span class="va">df</span><span class="op">$</span><span class="va">country</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">country</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">country</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Map country codes to high-quality rectangular PNG flag assets from flagcdn</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    y_idx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">country</span><span class="op">)</span>,</span>
+<span>    flag_code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/chartr.html">tolower</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">country</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    <span class="co"># Convert EU's 'EL' to standard ISO 'gr' for Greece</span></span>
+<span>    flag_code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">flag_code</span> <span class="op">==</span> <span class="st">"el"</span>, <span class="st">"gr"</span>, <span class="va">flag_code</span><span class="op">)</span>,</span>
+<span>    <span class="co"># Source crisp rectangular PNGs uniformly from flagcdn to prevent hotlinking bans</span></span>
+<span>    flag_url <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case-and-replace-when.html">case_when</a></span><span class="op">(</span></span>
+<span>      <span class="va">flag_code</span> <span class="op">==</span> <span class="st">"eu"</span> <span class="op">~</span> <span class="st">"https://flagcdn.com/w40/eu.png"</span>,</span>
+<span>      <span class="cn">TRUE</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"https://flagcdn.com/w40/"</span>, <span class="va">flag_code</span>, <span class="st">".png"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Extract a specific color vector for the standard text Y-axis labels (Yellow for EU)</span></span>
+<span><span class="va">y_axis_colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">country</span><span class="op">)</span> <span class="op">==</span> <span class="st">"EU"</span>, <span class="st">"#ebd234"</span>, <span class="st">"#ffffff"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 3. Create the Structured Filter Pattern</span></span>
+<span><span class="co"># (x_rel = depth into the orange filter 0-5, y_rel = vertical height within the bar)</span></span>
+<span><span class="va">fixed_pattern</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  x_rel <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1.0</span>, <span class="fl">2.2</span>, <span class="fl">3.5</span>, <span class="fl">1.8</span>, <span class="fl">4.0</span><span class="op">)</span>,</span>
+<span>  y_rel <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.18</span>, <span class="fl">0.15</span>, <span class="op">-</span><span class="fl">0.12</span>, <span class="fl">0.20</span>, <span class="op">-</span><span class="fl">0.22</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Expand the uniform dot matrix identically across all rows</span></span>
+<span><span class="va">dots_df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">country</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/do.html">do</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>      dot_x <span class="op">=</span> <span class="va">fixed_pattern</span><span class="op">$</span><span class="va">x_rel</span>,</span>
+<span>      dot_y <span class="op">=</span> <span class="va">.</span><span class="op">$</span><span class="va">y_idx</span> <span class="op">+</span> <span class="va">fixed_pattern</span><span class="op">$</span><span class="va">y_rel</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 4. Build and Render the Plot</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="co"># --- CIGARETTE FULL LENGTH SHADOW ---</span></span>
+<span>  <span class="co"># Smooth out the drop shadow by dropping its alpha slightly and expanding it</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">country</span>, y <span class="op">=</span> <span class="va">rate</span><span class="op">)</span>, </span>
+<span>           position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_nudge.html">position_nudge</a></span><span class="op">(</span>x <span class="op">=</span> <span class="op">-</span><span class="fl">0.09</span><span class="op">)</span>, fill <span class="op">=</span> <span class="st">"#042c66"</span>, width <span class="op">=</span> <span class="fl">0.82</span>, alpha <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="co"># --- CIGARETTE FILTER BASE ---</span></span>
+<span>  <span class="co"># Evaluates dynamically: uses a lighter premium orange (#ffcb85) for the EU row, and standard orange (#df9b43) for the rest</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">country</span>, y <span class="op">=</span> <span class="fl">5</span>, fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">country</span> <span class="op">==</span> <span class="st">"EU"</span>, <span class="st">"#ffcb85"</span>, <span class="st">"#df9b43"</span><span class="op">)</span><span class="op">)</span>, width <span class="op">=</span> <span class="fl">0.80</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_identity.html">scale_fill_identity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  </span>
+<span>  <span class="co"># --- CIGARETTE FILTER DOT TEXTURE ---</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">dots_df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">dot_y</span>, y <span class="op">=</span> <span class="va">dot_x</span><span class="op">)</span>, </span>
+<span>             color <span class="op">=</span> <span class="st">"#aa6710"</span>, size <span class="op">=</span> <span class="fl">0.6</span>, alpha <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="co"># --- CIGARETTE WHITE BODY ---</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">country</span>, y <span class="op">=</span> <span class="va">rate</span> <span class="op">-</span> <span class="fl">5</span><span class="op">)</span>, position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_nudge.html">position_nudge</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>, fill <span class="op">=</span> <span class="st">"#ffffff"</span>, width <span class="op">=</span> <span class="fl">0.80</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="co"># --- 3D ROUNDED CYLINDER HIGHLIGHTS ---</span></span>
+<span>  <span class="co"># By overlaying stacked, progressively narrower, semi-transparent white bars along the center of the columns, </span></span>
+<span>  <span class="co"># we break up the flat look and create a smooth, reflective 3D cylindrical lighting effect.</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">country</span>, y <span class="op">=</span> <span class="va">rate</span><span class="op">)</span>, fill <span class="op">=</span> <span class="st">"#ffffff"</span>, alpha <span class="op">=</span> <span class="fl">0.15</span>, width <span class="op">=</span> <span class="fl">0.40</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">country</span>, y <span class="op">=</span> <span class="va">rate</span><span class="op">)</span>, fill <span class="op">=</span> <span class="st">"#ffffff"</span>, alpha <span class="op">=</span> <span class="fl">0.10</span>, width <span class="op">=</span> <span class="fl">0.20</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">country</span>, y <span class="op">=</span> <span class="va">rate</span><span class="op">)</span>, fill <span class="op">=</span> <span class="st">"#ffffff"</span>, alpha <span class="op">=</span> <span class="fl">0.08</span>, width <span class="op">=</span> <span class="fl">0.08</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="co"># --- RECTANGULAR COUNTRY FLAGS ---</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggimage/man/geom_image.html">geom_image</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">country</span>, image <span class="op">=</span> <span class="va">flag_url</span><span class="op">)</span>, y <span class="op">=</span> <span class="op">-</span><span class="fl">2.2</span>, size <span class="op">=</span> <span class="fl">0.028</span>, asp <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="co"># --- DATA LABELS ---</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">country</span>, y <span class="op">=</span> <span class="va">rate</span>, label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">rate</span>, <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">country</span> <span class="op">==</span> <span class="st">"SE"</span>, <span class="st">"%*"</span>, <span class="st">"%"</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>                           color <span class="op">=</span> <span class="va">is_eu</span><span class="op">)</span>, </span>
+<span>            hjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.2</span>, fontface <span class="op">=</span> <span class="st">"bold"</span>, size <span class="op">=</span> <span class="fl">3.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="co"># --- TARGET BRACKET INDICATOR ---</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">29.3</span>, xend <span class="op">=</span> <span class="fl">29.3</span>, y <span class="op">=</span> <span class="fl">0</span>, yend <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>, </span>
+<span>               color <span class="op">=</span> <span class="st">"#ffffff"</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>, linewidth <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">28.2</span>, xend <span class="op">=</span> <span class="fl">29.3</span>, y <span class="op">=</span> <span class="fl">0</span>, yend <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>, </span>
+<span>               color <span class="op">=</span> <span class="st">"#ffffff"</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>, linewidth <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">28.2</span>, xend <span class="op">=</span> <span class="fl">29.3</span>, y <span class="op">=</span> <span class="fl">5</span>, yend <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>, </span>
+<span>               color <span class="op">=</span> <span class="st">"#ffffff"</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>, linewidth <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="co"># --- TARGET LABELS ---</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">29.8</span>, y <span class="op">=</span> <span class="fl">2.5</span>, label <span class="op">=</span> <span class="st">"EU target\nfor 2040"</span>, </span>
+<span>           color <span class="op">=</span> <span class="st">"#ffffff"</span>, size <span class="op">=</span> <span class="fl">3.2</span>, fontface <span class="op">=</span> <span class="st">"plain"</span>, hjust <span class="op">=</span> <span class="fl">0.5</span>, vjust <span class="op">=</span> <span class="fl">0</span>, lineheight <span class="op">=</span> <span class="fl">1.0</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">28.7</span>, y <span class="op">=</span> <span class="fl">2.6</span>, label <span class="op">=</span> <span class="st">"5%"</span>, </span>
+<span>           color <span class="op">=</span> <span class="st">"#ffffff"</span>, size <span class="op">=</span> <span class="fl">3.4</span>, fontface <span class="op">=</span> <span class="st">"bold"</span>, hjust <span class="op">=</span> <span class="fl">0.5</span>, vjust <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="co"># --- PLOT CONFIGURATIONS ---</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4</span>, <span class="fl">42</span><span class="op">)</span>, expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"FALSE"</span> <span class="op">=</span> <span class="st">"#ffffff"</span>, <span class="st">"TRUE"</span> <span class="op">=</span> <span class="st">"#ebd234"</span><span class="op">)</span>, guide <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span>clip <span class="op">=</span> <span class="st">"off"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  </span>
+<span>  <span class="co"># Typography / Labels</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Smoker rates per EU country"</span>,</span>
+<span>    caption <span class="op">=</span> <span class="st">"This data doesn't include use of other tobacco products such as electronic cigarettes and snuff.\nSource: Eurostat [sdg_03_30] (2023)\n*According to recent national data, Sweden has become the first EU country to achieve the 5% EU target in 2025."</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://wilkelab.org/ggridges/reference/scale_cyclical.html">scale_fill_cyclical</a></span><span class="op">(</span>values<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">color1</span>, <span class="va">color2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_y_discrete</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.01</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span></span>
-<span>    expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.01</span>, <span class="fl">0</span><span class="op">)</span>,</span>
-<span>    breaks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1000</span>, <span class="fl">250</span><span class="op">)</span>,</span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html">coord_cartesian</a></span><span class="op">(</span>xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1000</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">'Age of preprint at publication (days)'</span>, y<span class="op">=</span><span class="st">'Journal (preprint density)'</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span></span>
-<span>    xintercept<span class="op">=</span><span class="fl">166</span>,</span>
-<span>    col<span class="op">=</span><span class="st">"yellow"</span>, linetype<span class="op">=</span><span class="st">"dashed"</span>, linewidth<span class="op">=</span><span class="fl">1</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://wilkelab.org/ggridges/reference/theme_ridges.html">theme_ridges</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre data-code-line-numbers=""><code>Picking joint bandwidth of 32.5</code></pre>
-</div>
+<span>  </span>
+<span>  <span class="co"># --- THEME STYLING ---</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span></span>
+<span>    plot.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"#0c50b5"</span>, color <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>    panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"#0c50b5"</span>, color <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>    panel.grid <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    </span>
+<span>    <span class="co"># Title formatting</span></span>
+<span>    plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#ffffff"</span>, face <span class="op">=</span> <span class="st">"bold"</span>, size <span class="op">=</span> <span class="fl">24</span>, margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span>b <span class="op">=</span> <span class="fl">25</span>, t <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>, hjust <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,</span>
+<span>    </span>
+<span>    <span class="co"># Caption formatting</span></span>
+<span>    plot.caption <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#ffffff"</span>, size <span class="op">=</span> <span class="fl">9</span>, hjust <span class="op">=</span> <span class="fl">0</span>, lineheight <span class="op">=</span> <span class="fl">1.3</span>, margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span>t <span class="op">=</span> <span class="fl">20</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    </span>
+<span>    <span class="co"># Axis formatting containing dynamic multi-color country text vectors</span></span>
+<span>    axis.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">y_axis_colors</span>, face <span class="op">=</span> <span class="st">"bold"</span>, size <span class="op">=</span> <span class="fl">11</span>, hjust <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>, </span>
+<span>    axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    axis.ticks <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    </span>
+<span>    <span class="co"># Padding margins around the entire image structure boundary</span></span>
+<span>    plot.margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">25</span>, <span class="fl">20</span>, <span class="fl">25</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Output image visualization to screen</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-final" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-final-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="ridgeline_files/figure-html/fig-final-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-final-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Final chart
-</figcaption></figure>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="barplot_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
 </div>
 </div>
 </div>
 
 
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();

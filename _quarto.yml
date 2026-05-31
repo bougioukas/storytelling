@@ -19,7 +19,7 @@ website:
           - text: Area chart
             href: area.qmd
           - text: Bar plot
-            href: projects.qmd            
+            href: barplot.qmd            
           - text: Box plot
             href: projects.qmd
           - text: Bubble plot
