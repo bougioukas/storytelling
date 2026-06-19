@@ -30,8 +30,10 @@ knitr::opts_chunk$set(
 
 **Secondary geometries:**
 
+- `geom_point()`
 - `geom_text()`
-- `geom_linerange()`
+- `geom_segment()`
+- `geom_image()`
 :::
 
 
